@@ -9,11 +9,15 @@
 
 .root {
   margin: 0;
+  width: 100%;
+  position: relative;
+  text-align: center;
 }
 
 .link {
+  text-align: center;
   display: inline-block;
-  padding: 3px 8px;
+  padding: 3px 20px;
   text-decoration: none;
   font-size: 1.125em; /* ~18px */
 }
@@ -21,11 +25,11 @@
 .link,
 .link:active,
 .link:visited {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .link:hover {
-  color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
 }
 
 .highlight {
@@ -42,4 +46,28 @@
 
 .spacer {
   color: rgba(255, 255, 255, 0.3);
+}
+
+.brand {
+  text-decoration: none;
+  padding: 0 10px;
+  display: inline-block;
+  position: relative;
+  top: 20px;
+  /*font-size: 1.75em;*/
+}
+
+.login {
+  float: left;
+}
+
+.filter {
+  float: right;
+  position: relative;
+  top: 20px
+}
+
+.icon {
+  display: block;
+  margin: 0 auto;
 }

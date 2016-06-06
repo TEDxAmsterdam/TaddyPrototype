@@ -8,8 +8,11 @@
  */
 
 import React, { PropTypes } from 'react';
+import cx from 'classnames';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Home.css';
+import tedxUrl from './tedx.svg';
+import Link from '../../components/Link';
 
 const title = 'React Starter Kit';
 
@@ -18,18 +21,20 @@ function Home({ news }, context) {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <h1 className={s.title}>React.js News</h1>
-        <ul className={s.news}>
-          {news.map((item, index) => (
-            <li key={index} className={s.newsItem}>
-              <a href={item.link} className={s.newsTitle}>{item.title}</a>
-              <span
-                className={s.newsDesc}
-                dangerouslySetInnerHTML={{ __html: item.contentSnippet }}
-              />
-            </li>
-          ))}
-        </ul>
+        <header className={s.header}>
+          <h1 className={s.title}><b>#</b><img className={s.brand} src={tedxUrl} />Ams</h1>
+          <span className={s.year}>2016</span>
+        </header>
+
+        <section className={s.power}>
+          <span className={s.small}>new</span>
+          <span className={s.big}>POWER</span>
+        </section>
+
+        <Link className={cx(s.link, s.button)} to="/chat">
+          <h2 className={s.text}>Do you want to join us this year?</h2>
+          <span className={s.text}>Click here to register for your ticket!!!</span>
+        </Link>
       </div>
     </div>
   );

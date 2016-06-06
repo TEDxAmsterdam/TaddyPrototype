@@ -79,6 +79,7 @@ function render(container, state, component) {
 function run() {
   let currentLocation = null;
   const container = document.getElementById('app');
+  container.style.height = "100%";
   const initialState = JSON.parse(
     document.
       getElementById('source').
