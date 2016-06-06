@@ -14,7 +14,7 @@ import s from './Home.css';
 import tedxUrl from './tedx.svg';
 import Link from '../../components/Link';
 
-const title = 'React Starter Kit';
+const title = 'TEDDYxAmsterdam';
 
 function Home({ news }, context) {
   context.setTitle(title);

@@ -3078,7 +3078,7 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
-  var title = 'React Starter Kit';
+  var title = 'TEDDYxAmsterdam';
   
   function Home(_ref, context) {
     var news = _ref.news;
