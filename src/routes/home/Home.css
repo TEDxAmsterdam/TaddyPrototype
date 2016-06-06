@@ -84,6 +84,21 @@
   font-family: HelveticaNeue-CondensedBlack;
 }
 
+@media (max-width: 500px) {
+  .header {
+    padding-right: 70px;
+  }
+
+  .title {
+    font-size: 3em;
+  }
+
+  .year {
+    font-size: 5em;
+    top: -25px;
+  }
+}
+
 .text {
   margin: 0;
   text-shadow: 2px 2px 7px rgba(0, 0, 0, .8);
