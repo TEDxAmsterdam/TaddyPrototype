@@ -11,7 +11,7 @@
  import withStyles from 'isomorphic-style-loader/lib/withStyles';
  import s from './Chat.css';
 
- const title = 'Chat Us';
+ const title = 'TEDDYxAmsterdam';
 
  function Chat(props, context) {
    context.setTitle(title);
