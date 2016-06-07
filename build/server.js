@@ -116,17 +116,17 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(115);
+  var _assets = __webpack_require__(117);
   
   var _assets2 = _interopRequireDefault(_assets);
   
   var _config = __webpack_require__(21);
   
-  var _configureStore = __webpack_require__(130);
+  var _configureStore = __webpack_require__(118);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
-  var _runtime = __webpack_require__(135);
+  var _runtime = __webpack_require__(126);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -209,7 +209,7 @@ module.exports =
                       case 0:
                         css = [];
                         statusCode = 200;
-                        template = __webpack_require__(116); // eslint-disable-line global-require
+                        template = __webpack_require__(127); // eslint-disable-line global-require
   
                         data = { title: '', description: '', css: '', body: '', entry: _assets2.default.main.js };
   
@@ -301,7 +301,7 @@ module.exports =
   app.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(118); // eslint-disable-line global-require
+    var template = __webpack_require__(129); // eslint-disable-line global-require
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -1664,43 +1664,37 @@ module.exports =
   
   var _home2 = _interopRequireDefault(_home);
   
-  var _contact = __webpack_require__(95);
+  var _chat = __webpack_require__(88);
+  
+  var _chat2 = _interopRequireDefault(_chat);
+  
+  var _contact = __webpack_require__(97);
   
   var _contact2 = _interopRequireDefault(_contact);
   
-  var _login = __webpack_require__(99);
+  var _login = __webpack_require__(101);
   
   var _login2 = _interopRequireDefault(_login);
   
-  var _register = __webpack_require__(103);
+  var _register = __webpack_require__(105);
   
   var _register2 = _interopRequireDefault(_register);
   
-  var _content = __webpack_require__(107);
+  var _content = __webpack_require__(109);
   
   var _content2 = _interopRequireDefault(_content);
   
-  var _error = __webpack_require__(111);
+  var _error = __webpack_require__(113);
   
   var _error2 = _interopRequireDefault(_error);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  // Child routes
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
-  
   exports.default = {
   
     path: '/',
   
-    children: [_home2.default, _contact2.default, _login2.default, _register2.default, _content2.default, _error2.default],
+    children: [_home2.default, _chat2.default, _contact2.default, _login2.default, _register2.default, _content2.default, _error2.default],
   
     action: function action(_ref) {
       var _this = this;
@@ -1743,6 +1737,16 @@ module.exports =
       }))();
     }
   };
+  
+  // Child routes
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
 
 /***/ },
 /* 44 */
@@ -3226,14 +3230,7 @@ module.exports =
   module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjEwM3B4IiBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAxMDMgMzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogc2tldGNodG9vbCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjFGQ0RFREIzLTE5MzEtNEQwNy1CNzVGLUMzNTM4OURCNjQ1RjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggc2tldGNodG9vbC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iT25ib2FyZGluZyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Im0uSG9tZShMYW5kaW5nc3BhZ2UpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtODAuMDAwMDAwLCAtMTAwLjAwMDAwMCkiIGZpbGw9IiNEQjM1MkEiPgogICAgICAgICAgICA8ZyBpZD0iI1RFRHhBbXMyMDE2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Mi4wMDAwMDAsIDY0LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlRFRHhBbXN0ZXJkYW1fbG9nby1Db3B5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOC4wMDAwMDAsIDI1LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJURUR4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTEuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iRmlsbC0zNSIgcG9pbnRzPSI5LjExMzgyNjgzIDguMDI3NTc2NiAwLjg1NzAyNTQ2NyA4LjAyNzU3NjYgMC44NTcwMjU0NjcgMC40NzI5ODA1MDEgMjYuNDM5NjMzMyAwLjQ3Mjk4MDUwMSAyNi40Mzk2MzMzIDguMDI3NTc2NiAxOC4xODU2MTYzIDguMDI3NTc2NiAxOC4xODU2MTYzIDI5Ljk0ODE4OTQgOS4xMTM4MjY4MyAyOS45NDgxODk0IDkuMTEzODI2ODMgOC4wMjc1NzY2Ij48L3BvbHlsaW5lPgogICAgICAgICAgICAgICAgICAgICAgICA8cG9seWxpbmUgaWQ9IkZpbGwtMzYiIHBvaW50cz0iMjcuODQ5NjQzNSAwLjQ3Mjk4MDUwMSA1Mi42ODQwODgzIDAuNDcyOTgwNTAxIDUyLjY4NDA4ODMgOC4wMjc1NzY2IDM2LjkyNzI4MDEgOC4wMjc1NzY2IDM2LjkyNzI4MDEgMTEuNzAwNTU3MSA1Mi42ODQwODgzIDExLjcwMDU1NzEgNTIuNjg0MDg4MyAxOC43MjA2MTI4IDM2LjkyNzI4MDEgMTguNzIwNjEyOCAzNi45MjcyODAxIDIyLjM5Mzg3MTkgNTIuNjg4MjY0OSAyMi4zOTM4NzE5IDUyLjY4ODI2NDkgMjkuOTQ4MTg5NCAyNy44NDk2NDM1IDI5Ljk0ODE4OTQgMjcuODQ5NjQzNSAwLjQ3Mjk4MDUwMSI+PC9wb2x5bGluZT4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTYzLjI4ODk1NzYsMjIuMzkzODcxOSBMNjYuODM5MDQyNCwyMi4zOTM4NzE5IEM3Mi40OTM4NDA0LDIyLjM5Mzg3MTkgNzMuMzIwNTIyOSwxNy44MTAwMjc5IDczLjMyMDUyMjksMTUuMDQxMjI1NiBDNzMuMzIwNTIyOSwxMy4xODcxODY2IDcyLjczOTcwMTIsOC4wMjc1NzY2IDY2LjE3ODAzMDYsOC4wMjc1NzY2IEw2My4yODg5NTc2LDguMDI3NTc2NiBMNjMuMjg4OTU3NiwyMi4zOTM4NzE5IEw2My4yODg5NTc2LDIyLjM5Mzg3MTkgWiBNNTQuMjExODc3OCwwLjQ3Mjk4MDUwMSBMNjkuMTA4MzEyNCwwLjQ3Mjk4MDUwMSBDNzguOTI3NzA4LDAuNDcyOTgwNTAxIDgyLjM5ODE1OTYsNy43Mzg3MTg2NiA4Mi4zOTgxNTk2LDE1LjE2NzEzMDkgQzgyLjM5ODE1OTYsMjQuMjEwNTg1IDc3LjYxMTI1MywyOS45NDgxODk0IDY3LjMzNTc3NTksMjkuOTQ4MTg5NCBMNTQuMjExODc3OCwyOS45NDgxODk0IEw1NC4yMTE4Nzc4LDAuNDcyOTgwNTAxIEw1NC4yMTE4Nzc4LDAuNDcyOTgwNTAxIFoiIGlkPSJGaWxsLTM3Ij48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iRmlsbC0zOCIgcG9pbnRzPSI5NS40NDE1ODkxIDE4LjU4OTY5MzYgOTIuNjcyNTIyOSAxMy45OTU4MjE3IDg5Ljk3MjIzMDkgMTguNTg5NjkzNiA4My4zMjExODE3IDE4LjU4OTY5MzYgODkuNjM1MzIwOSA5LjMwMTExNDIxIDgzLjU1NTM0OCAwLjQxNjE1NTk4OSA5MC4yMDg2MjQ4IDAuNDE2MTU1OTg5IDkyLjY3MjUyMjkgNC44MDgwNzc5OSA5NS4yMDcxNDQzIDAuNDE2MTU1OTg5IDEwMS44NTg0NzIgMC40MTYxNTU5ODkgOTUuNzgwNDQ4MiA5LjMwMTExNDIxIDEwMi4wOTQzMDkgMTguNTg5NjkzNiA5NS40NDE1ODkxIDE4LjU4OTY5MzYiPjwvcG9seWxpbmU+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
 
 /***/ },
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3246,7 +3243,412 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(96);
+  var _Chat = __webpack_require__(89);
+  
+  var _Chat2 = _interopRequireDefault(_Chat);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  exports.default = {
+  
+    path: '/chat',
+  
+    action: function action() {
+      return _react2.default.createElement(_Chat2.default, null);
+    }
+  };
+
+/***/ },
+/* 89 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(44);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(58);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Chat = __webpack_require__(90);
+  
+  var _Chat2 = _interopRequireDefault(_Chat);
+  
+  var _Messenger = __webpack_require__(92);
+  
+  var _Messenger2 = _interopRequireDefault(_Messenger);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  var title = 'TEDDYxAmsterdam';
+  
+  function Chat(props, context) {
+    context.setTitle(title);
+    return _react2.default.createElement(_Messenger2.default, null);
+  }
+  
+  Chat.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
+  
+  exports.default = (0, _withStyles2.default)(_Chat2.default)(Chat);
+
+/***/ },
+/* 90 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(91);
+      var insertCss = __webpack_require__(55);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Chat.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Chat.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(54)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Chat_root_3Qp {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.Chat_container_1pt {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", "", {"version":3,"sources":["/./routes/chat/Chat.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADrBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;CACrC","file":"Chat.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Chat_root_3Qp",
+  	"container": "Chat_container_1pt"
+  };
+
+/***/ },
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+  		value: true
+  });
+  
+  var _getPrototypeOf = __webpack_require__(46);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(47);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(48);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(49);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(50);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(44);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(58);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Messenger = __webpack_require__(93);
+  
+  var _Messenger2 = _interopRequireDefault(_Messenger);
+  
+  var _reactRedux = __webpack_require__(81);
+  
+  var _messenger = __webpack_require__(95);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var cx = __webpack_require__(69);
+  
+  var Messenger = function (_Component) {
+  		(0, _inherits3.default)(Messenger, _Component);
+  
+  		function Messenger() {
+  				(0, _classCallCheck3.default)(this, Messenger);
+  				return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Messenger).apply(this, arguments));
+  		}
+  
+  		(0, _createClass3.default)(Messenger, [{
+  				key: 'render',
+  				value: function render() {
+  						var _this2 = this;
+  
+  						return _react2.default.createElement(
+  								'div',
+  								{ className: _Messenger2.default.wrapper },
+  								_react2.default.createElement(
+  										'nav',
+  										{ id: 'nav', className: _Messenger2.default.nav },
+  										_react2.default.createElement(
+  												'div',
+  												{ className: _Messenger2.default.defaultNav },
+  												_react2.default.createElement(
+  														'div',
+  														{ className: _Messenger2.default.mainNav },
+  														_react2.default.createElement('div', { className: _Messenger2.default.toggle }),
+  														_react2.default.createElement(
+  																'div',
+  																{ className: _Messenger2.default.mainNavItem },
+  																_react2.default.createElement(
+  																		'a',
+  																		{ className: _Messenger2.default.mainNavItemLink },
+  																		'Chat'
+  																)
+  														),
+  														_react2.default.createElement('div', { className: _Messenger2.default.options })
+  												)
+  										)
+  								),
+  								_react2.default.createElement(
+  										'div',
+  										{ className: _Messenger2.default.inner },
+  										_react2.default.createElement(
+  												'div',
+  												{ className: _Messenger2.default.content },
+  												this.props.messenger.messageList.map(function (item, index) {
+  														return _react2.default.createElement(
+  																'div',
+  																{ key: index, className: _Messenger2.default.messageWrapper },
+  																_react2.default.createElement('div', { className: cx(_Messenger2.default.circleWrapper, "animated bounceIn") }),
+  																_react2.default.createElement(
+  																		'div',
+  																		{ className: _Messenger2.default.textWrapper },
+  																		item.text
+  																)
+  														);
+  												})
+  										)
+  								),
+  								_react2.default.createElement(
+  										'div',
+  										{ className: _Messenger2.default.bottom },
+  										_react2.default.createElement('textarea', { className: _Messenger2.default.input, onChange: function onChange(e) {
+  														_this2.props.updateMsger(e.target.value);
+  														e.preventDefault();
+  												} }),
+  										_react2.default.createElement('div', { className: _Messenger2.default.send, onClick: function onClick(e) {
+  														_this2.props.sendMsg({
+  																user: 'test',
+  																text: _this2.props.messenger.input,
+  																time: new Date().getTime()
+  														});
+  														e.preventDefault();
+  												} })
+  								)
+  						);
+  				}
+  		}]);
+  		return Messenger;
+  }(_react.Component);
+  
+  Messenger.propTypes = {
+  		messenger: _react.PropTypes.object,
+  		sendMsg: _react.PropTypes.func.isRequired,
+  		updateMsger: _react.PropTypes.func.isRequired
+  };
+  
+  
+  var mapState = function mapState(state) {
+  		return {
+  				messenger: state.messenger
+  		};
+  };
+  
+  var mapDispatch = {
+  		sendMsg: _messenger.sendMsg,
+  		updateMsger: _messenger.updateMsger
+  };
+  
+  exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _withStyles2.default)(_Messenger2.default)(Messenger));
+
+/***/ },
+/* 93 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(94);
+      var insertCss = __webpack_require__(55);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Messenger.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Messenger.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(54)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "\n* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n\nbody {\n  /* position: relative; */\n  background-color: #FF5722;\n}\n\n.Messenger_title_iXT {\n  color: #ffffff;\n  text-align: center;\n  font-weight: 100;\n}\n\n.Messenger_wrapper_nRK {\n  height: 520px;\n  width: 320px;\n  overflow: hidden;\n  background-color: white;\n  position: fixed;\n  top: 100px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          -ms-transform: translateX(-50%);\n           -o-transform: translateX(-50%);\n      transform: translateX(-50%);\n  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n          box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_wrapper_nRK .Messenger_inner_1fl {\n  overflow: scroll;\n  height: 520px;\n  padding-top: 64px;\n  background: #f2f2f2;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n\n.Messenger_wrapper_nRK .Messenger_inner_1fl::-webkit-scrollbar {\n  width: 0 !important;\n}\n\n.Messenger_wrapper_nRK .Messenger_inner_1fl .Messenger_content_2t8 {\n  padding: 10.66667px;\n  position: relative;\n  margin-bottom: 32px;\n}\n\n.Messenger_nav_1mG {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  z-index: 100;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW {\n  height: 64px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: 110;\n  background-color: #F44336;\n  border-bottom: 3px solid #ea1c0d;\n  color: #ffffff;\n  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n          box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  height: 64px;\n  top: 0;\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_toggle_2-R {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_arrow_back_white_48dp.png);\n  -webkit-background-size: contain;\n          background-size: contain;\n  margin: 16px;\n  float: left;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_toggle_2-R:hover {\n  cursor: pointer;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_options_1pB {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_more_vert_white_48dp.png);\n  -webkit-background-size: contain;\n          background-size: contain;\n  margin: 16px;\n  position: absolute;\n  right: 0;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_options_1pB:hover {\n  cursor: pointer;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_mainNavItem_1S- {\n  float: left;\n  height: 64px;\n  margin-right: 50px;\n  position: relative;\n  line-height: 64px;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_mainNavItem_1S- .Messenger_mainNavItemLink_vPm {\n  display: block;\n  position: relative;\n  height: 64px;\n  width: 100%;\n  text-align: center;\n  line-height: 64px;\n  text-decoration: none;\n  color: inherit;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_bottom_WmI {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  background: #ffffff;\n  /* box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.1); */\n}\n\n.Messenger_bottom_WmI .Messenger_input_3VX {\n  height: 64px;\n  background: #ffffff;\n  border: none;\n  width: calc(100% - 64px);\n  position: absolute;\n  left: 0;\n  top: 0;\n  padding: 0 5%;\n  resize: none;\n  overflow: scroll;\n  padding-top: 24px;\n  font-weight: 300;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n\n.Messenger_bottom_WmI .Messenger_input_3VX:focus {\n  outline: none;\n}\n\n.Messenger_bottom_WmI .Messenger_input_3VX::-webkit-scrollbar {\n  width: 0 !important;\n}\n\n.Messenger_bottom_WmI .Messenger_send_3PT {\n  position: fixed;\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n  border: 0;\n  background: #F44336;\n  color: #ffffff;\n  bottom: 10.66667px;\n  right: 10.66667px;\n}\n\n.Messenger_bottom_WmI .Messenger_send_3PT:before {\n  content: '';\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png) no-repeat center center;\n  -webkit-background-size: 25.6px 25.6px;\n          background-size: 25.6px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n\n.Messenger_bottom_WmI .Messenger_send_3PT:focus {\n  outline: none;\n}\n\n.Messenger_bottom_WmI .Messenger_send_3PT:hover {\n  cursor: pointer;\n}\n\n.Messenger_messageWrapper_1g7 {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  margin: 10.66667px 0;\n  padding: 10.66667px 0;\n}\n\n.Messenger_messageWrapper_1g7 .Messenger_circleWrapper_N7F {\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n}\n\n.Messenger_messageWrapper_1g7 .Messenger_textWrapper_3-j {\n  padding: 10.66667px;\n  min-height: 42.66667px;\n  width: 60%;\n  margin: 0 10.66667px;\n  -webkit-box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n          box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n  border-radius: 2px;\n  font-weight: 300;\n  position: relative;\n  /* word-break: break-all; */\n  /*opacity: 0;*/\n}\n\n.Messenger_messageWrapper_1g7 .Messenger_textWrapper_3-j:before {\n  content: '';\n  width: 0;\n  height: 0;\n  border-style: solid;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_them_2jj .Messenger_circleWrapper_N7F, .Messenger_messageWrapper_1g7.Messenger_them_2jj .Messenger_textWrapper_3-j {\n  background: #F44336;\n  float: left;\n  color: #ffffff;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_them_2jj .Messenger_textWrapper_3-j:before {\n  border-width: 0 10px 10px 0;\n  border-color: transparent #F44336 transparent transparent;\n  position: absolute;\n  top: 0;\n  left: -9px;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_me_20b .Messenger_circleWrapper_N7F, .Messenger_messageWrapper_1g7.Messenger_me_20b .Messenger_textWrapper_3-j {\n  background: #FF5722;\n  float: right;\n  color: #333333;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_me_20b .Messenger_textWrapper_3-j {\n  background: #ffffff;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_me_20b .Messenger_textWrapper_3-j:before {\n  border-width: 10px 10px 0 0;\n  border-color: #ffffff transparent transparent transparent;\n  position: absolute;\n  top: 0;\n  right: -9px;\n}\n\n@media (max-width: 560px) {\n  .Messenger_wrapper_nRK {\n    width: 100%;\n    height: 100%;\n    height: 100vh;\n    top: 0;\n    left: 0;\n    -webkit-transform: translateX(0);\n            -ms-transform: translateX(0);\n             -o-transform: translateX(0);\n        transform: translateX(0);\n  }\n  .Messenger_wrapper_nRK .Messenger_inner_1fl {\n    height: 100%;\n    height: 100vh;\n  }\n}\n", "", {"version":3,"sources":["/./components/Messenger/Messenger.css"],"names":[],"mappings":";AACA;EACE,+BAAuB;UAAvB,uBAAuB;CACxB;;AAED;EACE,yBAAyB;EACzB,0BAA0B;CAC3B;;AAED;EACE,eAAe;EACf,mBAAmB;EACnB,iBAAiB;CAClB;;AAED;EACE,cAAc;EACd,aAAa;EACb,iBAAiB;EACjB,wBAAwB;EACxB,gBAAgB;EAChB,WAAW;EACX,UAAU;EACV,oCAAoC;UAC5B,gCAA4B;WAA5B,+BAA4B;MAA5B,4BAA4B;EACpC,0DAAkD;UAAlD,kDAAkD;EAClD,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,iBAAiB;EACjB,cAAc;EACd,kBAAkB;EAClB,oBAAoB;EACpB,yBAAyB;EACzB,+BAA+B;CAChC;;AACD;EACE,oBAAoB;CACrB;;AACD;EACE,oBAAoB;EACpB,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,gBAAgB;EAChB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,aAAa;EACb,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,aAAa;EACb,YAAY;EACZ,mBAAmB;EACnB,QAAQ;EACR,OAAO;EACP,aAAa;EACb,0BAA0B;EAC1B,iCAAiC;EACjC,eAAe;EACf,0DAAkD;UAAlD,kDAAkD;EAClD,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,mBAAmB;EACnB,QAAQ;EACR,YAAY;EACZ,aAAa;EACb,OAAO;EACP,UAAU;EACV,WAAW;EACX,iBAAiB;EACjB,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,aAAa;EACb,YAAY;EACZ,kGAAkG;EAClG,iCAAyB;UAAzB,yBAAyB;EACzB,aAAa;EACb,YAAY;CACb;;AACD;EACE,gBAAgB;CACjB;;AACD;EACE,aAAa;EACb,YAAY;EACZ,iGAAiG;EACjG,iCAAyB;UAAzB,yBAAyB;EACzB,aAAa;EACb,mBAAmB;EACnB,SAAS;CACV;;AACD;EACE,gBAAgB;CACjB;;AACD;EACE,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;EAClB,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,eAAe;EACf,mBAAmB;EACnB,aAAa;EACb,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;EAClB,sBAAsB;EACtB,eAAe;EACf,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AAED;EACE,gBAAgB;EAChB,UAAU;EACV,QAAQ;EACR,SAAS;EACT,aAAa;EACb,oBAAoB;EACpB,yDAAyD;CAC1D;;AACD;EACE,aAAa;EACb,oBAAoB;EACpB,aAAa;EACb,yBAAyB;EACzB,mBAAmB;EACnB,QAAQ;EACR,OAAO;EACP,cAAc;EACd,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,iBAAiB;EACjB,yBAAyB;EACzB,+BAA+B;CAChC;;AACD;EACE,cAAc;CACf;;AACD;EACE,oBAAoB;CACrB;;AACD;EACE,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,UAAU;EACV,oBAAoB;EACpB,eAAe;EACf,mBAAmB;EACnB,kBAAkB;CACnB;;AACD;EACE,YAAY;EACZ,oHAAoH;EACpH,uCAAwB;UAAxB,wBAAwB;EACxB,mBAAmB;EACnB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,UAAU;CACX;;AACD;EACE,cAAc;CACf;;AACD;EACE,gBAAgB;CACjB;;AAED;EACE,mBAAmB;EACnB,iBAAiB;EACjB,YAAY;EACZ,qBAAqB;EACrB,sBAAsB;CACvB;;AACD;EACE,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;CACpB;;AACD;EACE,oBAAoB;EACpB,uBAAuB;EACvB,WAAW;EACX,qBAAqB;EACrB,0DAAkD;UAAlD,kDAAkD;EAClD,mBAAmB;EACnB,iBAAiB;EACjB,mBAAmB;EACnB,4BAA4B;EAC5B,eAAe;CAChB;;AACD;EACE,YAAY;EACZ,SAAS;EACT,UAAU;EACV,oBAAoB;CACrB;;AACD;EACE,oBAAoB;EACpB,YAAY;EACZ,eAAe;CAChB;;AACD;EACE,4BAA4B;EAC5B,0DAA0D;EAC1D,mBAAmB;EACnB,OAAO;EACP,WAAW;CACZ;;AACD;EACE,oBAAoB;EACpB,aAAa;EACb,eAAe;CAChB;;AACD;EACE,oBAAoB;CACrB;;AACD;EACE,4BAA4B;EAC5B,0DAA0D;EAC1D,mBAAmB;EACnB,OAAO;EACP,YAAY;CACb;;AAED;EACE;IACE,YAAY;IACZ,aAAa;IACb,cAAc;IACd,OAAO;IACP,QAAQ;IACR,iCAAiC;YACzB,6BAAyB;aAAzB,4BAAyB;QAAzB,yBAAyB;GAClC;EACD;IACE,aAAa;IACb,cAAc;GACf;CACF","file":"Messenger.css","sourcesContent":["\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  /* position: relative; */\n  background-color: #FF5722;\n}\n\n.title {\n  color: #ffffff;\n  text-align: center;\n  font-weight: 100;\n}\n\n.wrapper {\n  height: 520px;\n  width: 320px;\n  overflow: hidden;\n  background-color: white;\n  position: fixed;\n  top: 100px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.wrapper .inner {\n  overflow: scroll;\n  height: 520px;\n  padding-top: 64px;\n  background: #f2f2f2;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n.wrapper .inner::-webkit-scrollbar {\n  width: 0 !important;\n}\n.wrapper .inner .content {\n  padding: 10.66667px;\n  position: relative;\n  margin-bottom: 32px;\n}\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  z-index: 100;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav {\n  height: 64px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: 110;\n  background-color: #F44336;\n  border-bottom: 3px solid #ea1c0d;\n  color: #ffffff;\n  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  height: 64px;\n  top: 0;\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav .toggle {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_arrow_back_white_48dp.png);\n  background-size: contain;\n  margin: 16px;\n  float: left;\n}\n.nav .defaultNav .mainNav .toggle:hover {\n  cursor: pointer;\n}\n.nav .defaultNav .mainNav .options {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_more_vert_white_48dp.png);\n  background-size: contain;\n  margin: 16px;\n  position: absolute;\n  right: 0;\n}\n.nav .defaultNav .mainNav .options:hover {\n  cursor: pointer;\n}\n.nav .defaultNav .mainNav .mainNavItem {\n  float: left;\n  height: 64px;\n  margin-right: 50px;\n  position: relative;\n  line-height: 64px;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav .mainNavItem .mainNavItemLink {\n  display: block;\n  position: relative;\n  height: 64px;\n  width: 100%;\n  text-align: center;\n  line-height: 64px;\n  text-decoration: none;\n  color: inherit;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.bottom {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  background: #ffffff;\n  /* box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.1); */\n}\n.bottom .input {\n  height: 64px;\n  background: #ffffff;\n  border: none;\n  width: calc(100% - 64px);\n  position: absolute;\n  left: 0;\n  top: 0;\n  padding: 0 5%;\n  resize: none;\n  overflow: scroll;\n  padding-top: 24px;\n  font-weight: 300;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n.bottom .input:focus {\n  outline: none;\n}\n.bottom .input::-webkit-scrollbar {\n  width: 0 !important;\n}\n.bottom .send {\n  position: fixed;\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n  border: 0;\n  background: #F44336;\n  color: #ffffff;\n  bottom: 10.66667px;\n  right: 10.66667px;\n}\n.bottom .send:before {\n  content: '';\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png) no-repeat center center;\n  background-size: 25.6px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n.bottom .send:focus {\n  outline: none;\n}\n.bottom .send:hover {\n  cursor: pointer;\n}\n\n.messageWrapper {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  margin: 10.66667px 0;\n  padding: 10.66667px 0;\n}\n.messageWrapper .circleWrapper {\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n}\n.messageWrapper .textWrapper {\n  padding: 10.66667px;\n  min-height: 42.66667px;\n  width: 60%;\n  margin: 0 10.66667px;\n  box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n  border-radius: 2px;\n  font-weight: 300;\n  position: relative;\n  /* word-break: break-all; */\n  /*opacity: 0;*/\n}\n.messageWrapper .textWrapper:before {\n  content: '';\n  width: 0;\n  height: 0;\n  border-style: solid;\n}\n.messageWrapper.them .circleWrapper, .messageWrapper.them .textWrapper {\n  background: #F44336;\n  float: left;\n  color: #ffffff;\n}\n.messageWrapper.them .textWrapper:before {\n  border-width: 0 10px 10px 0;\n  border-color: transparent #F44336 transparent transparent;\n  position: absolute;\n  top: 0;\n  left: -9px;\n}\n.messageWrapper.me .circleWrapper, .messageWrapper.me .textWrapper {\n  background: #FF5722;\n  float: right;\n  color: #333333;\n}\n.messageWrapper.me .textWrapper {\n  background: #ffffff;\n}\n.messageWrapper.me .textWrapper:before {\n  border-width: 10px 10px 0 0;\n  border-color: #ffffff transparent transparent transparent;\n  position: absolute;\n  top: 0;\n  right: -9px;\n}\n\n@media (max-width: 560px) {\n  .wrapper {\n    width: 100%;\n    height: 100%;\n    height: 100vh;\n    top: 0;\n    left: 0;\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n  }\n  .wrapper .inner {\n    height: 100%;\n    height: 100vh;\n  }\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"title": "Messenger_title_iXT",
+  	"wrapper": "Messenger_wrapper_nRK",
+  	"inner": "Messenger_inner_1fl",
+  	"content": "Messenger_content_2t8",
+  	"nav": "Messenger_nav_1mG",
+  	"defaultNav": "Messenger_defaultNav_3XW",
+  	"mainNav": "Messenger_mainNav_2m7",
+  	"toggle": "Messenger_toggle_2-R",
+  	"options": "Messenger_options_1pB",
+  	"mainNavItem": "Messenger_mainNavItem_1S-",
+  	"mainNavItemLink": "Messenger_mainNavItemLink_vPm",
+  	"bottom": "Messenger_bottom_WmI",
+  	"input": "Messenger_input_3VX",
+  	"send": "Messenger_send_3PT",
+  	"messageWrapper": "Messenger_messageWrapper_1g7",
+  	"circleWrapper": "Messenger_circleWrapper_N7F",
+  	"textWrapper": "Messenger_textWrapper_3-j",
+  	"them": "Messenger_them_2jj",
+  	"me": "Messenger_me_20b"
+  };
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.updateMsger = updateMsger;
+  exports.sendMsg = sendMsg;
+  
+  var _constants = __webpack_require__(96);
+  
+  var ActionTypes = _interopRequireWildcard(_constants);
+  
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+  
+  function updateMsger(message) {
+    return {
+      type: ActionTypes.MESSENGER_UPDATE,
+      payload: {
+        message: message
+      }
+    };
+  }
+  
+  function sendMsg(message) {
+    return {
+      type: ActionTypes.MESSENGER_SEND,
+      payload: {
+        message: message
+      }
+    };
+  }
+
+/***/ },
+/* 96 */
+/***/ function(module, exports) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  var SET_RUNTIME_VARIABLE = exports.SET_RUNTIME_VARIABLE = 'SET_RUNTIME_VARIABLE';
+  var MESSENGER_SEND = exports.MESSENGER_SEND = 'MESSENGER_SEND';
+  var MESSENGER_UPDATE = exports.MESSENGER_UPDATE = 'MESSENGER_UPDATE';
+
+/***/ },
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(44);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _Contact = __webpack_require__(98);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3271,7 +3673,7 @@ module.exports =
   };
 
 /***/ },
-/* 96 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3288,7 +3690,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Contact = __webpack_require__(97);
+  var _Contact = __webpack_require__(99);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3330,11 +3732,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 97 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(98);
+      var content = __webpack_require__(100);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3364,7 +3766,7 @@ module.exports =
     
 
 /***/ },
-/* 98 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3381,7 +3783,7 @@ module.exports =
   };
 
 /***/ },
-/* 99 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3394,7 +3796,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(100);
+  var _Login = __webpack_require__(102);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3419,7 +3821,7 @@ module.exports =
   };
 
 /***/ },
-/* 100 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3436,7 +3838,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Login = __webpack_require__(101);
+  var _Login = __webpack_require__(103);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3605,11 +4007,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 101 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(102);
+      var content = __webpack_require__(104);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3639,7 +4041,7 @@ module.exports =
     
 
 /***/ },
-/* 102 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3666,7 +4068,7 @@ module.exports =
   };
 
 /***/ },
-/* 103 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3679,7 +4081,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(104);
+  var _Register = __webpack_require__(106);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -3704,7 +4106,7 @@ module.exports =
   };
 
 /***/ },
-/* 104 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3721,7 +4123,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Register = __webpack_require__(105);
+  var _Register = __webpack_require__(107);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -3763,11 +4165,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 105 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(106);
+      var content = __webpack_require__(108);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3797,7 +4199,7 @@ module.exports =
     
 
 /***/ },
-/* 106 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3814,7 +4216,7 @@ module.exports =
   };
 
 /***/ },
-/* 107 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3839,7 +4241,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(108);
+  var _Content = __webpack_require__(110);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -3923,7 +4325,7 @@ module.exports =
       */
 
 /***/ },
-/* 108 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3960,7 +4362,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Content = __webpack_require__(109);
+  var _Content = __webpack_require__(111);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -4019,11 +4421,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 109 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(110);
+      var content = __webpack_require__(112);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4053,7 +4455,7 @@ module.exports =
     
 
 /***/ },
-/* 110 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4070,7 +4472,7 @@ module.exports =
   };
 
 /***/ },
-/* 111 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4087,7 +4489,7 @@ module.exports =
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _ErrorPage = __webpack_require__(112);
+  var _ErrorPage = __webpack_require__(114);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4118,7 +4520,7 @@ module.exports =
       */
 
 /***/ },
-/* 112 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4135,7 +4537,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _ErrorPage = __webpack_require__(113);
+  var _ErrorPage = __webpack_require__(115);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4191,11 +4593,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_ErrorPage2.default)(ErrorPage);
 
 /***/ },
-/* 113 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(114);
+      var content = __webpack_require__(116);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4225,7 +4627,7 @@ module.exports =
     
 
 /***/ },
-/* 114 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4239,16 +4641,374 @@ module.exports =
 
 
 /***/ },
-/* 115 */
+/* 117 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 116 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(117);
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _stringify = __webpack_require__(2);
+  
+  var _stringify2 = _interopRequireDefault(_stringify);
+  
+  exports.default = configureStore;
+  
+  var _redux = __webpack_require__(119);
+  
+  var _reduxThunk = __webpack_require__(120);
+  
+  var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+  
+  var _reducers = __webpack_require__(121);
+  
+  var _reducers2 = _interopRequireDefault(_reducers);
+  
+  var _createHelpers = __webpack_require__(125);
+  
+  var _createHelpers2 = _interopRequireDefault(_createHelpers);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function configureStore(initialState, helpersConfig) {
+    var helpers = (0, _createHelpers2.default)(helpersConfig);
+    var middleware = [_reduxThunk2.default.withExtraArgument(helpers)];
+  
+    var enhancer = void 0;
+  
+    if (true) {
+      if (false) {
+        var createLogger = require('redux-logger');
+        middleware.push(createLogger({
+          collapsed: true
+        }));
+      } else {
+        // Server side redux action logger
+        middleware.push(function (store) {
+          return function (next) {
+            return function (action) {
+              // eslint-disable-line no-unused-vars
+              var payload = (0, _stringify2.default)(action.payload);
+              console.log(' * ' + action.type + ': ' + payload); // eslint-disable-line no-console
+              return next(action);
+            };
+          };
+        });
+      }
+  
+      // https://github.com/zalmoxisus/redux-devtools-extension#redux-devtools-extension
+      var devToolsExtension = function devToolsExtension(f) {
+        return f;
+      };
+      if (false) {
+        devToolsExtension = window.devToolsExtension();
+      }
+  
+      enhancer = (0, _redux.compose)(_redux.applyMiddleware.apply(undefined, middleware), devToolsExtension);
+    } else {
+      enhancer = _redux.applyMiddleware.apply(undefined, middleware);
+    }
+  
+    // See https://github.com/rackt/redux/releases/tag/v3.1.0
+    var store = (0, _redux.createStore)(_reducers2.default, initialState, enhancer);
+  
+    // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+    if (false) {
+      module.hot.accept('../reducers', function () {
+        return store.replaceReducer(require('../reducers').default);
+      });
+    }
+  
+    return store;
+  }
+
+/***/ },
+/* 119 */
+/***/ function(module, exports) {
+
+  module.exports = require("redux");
+
+/***/ },
+/* 120 */
+/***/ function(module, exports) {
+
+  module.exports = require("redux-thunk");
+
+/***/ },
+/* 121 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _redux = __webpack_require__(119);
+  
+  var _runtime = __webpack_require__(122);
+  
+  var _runtime2 = _interopRequireDefault(_runtime);
+  
+  var _messenger = __webpack_require__(124);
+  
+  var _messenger2 = _interopRequireDefault(_messenger);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = (0, _redux.combineReducers)({
+    runtime: _runtime2.default,
+    messenger: _messenger2.default
+  });
+
+/***/ },
+/* 122 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _defineProperty2 = __webpack_require__(123);
+  
+  var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+  
+  var _extends3 = __webpack_require__(62);
+  
+  var _extends4 = _interopRequireDefault(_extends3);
+  
+  exports.default = runtime;
+  
+  var _constants = __webpack_require__(96);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function runtime() {
+    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var action = arguments[1];
+  
+    switch (action.type) {
+      case _constants.SET_RUNTIME_VARIABLE:
+        return (0, _extends4.default)({}, state, (0, _defineProperty3.default)({}, action.payload.name, action.payload.value));
+      default:
+        return state;
+    }
+  }
+
+/***/ },
+/* 123 */
+/***/ function(module, exports) {
+
+  module.exports = require("babel-runtime/helpers/defineProperty");
+
+/***/ },
+/* 124 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _extends2 = __webpack_require__(62);
+  
+  var _extends3 = _interopRequireDefault(_extends2);
+  
+  exports.default = messenger;
+  
+  var _constants = __webpack_require__(96);
+  
+  var ActionTypes = _interopRequireWildcard(_constants);
+  
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var defaultState = {
+    messageList: [],
+    input: ''
+  };
+  
+  function messenger() {
+    var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];
+    var action = arguments[1];
+  
+    switch (action.type) {
+      case ActionTypes.MESSENGER_UPDATE:
+        return (0, _extends3.default)({}, state, { input: action.payload.message
+        });
+      case ActionTypes.MESSENGER_SEND:
+        state.messageList.push(action.payload.message);
+        return (0, _extends3.default)({}, state);
+      default:
+        return state;
+    }
+  }
+
+/***/ },
+/* 125 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _extends2 = __webpack_require__(62);
+  
+  var _extends3 = _interopRequireDefault(_extends2);
+  
+  var _regenerator = __webpack_require__(1);
+  
+  var _regenerator2 = _interopRequireDefault(_regenerator);
+  
+  var _stringify = __webpack_require__(2);
+  
+  var _stringify2 = _interopRequireDefault(_stringify);
+  
+  var _asyncToGenerator2 = __webpack_require__(3);
+  
+  var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+  
+  exports.default = createHelpers;
+  
+  var _fetch = __webpack_require__(40);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function createGraphqlRequest(fetchKnowingCookie) {
+    return function () {
+      var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(query, variables) {
+        var fetchConfig, resp;
+        return _regenerator2.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                fetchConfig = {
+                  method: 'post',
+                  headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: (0, _stringify2.default)({ query: query, variables: variables }),
+                  credentials: 'include'
+                };
+                _context.next = 3;
+                return fetchKnowingCookie('/graphql', fetchConfig);
+  
+              case 3:
+                resp = _context.sent;
+  
+                if (!(resp.status !== 200)) {
+                  _context.next = 6;
+                  break;
+                }
+  
+                throw new Error(resp.statusText);
+  
+              case 6:
+                _context.next = 8;
+                return resp.json();
+  
+              case 8:
+                return _context.abrupt('return', _context.sent);
+  
+              case 9:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+  
+      function graphqlRequest(_x, _x2) {
+        return ref.apply(this, arguments);
+      }
+  
+      return graphqlRequest;
+    }();
+  }
+  
+  function createFetchKnowingCookie(_ref) {
+    var cookie = _ref.cookie;
+  
+    if (true) {
+      return function (url) {
+        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+  
+        var isLocalUrl = /^\/($|[^\/])/.test(url);
+  
+        // pass cookie only for itself.
+        // We can't know cookies for other sites BTW
+        if (isLocalUrl && options.credentials === 'include') {
+          var headers = (0, _extends3.default)({}, options.headers, {
+            cookie: cookie
+          });
+          return (0, _fetch2.default)(url, (0, _extends3.default)({}, options, { headers: headers }));
+        }
+  
+        return (0, _fetch2.default)(url, options);
+      };
+    }
+  
+    return _fetch2.default;
+  }
+  
+  function createHelpers(config) {
+    var fetchKnowingCookie = createFetchKnowingCookie(config);
+    var graphqlRequest = createGraphqlRequest(fetchKnowingCookie);
+  
+    return {
+      fetch: fetchKnowingCookie,
+      graphqlRequest: graphqlRequest
+    };
+  }
+
+/***/ },
+/* 126 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.setRuntimeVariable = setRuntimeVariable;
+  
+  var _constants = __webpack_require__(96);
+  
+  function setRuntimeVariable(_ref) {
+    var name = _ref.name;
+    var value = _ref.value;
+  
+    return {
+      type: _constants.SET_RUNTIME_VARIABLE,
+      payload: {
+        name: name,
+        value: value
+      }
+    };
+  }
+
+/***/ },
+/* 127 */
+/***/ function(module, exports, __webpack_require__) {
+
+  var jade = __webpack_require__(128);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ) ];
@@ -4289,6 +5049,9 @@ module.exports =
   buf.push("<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">");
   jade_debug.shift();
   jade_debug.unshift(new jade.DebugItem( 10, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<link rel=\"stylesheet\" href=\"//s3-us-west-2.amazonaws.com/s.cdpn.io/104946/animate.min.css\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 11, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<style id=\"css\">" + (null == (jade_interp = css) ? "" : jade_interp));
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
@@ -4297,39 +5060,39 @@ module.exports =
   jade_debug.shift();
   buf.push("</head>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 11, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 12, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<body>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 12, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 13, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<div id=\"app\">" + (null == (jade_interp = body) ? "" : jade_interp));
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
   buf.push("</div>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 13, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 14, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script id=\"source\"" + (jade.attr("src", entry, true, true)) + (jade.attr("data-initial-state", state, true, true)) + ">");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
   buf.push("</script>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 14, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 15, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script>");
-  jade_debug.unshift(new jade.DebugItem( 16, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 16, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
   buf.push("window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;");
   jade_debug.shift();
   buf.push("\n");
-  jade_debug.unshift(new jade.DebugItem( 16, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
   buf.push("ga('create','" + (jade.escape((jade_interp = trackingId) == null ? '' : jade_interp)) + "','auto');ga('send','pageview')");
   jade_debug.shift();
   jade_debug.shift();
   buf.push("</script>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 17, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 18, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   if ( trackingId)
   {
-  jade_debug.unshift(new jade.DebugItem( 18, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
-  jade_debug.unshift(new jade.DebugItem( 18, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 19, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 19, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script src=\"https://www.google-analytics.com/analytics.js\" async defer>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
@@ -4346,12 +5109,12 @@ module.exports =
   jade_debug.shift();
   jade_debug.shift();}.call(this,"body" in locals_for_with?locals_for_with.body:typeof body!=="undefined"?body:undefined,"css" in locals_for_with?locals_for_with.css:typeof css!=="undefined"?css:undefined,"description" in locals_for_with?locals_for_with.description:typeof description!=="undefined"?description:undefined,"entry" in locals_for_with?locals_for_with.entry:typeof entry!=="undefined"?entry:undefined,"state" in locals_for_with?locals_for_with.state:typeof state!=="undefined"?state:undefined,"title" in locals_for_with?locals_for_with.title:typeof title!=="undefined"?title:undefined,"trackingId" in locals_for_with?locals_for_with.trackingId:typeof trackingId!=="undefined"?trackingId:undefined));;return buf.join("");
   } catch (err) {
-    jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(class=\"no-js\", lang=\"\")\n  head\n    meta(charset=\"utf-8\")\n    meta(http-equiv=\"x-ua-compatible\", content=\"ie=edge\")\n    title= title\n    meta(name=\"description\", description=description)\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1, maximum-scale=1\")\n    link(rel=\"apple-touch-icon\", href=\"apple-touch-icon.png\")\n    style#css!= css\n  body\n    #app!= body\n    script#source(src=entry, data-initial-state=state)\n    script.\n      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;\n      ga('create','#{trackingId}','auto');ga('send','pageview')\n    if trackingId\n      script(src=\"https://www.google-analytics.com/analytics.js\", async=true, defer=true)\n");
+    jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(class=\"no-js\", lang=\"\")\n  head\n    meta(charset=\"utf-8\")\n    meta(http-equiv=\"x-ua-compatible\", content=\"ie=edge\")\n    title= title\n    meta(name=\"description\", description=description)\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1, maximum-scale=1\")\n    link(rel=\"apple-touch-icon\", href=\"apple-touch-icon.png\")\n    link(rel='stylesheet', href='//s3-us-west-2.amazonaws.com/s.cdpn.io/104946/animate.min.css')\n    style#css!= css\n  body\n    #app!= body\n    script#source(src=entry, data-initial-state=state)\n    script.\n      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;\n      ga('create','#{trackingId}','auto');ga('send','pageview')\n    if trackingId\n      script(src=\"https://www.google-analytics.com/analytics.js\", async=true, defer=true)\n");
   }
   }
 
 /***/ },
-/* 117 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4603,10 +5366,10 @@ module.exports =
 
 
 /***/ },
-/* 118 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(117);
+  var jade = __webpack_require__(128);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ) ];
@@ -4884,333 +5647,6 @@ module.exports =
   } catch (err) {
     jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(lang=\"en\")\n  head\n    meta(charset=\"utf-8\")\n    title Internal Server Error\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1, maximum-scale=1\")\n    style.\n      * {\n        line-height: 1.2;\n        margin: 0;\n      }\n\n      html {\n        color: #888;\n        display: table;\n        font-family: sans-serif;\n        height: 100%;\n        text-align: center;\n        width: 100%;\n      }\n\n      body {\n        display: table-cell;\n        vertical-align: middle;\n        margin: 2em auto;\n      }\n\n      h1 {\n        color: #555;\n        font-size: 2em;\n        font-weight: 400;\n      }\n\n      p {\n        margin: 0 auto;\n        width: 280px;\n      }\n\n      pre {\n        text-align: left;\n        margin-top: 2rem;\n      }\n\n      @media only screen and (max-width: 280px) {\n\n        body, p {\n          width: 95%;\n        }\n\n        h1 {\n          font-size: 1.5em;\n          margin: 0 0 0.3em;\n        }\n\n      }\n\n  body\n    h1 Internal Server Error\n    p Sorry, something went wrong.\n    pre= stack\n// IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx\n");
   }
-  }
-
-/***/ },
-/* 119 */,
-/* 120 */
-/***/ function(module, exports) {
-
-  module.exports = require("redux");
-
-/***/ },
-/* 121 */
-/***/ function(module, exports) {
-
-  module.exports = require("redux-thunk");
-
-/***/ },
-/* 122 */,
-/* 123 */,
-/* 124 */
-/***/ function(module, exports) {
-
-  module.exports = require("babel-runtime/helpers/defineProperty");
-
-/***/ },
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _stringify = __webpack_require__(2);
-  
-  var _stringify2 = _interopRequireDefault(_stringify);
-  
-  exports.default = configureStore;
-  
-  var _redux = __webpack_require__(120);
-  
-  var _reduxThunk = __webpack_require__(121);
-  
-  var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-  
-  var _reducers = __webpack_require__(131);
-  
-  var _reducers2 = _interopRequireDefault(_reducers);
-  
-  var _createHelpers = __webpack_require__(134);
-  
-  var _createHelpers2 = _interopRequireDefault(_createHelpers);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  function configureStore(initialState, helpersConfig) {
-    var helpers = (0, _createHelpers2.default)(helpersConfig);
-    var middleware = [_reduxThunk2.default.withExtraArgument(helpers)];
-  
-    var enhancer = void 0;
-  
-    if (true) {
-      if (false) {
-        var createLogger = require('redux-logger');
-        middleware.push(createLogger({
-          collapsed: true
-        }));
-      } else {
-        // Server side redux action logger
-        middleware.push(function (store) {
-          return function (next) {
-            return function (action) {
-              // eslint-disable-line no-unused-vars
-              var payload = (0, _stringify2.default)(action.payload);
-              console.log(' * ' + action.type + ': ' + payload); // eslint-disable-line no-console
-              return next(action);
-            };
-          };
-        });
-      }
-  
-      // https://github.com/zalmoxisus/redux-devtools-extension#redux-devtools-extension
-      var devToolsExtension = function devToolsExtension(f) {
-        return f;
-      };
-      if (false) {
-        devToolsExtension = window.devToolsExtension();
-      }
-  
-      enhancer = (0, _redux.compose)(_redux.applyMiddleware.apply(undefined, middleware), devToolsExtension);
-    } else {
-      enhancer = _redux.applyMiddleware.apply(undefined, middleware);
-    }
-  
-    // See https://github.com/rackt/redux/releases/tag/v3.1.0
-    var store = (0, _redux.createStore)(_reducers2.default, initialState, enhancer);
-  
-    // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
-    if (false) {
-      module.hot.accept('../reducers', function () {
-        return store.replaceReducer(require('../reducers').default);
-      });
-    }
-  
-    return store;
-  }
-
-/***/ },
-/* 131 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _redux = __webpack_require__(120);
-  
-  var _runtime = __webpack_require__(132);
-  
-  var _runtime2 = _interopRequireDefault(_runtime);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  exports.default = (0, _redux.combineReducers)({
-    runtime: _runtime2.default
-  });
-
-/***/ },
-/* 132 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _defineProperty2 = __webpack_require__(124);
-  
-  var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-  
-  var _extends3 = __webpack_require__(62);
-  
-  var _extends4 = _interopRequireDefault(_extends3);
-  
-  exports.default = runtime;
-  
-  var _constants = __webpack_require__(133);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  function runtime() {
-    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-    var action = arguments[1];
-  
-    switch (action.type) {
-      case _constants.SET_RUNTIME_VARIABLE:
-        return (0, _extends4.default)({}, state, (0, _defineProperty3.default)({}, action.payload.name, action.payload.value));
-      default:
-        return state;
-    }
-  }
-
-/***/ },
-/* 133 */
-/***/ function(module, exports) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  var SET_RUNTIME_VARIABLE = exports.SET_RUNTIME_VARIABLE = 'SET_RUNTIME_VARIABLE';
-
-/***/ },
-/* 134 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _extends2 = __webpack_require__(62);
-  
-  var _extends3 = _interopRequireDefault(_extends2);
-  
-  var _regenerator = __webpack_require__(1);
-  
-  var _regenerator2 = _interopRequireDefault(_regenerator);
-  
-  var _stringify = __webpack_require__(2);
-  
-  var _stringify2 = _interopRequireDefault(_stringify);
-  
-  var _asyncToGenerator2 = __webpack_require__(3);
-  
-  var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-  
-  exports.default = createHelpers;
-  
-  var _fetch = __webpack_require__(40);
-  
-  var _fetch2 = _interopRequireDefault(_fetch);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  function createGraphqlRequest(fetchKnowingCookie) {
-    return function () {
-      var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(query, variables) {
-        var fetchConfig, resp;
-        return _regenerator2.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                fetchConfig = {
-                  method: 'post',
-                  headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  body: (0, _stringify2.default)({ query: query, variables: variables }),
-                  credentials: 'include'
-                };
-                _context.next = 3;
-                return fetchKnowingCookie('/graphql', fetchConfig);
-  
-              case 3:
-                resp = _context.sent;
-  
-                if (!(resp.status !== 200)) {
-                  _context.next = 6;
-                  break;
-                }
-  
-                throw new Error(resp.statusText);
-  
-              case 6:
-                _context.next = 8;
-                return resp.json();
-  
-              case 8:
-                return _context.abrupt('return', _context.sent);
-  
-              case 9:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-  
-      function graphqlRequest(_x, _x2) {
-        return ref.apply(this, arguments);
-      }
-  
-      return graphqlRequest;
-    }();
-  }
-  
-  function createFetchKnowingCookie(_ref) {
-    var cookie = _ref.cookie;
-  
-    if (true) {
-      return function (url) {
-        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-  
-        var isLocalUrl = /^\/($|[^\/])/.test(url);
-  
-        // pass cookie only for itself.
-        // We can't know cookies for other sites BTW
-        if (isLocalUrl && options.credentials === 'include') {
-          var headers = (0, _extends3.default)({}, options.headers, {
-            cookie: cookie
-          });
-          return (0, _fetch2.default)(url, (0, _extends3.default)({}, options, { headers: headers }));
-        }
-  
-        return (0, _fetch2.default)(url, options);
-      };
-    }
-  
-    return _fetch2.default;
-  }
-  
-  function createHelpers(config) {
-    var fetchKnowingCookie = createFetchKnowingCookie(config);
-    var graphqlRequest = createGraphqlRequest(fetchKnowingCookie);
-  
-    return {
-      fetch: fetchKnowingCookie,
-      graphqlRequest: graphqlRequest
-    };
-  }
-
-/***/ },
-/* 135 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.setRuntimeVariable = setRuntimeVariable;
-  
-  var _constants = __webpack_require__(133);
-  
-  function setRuntimeVariable(_ref) {
-    var name = _ref.name;
-    var value = _ref.value;
-  
-    return {
-      type: _constants.SET_RUNTIME_VARIABLE,
-      payload: {
-        name: name,
-        value: value
-      }
-    };
   }
 
 /***/ }
