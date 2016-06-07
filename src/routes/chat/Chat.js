@@ -10,34 +10,16 @@
  import React, { PropTypes } from 'react';
  import withStyles from 'isomorphic-style-loader/lib/withStyles';
  import s from './Chat.css';
+ import Messenger from '../../components/Messenger/';
 
  const title = 'TEDDYxAmsterdam';
 
  function Chat(props, context) {
    context.setTitle(title);
    return (
-     <div className={s.wrapper}>
-     <nav className={s.nav}>
-        <div className={s.mainNav}>
-          <div className={s.toggle}>
-          </div>
-          <div className={s.mainNavItem}>
-            <a className={s.mainNavItemLink}>{title}</a>
-          </div>
-          <div className={s.options}>
-          </div>
-        </div>
-     </nav>
-      <div className={s.inner}>
-        <div className={s.content}></div>
-      </div>
-      <div className={s.bottom}>
-          <textarea className={s.input}></textarea>
-          <div className={s.send}></div>
-      </div>
-     </div>
+    	<Messenger />
    );
- }
+ } 
 
  Chat.contextTypes = { setTitle: PropTypes.func.isRequired };
 
