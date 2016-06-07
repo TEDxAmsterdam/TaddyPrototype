@@ -116,17 +116,17 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(108);
+  var _assets = __webpack_require__(115);
   
   var _assets2 = _interopRequireDefault(_assets);
   
   var _config = __webpack_require__(21);
   
-  var _configureStore = __webpack_require__(109);
+  var _configureStore = __webpack_require__(130);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
-  var _runtime = __webpack_require__(117);
+  var _runtime = __webpack_require__(135);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -209,7 +209,7 @@ module.exports =
                       case 0:
                         css = [];
                         statusCode = 200;
-                        template = __webpack_require__(118); // eslint-disable-line global-require
+                        template = __webpack_require__(116); // eslint-disable-line global-require
   
                         data = { title: '', description: '', css: '', body: '', entry: _assets2.default.main.js };
   
@@ -301,7 +301,7 @@ module.exports =
   app.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(120); // eslint-disable-line global-require
+    var template = __webpack_require__(118); // eslint-disable-line global-require
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -1664,23 +1664,23 @@ module.exports =
   
   var _home2 = _interopRequireDefault(_home);
   
-  var _contact = __webpack_require__(88);
+  var _contact = __webpack_require__(95);
   
   var _contact2 = _interopRequireDefault(_contact);
   
-  var _login = __webpack_require__(92);
+  var _login = __webpack_require__(99);
   
   var _login2 = _interopRequireDefault(_login);
   
-  var _register = __webpack_require__(96);
+  var _register = __webpack_require__(103);
   
   var _register2 = _interopRequireDefault(_register);
   
-  var _content = __webpack_require__(100);
+  var _content = __webpack_require__(107);
   
   var _content2 = _interopRequireDefault(_content);
   
-  var _error = __webpack_require__(104);
+  var _error = __webpack_require__(111);
   
   var _error2 = _interopRequireDefault(_error);
   
@@ -3226,7 +3226,14 @@ module.exports =
   module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjEwM3B4IiBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAxMDMgMzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogc2tldGNodG9vbCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjFGQ0RFREIzLTE5MzEtNEQwNy1CNzVGLUMzNTM4OURCNjQ1RjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggc2tldGNodG9vbC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iT25ib2FyZGluZyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Im0uSG9tZShMYW5kaW5nc3BhZ2UpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtODAuMDAwMDAwLCAtMTAwLjAwMDAwMCkiIGZpbGw9IiNEQjM1MkEiPgogICAgICAgICAgICA8ZyBpZD0iI1RFRHhBbXMyMDE2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Mi4wMDAwMDAsIDY0LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlRFRHhBbXN0ZXJkYW1fbG9nby1Db3B5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOC4wMDAwMDAsIDI1LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJURUR4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTEuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iRmlsbC0zNSIgcG9pbnRzPSI5LjExMzgyNjgzIDguMDI3NTc2NiAwLjg1NzAyNTQ2NyA4LjAyNzU3NjYgMC44NTcwMjU0NjcgMC40NzI5ODA1MDEgMjYuNDM5NjMzMyAwLjQ3Mjk4MDUwMSAyNi40Mzk2MzMzIDguMDI3NTc2NiAxOC4xODU2MTYzIDguMDI3NTc2NiAxOC4xODU2MTYzIDI5Ljk0ODE4OTQgOS4xMTM4MjY4MyAyOS45NDgxODk0IDkuMTEzODI2ODMgOC4wMjc1NzY2Ij48L3BvbHlsaW5lPgogICAgICAgICAgICAgICAgICAgICAgICA8cG9seWxpbmUgaWQ9IkZpbGwtMzYiIHBvaW50cz0iMjcuODQ5NjQzNSAwLjQ3Mjk4MDUwMSA1Mi42ODQwODgzIDAuNDcyOTgwNTAxIDUyLjY4NDA4ODMgOC4wMjc1NzY2IDM2LjkyNzI4MDEgOC4wMjc1NzY2IDM2LjkyNzI4MDEgMTEuNzAwNTU3MSA1Mi42ODQwODgzIDExLjcwMDU1NzEgNTIuNjg0MDg4MyAxOC43MjA2MTI4IDM2LjkyNzI4MDEgMTguNzIwNjEyOCAzNi45MjcyODAxIDIyLjM5Mzg3MTkgNTIuNjg4MjY0OSAyMi4zOTM4NzE5IDUyLjY4ODI2NDkgMjkuOTQ4MTg5NCAyNy44NDk2NDM1IDI5Ljk0ODE4OTQgMjcuODQ5NjQzNSAwLjQ3Mjk4MDUwMSI+PC9wb2x5bGluZT4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTYzLjI4ODk1NzYsMjIuMzkzODcxOSBMNjYuODM5MDQyNCwyMi4zOTM4NzE5IEM3Mi40OTM4NDA0LDIyLjM5Mzg3MTkgNzMuMzIwNTIyOSwxNy44MTAwMjc5IDczLjMyMDUyMjksMTUuMDQxMjI1NiBDNzMuMzIwNTIyOSwxMy4xODcxODY2IDcyLjczOTcwMTIsOC4wMjc1NzY2IDY2LjE3ODAzMDYsOC4wMjc1NzY2IEw2My4yODg5NTc2LDguMDI3NTc2NiBMNjMuMjg4OTU3NiwyMi4zOTM4NzE5IEw2My4yODg5NTc2LDIyLjM5Mzg3MTkgWiBNNTQuMjExODc3OCwwLjQ3Mjk4MDUwMSBMNjkuMTA4MzEyNCwwLjQ3Mjk4MDUwMSBDNzguOTI3NzA4LDAuNDcyOTgwNTAxIDgyLjM5ODE1OTYsNy43Mzg3MTg2NiA4Mi4zOTgxNTk2LDE1LjE2NzEzMDkgQzgyLjM5ODE1OTYsMjQuMjEwNTg1IDc3LjYxMTI1MywyOS45NDgxODk0IDY3LjMzNTc3NTksMjkuOTQ4MTg5NCBMNTQuMjExODc3OCwyOS45NDgxODk0IEw1NC4yMTE4Nzc4LDAuNDcyOTgwNTAxIEw1NC4yMTE4Nzc4LDAuNDcyOTgwNTAxIFoiIGlkPSJGaWxsLTM3Ij48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iRmlsbC0zOCIgcG9pbnRzPSI5NS40NDE1ODkxIDE4LjU4OTY5MzYgOTIuNjcyNTIyOSAxMy45OTU4MjE3IDg5Ljk3MjIzMDkgMTguNTg5NjkzNiA4My4zMjExODE3IDE4LjU4OTY5MzYgODkuNjM1MzIwOSA5LjMwMTExNDIxIDgzLjU1NTM0OCAwLjQxNjE1NTk4OSA5MC4yMDg2MjQ4IDAuNDE2MTU1OTg5IDkyLjY3MjUyMjkgNC44MDgwNzc5OSA5NS4yMDcxNDQzIDAuNDE2MTU1OTg5IDEwMS44NTg0NzIgMC40MTYxNTU5ODkgOTUuNzgwNDQ4MiA5LjMwMTExNDIxIDEwMi4wOTQzMDkgMTguNTg5NjkzNiA5NS40NDE1ODkxIDE4LjU4OTY5MzYiPjwvcG9seWxpbmU+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
 
 /***/ },
-/* 88 */
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3239,7 +3246,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(89);
+  var _Contact = __webpack_require__(96);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3264,7 +3271,7 @@ module.exports =
   };
 
 /***/ },
-/* 89 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3281,7 +3288,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Contact = __webpack_require__(90);
+  var _Contact = __webpack_require__(97);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3323,11 +3330,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 90 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(91);
+      var content = __webpack_require__(98);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3357,7 +3364,7 @@ module.exports =
     
 
 /***/ },
-/* 91 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3374,7 +3381,7 @@ module.exports =
   };
 
 /***/ },
-/* 92 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3387,7 +3394,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(93);
+  var _Login = __webpack_require__(100);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3412,7 +3419,7 @@ module.exports =
   };
 
 /***/ },
-/* 93 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3429,7 +3436,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Login = __webpack_require__(94);
+  var _Login = __webpack_require__(101);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3598,11 +3605,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 94 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(95);
+      var content = __webpack_require__(102);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3632,7 +3639,7 @@ module.exports =
     
 
 /***/ },
-/* 95 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3659,7 +3666,7 @@ module.exports =
   };
 
 /***/ },
-/* 96 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3672,7 +3679,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(97);
+  var _Register = __webpack_require__(104);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -3697,7 +3704,7 @@ module.exports =
   };
 
 /***/ },
-/* 97 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3714,7 +3721,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Register = __webpack_require__(98);
+  var _Register = __webpack_require__(105);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -3756,11 +3763,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 98 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(99);
+      var content = __webpack_require__(106);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3790,7 +3797,7 @@ module.exports =
     
 
 /***/ },
-/* 99 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3807,7 +3814,7 @@ module.exports =
   };
 
 /***/ },
-/* 100 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3832,7 +3839,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(101);
+  var _Content = __webpack_require__(108);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -3916,7 +3923,7 @@ module.exports =
       */
 
 /***/ },
-/* 101 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3953,7 +3960,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Content = __webpack_require__(102);
+  var _Content = __webpack_require__(109);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -4012,11 +4019,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 102 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(103);
+      var content = __webpack_require__(110);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4046,7 +4053,7 @@ module.exports =
     
 
 /***/ },
-/* 103 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4063,7 +4070,7 @@ module.exports =
   };
 
 /***/ },
-/* 104 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4080,7 +4087,7 @@ module.exports =
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _ErrorPage = __webpack_require__(105);
+  var _ErrorPage = __webpack_require__(112);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4111,7 +4118,7 @@ module.exports =
       */
 
 /***/ },
-/* 105 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4128,7 +4135,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _ErrorPage = __webpack_require__(106);
+  var _ErrorPage = __webpack_require__(113);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4184,11 +4191,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_ErrorPage2.default)(ErrorPage);
 
 /***/ },
-/* 106 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(107);
+      var content = __webpack_require__(114);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4218,7 +4225,7 @@ module.exports =
     
 
 /***/ },
-/* 107 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4232,335 +4239,16 @@ module.exports =
 
 
 /***/ },
-/* 108 */
+/* 115 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 109 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _stringify = __webpack_require__(2);
-  
-  var _stringify2 = _interopRequireDefault(_stringify);
-  
-  exports.default = configureStore;
-  
-  var _redux = __webpack_require__(110);
-  
-  var _reduxThunk = __webpack_require__(111);
-  
-  var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-  
-  var _reducers = __webpack_require__(112);
-  
-  var _reducers2 = _interopRequireDefault(_reducers);
-  
-  var _createHelpers = __webpack_require__(116);
-  
-  var _createHelpers2 = _interopRequireDefault(_createHelpers);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  function configureStore(initialState, helpersConfig) {
-    var helpers = (0, _createHelpers2.default)(helpersConfig);
-    var middleware = [_reduxThunk2.default.withExtraArgument(helpers)];
-  
-    var enhancer = void 0;
-  
-    if (true) {
-      if (false) {
-        var createLogger = require('redux-logger');
-        middleware.push(createLogger({
-          collapsed: true
-        }));
-      } else {
-        // Server side redux action logger
-        middleware.push(function (store) {
-          return function (next) {
-            return function (action) {
-              // eslint-disable-line no-unused-vars
-              var payload = (0, _stringify2.default)(action.payload);
-              console.log(' * ' + action.type + ': ' + payload); // eslint-disable-line no-console
-              return next(action);
-            };
-          };
-        });
-      }
-  
-      // https://github.com/zalmoxisus/redux-devtools-extension#redux-devtools-extension
-      var devToolsExtension = function devToolsExtension(f) {
-        return f;
-      };
-      if (false) {
-        devToolsExtension = window.devToolsExtension();
-      }
-  
-      enhancer = (0, _redux.compose)(_redux.applyMiddleware.apply(undefined, middleware), devToolsExtension);
-    } else {
-      enhancer = _redux.applyMiddleware.apply(undefined, middleware);
-    }
-  
-    // See https://github.com/rackt/redux/releases/tag/v3.1.0
-    var store = (0, _redux.createStore)(_reducers2.default, initialState, enhancer);
-  
-    // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
-    if (false) {
-      module.hot.accept('../reducers', function () {
-        return store.replaceReducer(require('../reducers').default);
-      });
-    }
-  
-    return store;
-  }
-
-/***/ },
-/* 110 */
-/***/ function(module, exports) {
-
-  module.exports = require("redux");
-
-/***/ },
-/* 111 */
-/***/ function(module, exports) {
-
-  module.exports = require("redux-thunk");
-
-/***/ },
-/* 112 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _redux = __webpack_require__(110);
-  
-  var _runtime = __webpack_require__(113);
-  
-  var _runtime2 = _interopRequireDefault(_runtime);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  exports.default = (0, _redux.combineReducers)({
-    runtime: _runtime2.default
-  });
-
-/***/ },
-/* 113 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _defineProperty2 = __webpack_require__(114);
-  
-  var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-  
-  var _extends3 = __webpack_require__(62);
-  
-  var _extends4 = _interopRequireDefault(_extends3);
-  
-  exports.default = runtime;
-  
-  var _constants = __webpack_require__(115);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  function runtime() {
-    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-    var action = arguments[1];
-  
-    switch (action.type) {
-      case _constants.SET_RUNTIME_VARIABLE:
-        return (0, _extends4.default)({}, state, (0, _defineProperty3.default)({}, action.payload.name, action.payload.value));
-      default:
-        return state;
-    }
-  }
-
-/***/ },
-/* 114 */
-/***/ function(module, exports) {
-
-  module.exports = require("babel-runtime/helpers/defineProperty");
-
-/***/ },
-/* 115 */
-/***/ function(module, exports) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  var SET_RUNTIME_VARIABLE = exports.SET_RUNTIME_VARIABLE = 'SET_RUNTIME_VARIABLE';
-
-/***/ },
 /* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _extends2 = __webpack_require__(62);
-  
-  var _extends3 = _interopRequireDefault(_extends2);
-  
-  var _regenerator = __webpack_require__(1);
-  
-  var _regenerator2 = _interopRequireDefault(_regenerator);
-  
-  var _stringify = __webpack_require__(2);
-  
-  var _stringify2 = _interopRequireDefault(_stringify);
-  
-  var _asyncToGenerator2 = __webpack_require__(3);
-  
-  var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-  
-  exports.default = createHelpers;
-  
-  var _fetch = __webpack_require__(40);
-  
-  var _fetch2 = _interopRequireDefault(_fetch);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  function createGraphqlRequest(fetchKnowingCookie) {
-    return function () {
-      var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(query, variables) {
-        var fetchConfig, resp;
-        return _regenerator2.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                fetchConfig = {
-                  method: 'post',
-                  headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  body: (0, _stringify2.default)({ query: query, variables: variables }),
-                  credentials: 'include'
-                };
-                _context.next = 3;
-                return fetchKnowingCookie('/graphql', fetchConfig);
-  
-              case 3:
-                resp = _context.sent;
-  
-                if (!(resp.status !== 200)) {
-                  _context.next = 6;
-                  break;
-                }
-  
-                throw new Error(resp.statusText);
-  
-              case 6:
-                _context.next = 8;
-                return resp.json();
-  
-              case 8:
-                return _context.abrupt('return', _context.sent);
-  
-              case 9:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-  
-      function graphqlRequest(_x, _x2) {
-        return ref.apply(this, arguments);
-      }
-  
-      return graphqlRequest;
-    }();
-  }
-  
-  function createFetchKnowingCookie(_ref) {
-    var cookie = _ref.cookie;
-  
-    if (true) {
-      return function (url) {
-        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-  
-        var isLocalUrl = /^\/($|[^\/])/.test(url);
-  
-        // pass cookie only for itself.
-        // We can't know cookies for other sites BTW
-        if (isLocalUrl && options.credentials === 'include') {
-          var headers = (0, _extends3.default)({}, options.headers, {
-            cookie: cookie
-          });
-          return (0, _fetch2.default)(url, (0, _extends3.default)({}, options, { headers: headers }));
-        }
-  
-        return (0, _fetch2.default)(url, options);
-      };
-    }
-  
-    return _fetch2.default;
-  }
-  
-  function createHelpers(config) {
-    var fetchKnowingCookie = createFetchKnowingCookie(config);
-    var graphqlRequest = createGraphqlRequest(fetchKnowingCookie);
-  
-    return {
-      fetch: fetchKnowingCookie,
-      graphqlRequest: graphqlRequest
-    };
-  }
-
-/***/ },
-/* 117 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.setRuntimeVariable = setRuntimeVariable;
-  
-  var _constants = __webpack_require__(115);
-  
-  function setRuntimeVariable(_ref) {
-    var name = _ref.name;
-    var value = _ref.value;
-  
-    return {
-      type: _constants.SET_RUNTIME_VARIABLE,
-      payload: {
-        name: name,
-        value: value
-      }
-    };
-  }
-
-/***/ },
-/* 118 */
-/***/ function(module, exports, __webpack_require__) {
-
-  var jade = __webpack_require__(119);
+  var jade = __webpack_require__(117);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ) ];
@@ -4663,7 +4351,7 @@ module.exports =
   }
 
 /***/ },
-/* 119 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4915,10 +4603,10 @@ module.exports =
 
 
 /***/ },
-/* 120 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(119);
+  var jade = __webpack_require__(117);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ) ];
@@ -5196,6 +4884,333 @@ module.exports =
   } catch (err) {
     jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(lang=\"en\")\n  head\n    meta(charset=\"utf-8\")\n    title Internal Server Error\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1, maximum-scale=1\")\n    style.\n      * {\n        line-height: 1.2;\n        margin: 0;\n      }\n\n      html {\n        color: #888;\n        display: table;\n        font-family: sans-serif;\n        height: 100%;\n        text-align: center;\n        width: 100%;\n      }\n\n      body {\n        display: table-cell;\n        vertical-align: middle;\n        margin: 2em auto;\n      }\n\n      h1 {\n        color: #555;\n        font-size: 2em;\n        font-weight: 400;\n      }\n\n      p {\n        margin: 0 auto;\n        width: 280px;\n      }\n\n      pre {\n        text-align: left;\n        margin-top: 2rem;\n      }\n\n      @media only screen and (max-width: 280px) {\n\n        body, p {\n          width: 95%;\n        }\n\n        h1 {\n          font-size: 1.5em;\n          margin: 0 0 0.3em;\n        }\n\n      }\n\n  body\n    h1 Internal Server Error\n    p Sorry, something went wrong.\n    pre= stack\n// IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx\n");
   }
+  }
+
+/***/ },
+/* 119 */,
+/* 120 */
+/***/ function(module, exports) {
+
+  module.exports = require("redux");
+
+/***/ },
+/* 121 */
+/***/ function(module, exports) {
+
+  module.exports = require("redux-thunk");
+
+/***/ },
+/* 122 */,
+/* 123 */,
+/* 124 */
+/***/ function(module, exports) {
+
+  module.exports = require("babel-runtime/helpers/defineProperty");
+
+/***/ },
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _stringify = __webpack_require__(2);
+  
+  var _stringify2 = _interopRequireDefault(_stringify);
+  
+  exports.default = configureStore;
+  
+  var _redux = __webpack_require__(120);
+  
+  var _reduxThunk = __webpack_require__(121);
+  
+  var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+  
+  var _reducers = __webpack_require__(131);
+  
+  var _reducers2 = _interopRequireDefault(_reducers);
+  
+  var _createHelpers = __webpack_require__(134);
+  
+  var _createHelpers2 = _interopRequireDefault(_createHelpers);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function configureStore(initialState, helpersConfig) {
+    var helpers = (0, _createHelpers2.default)(helpersConfig);
+    var middleware = [_reduxThunk2.default.withExtraArgument(helpers)];
+  
+    var enhancer = void 0;
+  
+    if (true) {
+      if (false) {
+        var createLogger = require('redux-logger');
+        middleware.push(createLogger({
+          collapsed: true
+        }));
+      } else {
+        // Server side redux action logger
+        middleware.push(function (store) {
+          return function (next) {
+            return function (action) {
+              // eslint-disable-line no-unused-vars
+              var payload = (0, _stringify2.default)(action.payload);
+              console.log(' * ' + action.type + ': ' + payload); // eslint-disable-line no-console
+              return next(action);
+            };
+          };
+        });
+      }
+  
+      // https://github.com/zalmoxisus/redux-devtools-extension#redux-devtools-extension
+      var devToolsExtension = function devToolsExtension(f) {
+        return f;
+      };
+      if (false) {
+        devToolsExtension = window.devToolsExtension();
+      }
+  
+      enhancer = (0, _redux.compose)(_redux.applyMiddleware.apply(undefined, middleware), devToolsExtension);
+    } else {
+      enhancer = _redux.applyMiddleware.apply(undefined, middleware);
+    }
+  
+    // See https://github.com/rackt/redux/releases/tag/v3.1.0
+    var store = (0, _redux.createStore)(_reducers2.default, initialState, enhancer);
+  
+    // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+    if (false) {
+      module.hot.accept('../reducers', function () {
+        return store.replaceReducer(require('../reducers').default);
+      });
+    }
+  
+    return store;
+  }
+
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _redux = __webpack_require__(120);
+  
+  var _runtime = __webpack_require__(132);
+  
+  var _runtime2 = _interopRequireDefault(_runtime);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = (0, _redux.combineReducers)({
+    runtime: _runtime2.default
+  });
+
+/***/ },
+/* 132 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _defineProperty2 = __webpack_require__(124);
+  
+  var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+  
+  var _extends3 = __webpack_require__(62);
+  
+  var _extends4 = _interopRequireDefault(_extends3);
+  
+  exports.default = runtime;
+  
+  var _constants = __webpack_require__(133);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function runtime() {
+    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var action = arguments[1];
+  
+    switch (action.type) {
+      case _constants.SET_RUNTIME_VARIABLE:
+        return (0, _extends4.default)({}, state, (0, _defineProperty3.default)({}, action.payload.name, action.payload.value));
+      default:
+        return state;
+    }
+  }
+
+/***/ },
+/* 133 */
+/***/ function(module, exports) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  var SET_RUNTIME_VARIABLE = exports.SET_RUNTIME_VARIABLE = 'SET_RUNTIME_VARIABLE';
+
+/***/ },
+/* 134 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _extends2 = __webpack_require__(62);
+  
+  var _extends3 = _interopRequireDefault(_extends2);
+  
+  var _regenerator = __webpack_require__(1);
+  
+  var _regenerator2 = _interopRequireDefault(_regenerator);
+  
+  var _stringify = __webpack_require__(2);
+  
+  var _stringify2 = _interopRequireDefault(_stringify);
+  
+  var _asyncToGenerator2 = __webpack_require__(3);
+  
+  var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+  
+  exports.default = createHelpers;
+  
+  var _fetch = __webpack_require__(40);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function createGraphqlRequest(fetchKnowingCookie) {
+    return function () {
+      var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(query, variables) {
+        var fetchConfig, resp;
+        return _regenerator2.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                fetchConfig = {
+                  method: 'post',
+                  headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: (0, _stringify2.default)({ query: query, variables: variables }),
+                  credentials: 'include'
+                };
+                _context.next = 3;
+                return fetchKnowingCookie('/graphql', fetchConfig);
+  
+              case 3:
+                resp = _context.sent;
+  
+                if (!(resp.status !== 200)) {
+                  _context.next = 6;
+                  break;
+                }
+  
+                throw new Error(resp.statusText);
+  
+              case 6:
+                _context.next = 8;
+                return resp.json();
+  
+              case 8:
+                return _context.abrupt('return', _context.sent);
+  
+              case 9:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+  
+      function graphqlRequest(_x, _x2) {
+        return ref.apply(this, arguments);
+      }
+  
+      return graphqlRequest;
+    }();
+  }
+  
+  function createFetchKnowingCookie(_ref) {
+    var cookie = _ref.cookie;
+  
+    if (true) {
+      return function (url) {
+        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+  
+        var isLocalUrl = /^\/($|[^\/])/.test(url);
+  
+        // pass cookie only for itself.
+        // We can't know cookies for other sites BTW
+        if (isLocalUrl && options.credentials === 'include') {
+          var headers = (0, _extends3.default)({}, options.headers, {
+            cookie: cookie
+          });
+          return (0, _fetch2.default)(url, (0, _extends3.default)({}, options, { headers: headers }));
+        }
+  
+        return (0, _fetch2.default)(url, options);
+      };
+    }
+  
+    return _fetch2.default;
+  }
+  
+  function createHelpers(config) {
+    var fetchKnowingCookie = createFetchKnowingCookie(config);
+    var graphqlRequest = createGraphqlRequest(fetchKnowingCookie);
+  
+    return {
+      fetch: fetchKnowingCookie,
+      graphqlRequest: graphqlRequest
+    };
+  }
+
+/***/ },
+/* 135 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.setRuntimeVariable = setRuntimeVariable;
+  
+  var _constants = __webpack_require__(133);
+  
+  function setRuntimeVariable(_ref) {
+    var name = _ref.name;
+    var value = _ref.value;
+  
+    return {
+      type: _constants.SET_RUNTIME_VARIABLE,
+      payload: {
+        name: name,
+        value: value
+      }
+    };
   }
 
 /***/ }
