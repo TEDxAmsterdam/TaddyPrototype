@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Messenger.css';
 const cx = require('classnames');
-
 import { connect } from 'react-redux';
 import { sendMsg, updateMsger } from '../../redux/actions/messenger';
 
@@ -22,6 +21,8 @@ class Messenger extends Component {
 			text: 'Hello! My name is TeddyX, What is your name?',
 			time: new Date().getTime()
 		});
+
+
 	};
 
 	render() {
