@@ -24,8 +24,8 @@ import schema from './data/schema';
 import routes from './routes';
 import assets from './assets'; // eslint-disable-line import/no-unresolved
 import { port, auth, analytics } from './config';
-import configureStore from './store/configureStore';
-import { setRuntimeVariable } from './actions/runtime';
+import configureStore from './redux/store/configureStore';
+import { setRuntimeVariable } from './redux/actions/runtime';
 
 const app = express();
 

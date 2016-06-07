@@ -1,4 +1,4 @@
-import fetch from '../core/fetch';
+import fetch from '../../core/fetch';
 
 function createGraphqlRequest(fetchKnowingCookie) {
   return async function graphqlRequest(query, variables) {

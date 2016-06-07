@@ -13,7 +13,7 @@ import FastClick from 'fastclick';
 import { match } from 'universal-router';
 import routes from './routes';
 import history from './core/history';
-import configureStore from './store/configureStore';
+import configureStore from './redux/store/configureStore';
 import { addEventListener, removeEventListener } from './core/DOMUtils';
 
 const context = {

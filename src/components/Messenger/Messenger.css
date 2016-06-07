@@ -192,12 +192,12 @@ body {
   margin: 10.66667px 0;
   padding: 10.66667px 0;
 }
-.messageWrapper .circle-wrapper {
+.messageWrapper .circleWrapper {
   height: 42.66667px;
   width: 42.66667px;
   border-radius: 50%;
 }
-.messageWrapper .text-wrapper {
+.messageWrapper .textWrapper {
   padding: 10.66667px;
   min-height: 42.66667px;
   width: 60%;
@@ -207,35 +207,35 @@ body {
   font-weight: 300;
   position: relative;
   /* word-break: break-all; */
-  opacity: 0;
+  /*opacity: 0;*/
 }
-.messageWrapper .text-wrapper:before {
+.messageWrapper .textWrapper:before {
   content: '';
   width: 0;
   height: 0;
   border-style: solid;
 }
-.messageWrapper.them .circle-wrapper, .messageWrapper.them .text-wrapper {
+.messageWrapper.them .circleWrapper, .messageWrapper.them .textWrapper {
   background: #F44336;
   float: left;
   color: #ffffff;
 }
-.messageWrapper.them .text-wrapper:before {
+.messageWrapper.them .textWrapper:before {
   border-width: 0 10px 10px 0;
   border-color: transparent #F44336 transparent transparent;
   position: absolute;
   top: 0;
   left: -9px;
 }
-.messageWrapper.me .circle-wrapper, .messageWrapper.me .text-wrapper {
+.messageWrapper.me .circleWrapper, .messageWrapper.me .textWrapper {
   background: #FF5722;
   float: right;
   color: #333333;
 }
-.messageWrapper.me .text-wrapper {
+.messageWrapper.me .textWrapper {
   background: #ffffff;
 }
-.messageWrapper.me .text-wrapper:before {
+.messageWrapper.me .textWrapper:before {
   border-width: 10px 10px 0 0;
   border-color: #ffffff transparent transparent transparent;
   position: absolute;
