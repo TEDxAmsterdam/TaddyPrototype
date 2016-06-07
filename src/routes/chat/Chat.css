@@ -76,7 +76,7 @@ body {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
-.nav .default-nav {
+.nav .defaultNav {
   height: 64px;
   width: 100%;
   position: absolute;
@@ -90,7 +90,7 @@ body {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
-.nav .default-nav .main-nav {
+.nav .defaultNav .mainNav {
   position: absolute;
   left: 0;
   width: 100%;
@@ -102,7 +102,7 @@ body {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
-.nav .default-nav .main-nav .toggle {
+.nav .defaultNav .mainNav .toggle {
   height: 32px;
   width: 32px;
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_arrow_back_white_48dp.png);
@@ -110,10 +110,10 @@ body {
   margin: 16px;
   float: left;
 }
-.nav .default-nav .main-nav .toggle:hover {
+.nav .defaultNav .mainNav .toggle:hover {
   cursor: pointer;
 }
-.nav .default-nav .main-nav .options {
+.nav .defaultNav .mainNav .options {
   height: 32px;
   width: 32px;
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_more_vert_white_48dp.png);
@@ -122,10 +122,10 @@ body {
   position: absolute;
   right: 0;
 }
-.nav .default-nav .main-nav .options:hover {
+.nav .defaultNav .mainNav .options:hover {
   cursor: pointer;
 }
-.nav .default-nav .main-nav .main-nav-item {
+.nav .defaultNav .mainNav .mainNavItem {
   float: left;
   height: 64px;
   margin-right: 50px;
@@ -134,7 +134,7 @@ body {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
-.nav .default-nav .main-nav .main-nav-item .main-nav-item-link {
+.nav .defaultNav .mainNav .mainNavItem .mainNavItemLink {
   display: block;
   position: relative;
   height: 64px;

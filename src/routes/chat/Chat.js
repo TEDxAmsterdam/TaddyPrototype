@@ -17,24 +17,24 @@
    context.setTitle(title);
    return (
      <div className={s.wrapper}>
-       <nav className={s.nav}>
-			 		<div className={s.main-nav}>
-						<div className={s.toggle}>
-						</div>
-						<div className={s.main-nav-item}>
-							<a className={s.main-nav-item-link}>{title}</a>
-						</div>
-						<div className={s.options}>
-						</div>
-					</div>
-       </nav>
-			  <div className={s.inner}>
-			    <div className={s.content}></div>
-			  </div>
-				<div className={s.bottom}>
-						<textarea className={s.input}></textarea>
-						<div className={s.send}></div>
-				</div>
+     <nav className={s.nav}>
+        <div className={s.mainNav}>
+          <div className={s.toggle}>
+          </div>
+          <div className={s.mainNavItem}>
+            <a className={s.mainNavItemLink}>{title}</a>
+          </div>
+          <div className={s.options}>
+          </div>
+        </div>
+     </nav>
+      <div className={s.inner}>
+        <div className={s.content}></div>
+      </div>
+      <div className={s.bottom}>
+          <textarea className={s.input}></textarea>
+          <div className={s.send}></div>
+      </div>
      </div>
    );
  }

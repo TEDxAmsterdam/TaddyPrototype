@@ -116,17 +116,17 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(108);
+  var _assets = __webpack_require__(112);
   
   var _assets2 = _interopRequireDefault(_assets);
   
   var _config = __webpack_require__(21);
   
-  var _configureStore = __webpack_require__(109);
+  var _configureStore = __webpack_require__(113);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
-  var _runtime = __webpack_require__(117);
+  var _runtime = __webpack_require__(121);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -209,7 +209,7 @@ module.exports =
                       case 0:
                         css = [];
                         statusCode = 200;
-                        template = __webpack_require__(118); // eslint-disable-line global-require
+                        template = __webpack_require__(122); // eslint-disable-line global-require
   
                         data = { title: '', description: '', css: '', body: '', entry: _assets2.default.main.js };
   
@@ -301,7 +301,7 @@ module.exports =
   app.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(120); // eslint-disable-line global-require
+    var template = __webpack_require__(124); // eslint-disable-line global-require
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -1664,43 +1664,37 @@ module.exports =
   
   var _home2 = _interopRequireDefault(_home);
   
-  var _contact = __webpack_require__(88);
+  var _chat = __webpack_require__(88);
+  
+  var _chat2 = _interopRequireDefault(_chat);
+  
+  var _contact = __webpack_require__(92);
   
   var _contact2 = _interopRequireDefault(_contact);
   
-  var _login = __webpack_require__(92);
+  var _login = __webpack_require__(96);
   
   var _login2 = _interopRequireDefault(_login);
   
-  var _register = __webpack_require__(96);
+  var _register = __webpack_require__(100);
   
   var _register2 = _interopRequireDefault(_register);
   
-  var _content = __webpack_require__(100);
+  var _content = __webpack_require__(104);
   
   var _content2 = _interopRequireDefault(_content);
   
-  var _error = __webpack_require__(104);
+  var _error = __webpack_require__(108);
   
   var _error2 = _interopRequireDefault(_error);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  // Child routes
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
-  
   exports.default = {
   
     path: '/',
   
-    children: [_home2.default, _contact2.default, _login2.default, _register2.default, _content2.default, _error2.default],
+    children: [_home2.default, _chat2.default, _contact2.default, _login2.default, _register2.default, _content2.default, _error2.default],
   
     action: function action(_ref) {
       var _this = this;
@@ -1743,6 +1737,16 @@ module.exports =
       }))();
     }
   };
+  
+  // Child routes
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
 
 /***/ },
 /* 44 */
@@ -3239,7 +3243,190 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(89);
+  var _Chat = __webpack_require__(89);
+  
+  var _Chat2 = _interopRequireDefault(_Chat);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  exports.default = {
+  
+    path: '/chat',
+  
+    action: function action() {
+      return _react2.default.createElement(_Chat2.default, null);
+    }
+  };
+
+/***/ },
+/* 89 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(44);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(58);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Chat = __webpack_require__(90);
+  
+  var _Chat2 = _interopRequireDefault(_Chat);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var title = 'TEDDYxAmsterdam'; /**
+                                  * React Starter Kit (https://www.reactstarterkit.com/)
+                                  *
+                                  * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                                  *
+                                  * This source code is licensed under the MIT license found in the
+                                  * LICENSE.txt file in the root directory of this source tree.
+                                  */
+  
+  function Chat(props, context) {
+    context.setTitle(title);
+    return _react2.default.createElement(
+      'div',
+      { className: _Chat2.default.wrapper },
+      _react2.default.createElement(
+        'nav',
+        { className: _Chat2.default.nav },
+        _react2.default.createElement(
+          'div',
+          { className: _Chat2.default.mainNav },
+          _react2.default.createElement('div', { className: _Chat2.default.toggle }),
+          _react2.default.createElement(
+            'div',
+            { className: _Chat2.default.mainNavItem },
+            _react2.default.createElement(
+              'a',
+              { className: _Chat2.default.mainNavItemLink },
+              title
+            )
+          ),
+          _react2.default.createElement('div', { className: _Chat2.default.options })
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: _Chat2.default.inner },
+        _react2.default.createElement('div', { className: _Chat2.default.content })
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: _Chat2.default.bottom },
+        _react2.default.createElement('textarea', { className: _Chat2.default.input }),
+        _react2.default.createElement('div', { className: _Chat2.default.send })
+      )
+    );
+  }
+  
+  Chat.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
+  
+  exports.default = (0, _withStyles2.default)(_Chat2.default)(Chat);
+
+/***/ },
+/* 90 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(91);
+      var insertCss = __webpack_require__(55);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Chat.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Chat.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(54)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Chat_root_3Qp {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.Chat_container_1pt {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n\n* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n\nbody {\n  /* position: relative; */\n  background-color: #FF5722;\n}\n\n.Chat_title_25w {\n  color: #ffffff;\n  text-align: center;\n  font-weight: 100;\n}\n\n.Chat_wrapper_2N9 {\n  height: 520px;\n  width: 320px;\n  overflow: hidden;\n  background-color: white;\n  position: fixed;\n  top: 100px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          -ms-transform: translateX(-50%);\n           -o-transform: translateX(-50%);\n      transform: translateX(-50%);\n  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n          box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Chat_wrapper_2N9 .Chat_inner_27C {\n  overflow: scroll;\n  height: 520px;\n  padding-top: 64px;\n  background: #f2f2f2;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n\n.Chat_wrapper_2N9 .Chat_inner_27C::-webkit-scrollbar {\n  width: 0 !important;\n}\n\n.Chat_wrapper_2N9 .Chat_inner_27C .Chat_content_2hh {\n  padding: 10.66667px;\n  position: relative;\n  margin-bottom: 32px;\n}\n\n.Chat_nav_3fI {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  z-index: 100;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Chat_nav_3fI .Chat_defaultNav_3Ba {\n  height: 64px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: 110;\n  background-color: #F44336;\n  border-bottom: 3px solid #ea1c0d;\n  color: #ffffff;\n  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n          box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Chat_nav_3fI .Chat_defaultNav_3Ba .Chat_mainNav_1dY {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  height: 64px;\n  top: 0;\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Chat_nav_3fI .Chat_defaultNav_3Ba .Chat_mainNav_1dY .Chat_toggle_3CO {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_arrow_back_white_48dp.png);\n  -webkit-background-size: contain;\n          background-size: contain;\n  margin: 16px;\n  float: left;\n}\n\n.Chat_nav_3fI .Chat_defaultNav_3Ba .Chat_mainNav_1dY .Chat_toggle_3CO:hover {\n  cursor: pointer;\n}\n\n.Chat_nav_3fI .Chat_defaultNav_3Ba .Chat_mainNav_1dY .Chat_options_3Q1 {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_more_vert_white_48dp.png);\n  -webkit-background-size: contain;\n          background-size: contain;\n  margin: 16px;\n  position: absolute;\n  right: 0;\n}\n\n.Chat_nav_3fI .Chat_defaultNav_3Ba .Chat_mainNav_1dY .Chat_options_3Q1:hover {\n  cursor: pointer;\n}\n\n.Chat_nav_3fI .Chat_defaultNav_3Ba .Chat_mainNav_1dY .Chat_mainNavItem_1Bd {\n  float: left;\n  height: 64px;\n  margin-right: 50px;\n  position: relative;\n  line-height: 64px;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Chat_nav_3fI .Chat_defaultNav_3Ba .Chat_mainNav_1dY .Chat_mainNavItem_1Bd .Chat_mainNavItemLink_3G_ {\n  display: block;\n  position: relative;\n  height: 64px;\n  width: 100%;\n  text-align: center;\n  line-height: 64px;\n  text-decoration: none;\n  color: inherit;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Chat_bottom_3Oc {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  background: #ffffff;\n  /* box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.1); */\n}\n\n.Chat_bottom_3Oc .Chat_input_3co {\n  height: 64px;\n  background: #ffffff;\n  border: none;\n  width: calc(100% - 64px);\n  position: absolute;\n  left: 0;\n  top: 0;\n  padding: 0 5%;\n  resize: none;\n  overflow: scroll;\n  padding-top: 24px;\n  font-weight: 300;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n\n.Chat_bottom_3Oc .Chat_input_3co:focus {\n  outline: none;\n}\n\n.Chat_bottom_3Oc .Chat_input_3co::-webkit-scrollbar {\n  width: 0 !important;\n}\n\n.Chat_bottom_3Oc .Chat_send_2nA {\n  position: fixed;\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n  border: 0;\n  background: #F44336;\n  color: #ffffff;\n  bottom: 10.66667px;\n  right: 10.66667px;\n}\n\n.Chat_bottom_3Oc .Chat_send_2nA:before {\n  content: '';\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png) no-repeat center center;\n  -webkit-background-size: 25.6px 25.6px;\n          background-size: 25.6px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n\n.Chat_bottom_3Oc .Chat_send_2nA:focus {\n  outline: none;\n}\n\n.Chat_bottom_3Oc .Chat_send_2nA:hover {\n  cursor: pointer;\n}\n\n.Chat_message-wrapper_n9W {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  margin: 10.66667px 0;\n  padding: 10.66667px 0;\n}\n\n.Chat_message-wrapper_n9W .Chat_circle-wrapper_24m {\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n}\n\n.Chat_message-wrapper_n9W .Chat_text-wrapper_2H7 {\n  padding: 10.66667px;\n  min-height: 42.66667px;\n  width: 60%;\n  margin: 0 10.66667px;\n  -webkit-box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n          box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n  border-radius: 2px;\n  font-weight: 300;\n  position: relative;\n  /* word-break: break-all; */\n  opacity: 0;\n}\n\n.Chat_message-wrapper_n9W .Chat_text-wrapper_2H7:before {\n  content: '';\n  width: 0;\n  height: 0;\n  border-style: solid;\n}\n\n.Chat_message-wrapper_n9W.Chat_them_3cs .Chat_circle-wrapper_24m, .Chat_message-wrapper_n9W.Chat_them_3cs .Chat_text-wrapper_2H7 {\n  background: #F44336;\n  float: left;\n  color: #ffffff;\n}\n\n.Chat_message-wrapper_n9W.Chat_them_3cs .Chat_text-wrapper_2H7:before {\n  border-width: 0 10px 10px 0;\n  border-color: transparent #F44336 transparent transparent;\n  position: absolute;\n  top: 0;\n  left: -9px;\n}\n\n.Chat_message-wrapper_n9W.Chat_me_3Ke .Chat_circle-wrapper_24m, .Chat_message-wrapper_n9W.Chat_me_3Ke .Chat_text-wrapper_2H7 {\n  background: #FF5722;\n  float: right;\n  color: #333333;\n}\n\n.Chat_message-wrapper_n9W.Chat_me_3Ke .Chat_text-wrapper_2H7 {\n  background: #ffffff;\n}\n\n.Chat_message-wrapper_n9W.Chat_me_3Ke .Chat_text-wrapper_2H7:before {\n  border-width: 10px 10px 0 0;\n  border-color: #ffffff transparent transparent transparent;\n  position: absolute;\n  top: 0;\n  right: -9px;\n}\n\n@media (max-width: 560px) {\n  .Chat_wrapper_2N9 {\n    width: 100%;\n    height: 100%;\n    height: 100vh;\n    top: 0;\n    left: 0;\n    -webkit-transform: translateX(0);\n            -ms-transform: translateX(0);\n             -o-transform: translateX(0);\n        transform: translateX(0);\n  }\n  .Chat_wrapper_2N9 .Chat_inner_27C {\n    height: 100%;\n    height: 100vh;\n  }\n}\n", "", {"version":3,"sources":["/./routes/chat/Chat.css","/./components/variables.css"],"names":[],"mappings":"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","file":"Chat.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  /* position: relative; */\n  background-color: #FF5722;\n}\n\n.title {\n  color: #ffffff;\n  text-align: center;\n  font-weight: 100;\n}\n\n.wrapper {\n  height: 520px;\n  width: 320px;\n  overflow: hidden;\n  background-color: white;\n  position: fixed;\n  top: 100px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.wrapper .inner {\n  overflow: scroll;\n  height: 520px;\n  padding-top: 64px;\n  background: #f2f2f2;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n.wrapper .inner::-webkit-scrollbar {\n  width: 0 !important;\n}\n.wrapper .inner .content {\n  padding: 10.66667px;\n  position: relative;\n  margin-bottom: 32px;\n}\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  z-index: 100;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav {\n  height: 64px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: 110;\n  background-color: #F44336;\n  border-bottom: 3px solid #ea1c0d;\n  color: #ffffff;\n  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  height: 64px;\n  top: 0;\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav .toggle {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_arrow_back_white_48dp.png);\n  background-size: contain;\n  margin: 16px;\n  float: left;\n}\n.nav .defaultNav .mainNav .toggle:hover {\n  cursor: pointer;\n}\n.nav .defaultNav .mainNav .options {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_more_vert_white_48dp.png);\n  background-size: contain;\n  margin: 16px;\n  position: absolute;\n  right: 0;\n}\n.nav .defaultNav .mainNav .options:hover {\n  cursor: pointer;\n}\n.nav .defaultNav .mainNav .mainNavItem {\n  float: left;\n  height: 64px;\n  margin-right: 50px;\n  position: relative;\n  line-height: 64px;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav .mainNavItem .mainNavItemLink {\n  display: block;\n  position: relative;\n  height: 64px;\n  width: 100%;\n  text-align: center;\n  line-height: 64px;\n  text-decoration: none;\n  color: inherit;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.bottom {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  background: #ffffff;\n  /* box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.1); */\n}\n.bottom .input {\n  height: 64px;\n  background: #ffffff;\n  border: none;\n  width: calc(100% - 64px);\n  position: absolute;\n  left: 0;\n  top: 0;\n  padding: 0 5%;\n  resize: none;\n  overflow: scroll;\n  padding-top: 24px;\n  font-weight: 300;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n.bottom .input:focus {\n  outline: none;\n}\n.bottom .input::-webkit-scrollbar {\n  width: 0 !important;\n}\n.bottom .send {\n  position: fixed;\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n  border: 0;\n  background: #F44336;\n  color: #ffffff;\n  bottom: 10.66667px;\n  right: 10.66667px;\n}\n.bottom .send:before {\n  content: '';\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png) no-repeat center center;\n  background-size: 25.6px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n.bottom .send:focus {\n  outline: none;\n}\n.bottom .send:hover {\n  cursor: pointer;\n}\n\n.message-wrapper {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  margin: 10.66667px 0;\n  padding: 10.66667px 0;\n}\n.message-wrapper .circle-wrapper {\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n}\n.message-wrapper .text-wrapper {\n  padding: 10.66667px;\n  min-height: 42.66667px;\n  width: 60%;\n  margin: 0 10.66667px;\n  box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n  border-radius: 2px;\n  font-weight: 300;\n  position: relative;\n  /* word-break: break-all; */\n  opacity: 0;\n}\n.message-wrapper .text-wrapper:before {\n  content: '';\n  width: 0;\n  height: 0;\n  border-style: solid;\n}\n.message-wrapper.them .circle-wrapper, .message-wrapper.them .text-wrapper {\n  background: #F44336;\n  float: left;\n  color: #ffffff;\n}\n.message-wrapper.them .text-wrapper:before {\n  border-width: 0 10px 10px 0;\n  border-color: transparent #F44336 transparent transparent;\n  position: absolute;\n  top: 0;\n  left: -9px;\n}\n.message-wrapper.me .circle-wrapper, .message-wrapper.me .text-wrapper {\n  background: #FF5722;\n  float: right;\n  color: #333333;\n}\n.message-wrapper.me .text-wrapper {\n  background: #ffffff;\n}\n.message-wrapper.me .text-wrapper:before {\n  border-width: 10px 10px 0 0;\n  border-color: #ffffff transparent transparent transparent;\n  position: absolute;\n  top: 0;\n  right: -9px;\n}\n\n@media (max-width: 560px) {\n  .wrapper {\n    width: 100%;\n    height: 100%;\n    height: 100vh;\n    top: 0;\n    left: 0;\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n  }\n  .wrapper .inner {\n    height: 100%;\n    height: 100vh;\n  }\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Chat_root_3Qp",
+  	"container": "Chat_container_1pt",
+  	"title": "Chat_title_25w",
+  	"wrapper": "Chat_wrapper_2N9",
+  	"inner": "Chat_inner_27C",
+  	"content": "Chat_content_2hh",
+  	"nav": "Chat_nav_3fI",
+  	"defaultNav": "Chat_defaultNav_3Ba",
+  	"mainNav": "Chat_mainNav_1dY",
+  	"toggle": "Chat_toggle_3CO",
+  	"options": "Chat_options_3Q1",
+  	"mainNavItem": "Chat_mainNavItem_1Bd",
+  	"mainNavItemLink": "Chat_mainNavItemLink_3G_",
+  	"bottom": "Chat_bottom_3Oc",
+  	"input": "Chat_input_3co",
+  	"send": "Chat_send_2nA",
+  	"message-wrapper": "Chat_message-wrapper_n9W",
+  	"circle-wrapper": "Chat_circle-wrapper_24m",
+  	"text-wrapper": "Chat_text-wrapper_2H7",
+  	"them": "Chat_them_3cs",
+  	"me": "Chat_me_3Ke"
+  };
+
+/***/ },
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(44);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _Contact = __webpack_require__(93);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3264,7 +3451,7 @@ module.exports =
   };
 
 /***/ },
-/* 89 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3281,7 +3468,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Contact = __webpack_require__(90);
+  var _Contact = __webpack_require__(94);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3323,11 +3510,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 90 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(91);
+      var content = __webpack_require__(95);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3357,7 +3544,7 @@ module.exports =
     
 
 /***/ },
-/* 91 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3374,7 +3561,7 @@ module.exports =
   };
 
 /***/ },
-/* 92 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3387,7 +3574,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(93);
+  var _Login = __webpack_require__(97);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3412,7 +3599,7 @@ module.exports =
   };
 
 /***/ },
-/* 93 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3429,7 +3616,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Login = __webpack_require__(94);
+  var _Login = __webpack_require__(98);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3598,11 +3785,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 94 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(95);
+      var content = __webpack_require__(99);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3632,7 +3819,7 @@ module.exports =
     
 
 /***/ },
-/* 95 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3659,7 +3846,7 @@ module.exports =
   };
 
 /***/ },
-/* 96 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3672,7 +3859,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(97);
+  var _Register = __webpack_require__(101);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -3697,7 +3884,7 @@ module.exports =
   };
 
 /***/ },
-/* 97 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3714,7 +3901,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Register = __webpack_require__(98);
+  var _Register = __webpack_require__(102);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -3756,11 +3943,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 98 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(99);
+      var content = __webpack_require__(103);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3790,7 +3977,7 @@ module.exports =
     
 
 /***/ },
-/* 99 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3807,7 +3994,7 @@ module.exports =
   };
 
 /***/ },
-/* 100 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3832,7 +4019,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(101);
+  var _Content = __webpack_require__(105);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -3916,7 +4103,7 @@ module.exports =
       */
 
 /***/ },
-/* 101 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3953,7 +4140,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Content = __webpack_require__(102);
+  var _Content = __webpack_require__(106);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -4012,11 +4199,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 102 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(103);
+      var content = __webpack_require__(107);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4046,7 +4233,7 @@ module.exports =
     
 
 /***/ },
-/* 103 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4063,7 +4250,7 @@ module.exports =
   };
 
 /***/ },
-/* 104 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4080,7 +4267,7 @@ module.exports =
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _ErrorPage = __webpack_require__(105);
+  var _ErrorPage = __webpack_require__(109);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4111,7 +4298,7 @@ module.exports =
       */
 
 /***/ },
-/* 105 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4128,7 +4315,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _ErrorPage = __webpack_require__(106);
+  var _ErrorPage = __webpack_require__(110);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4184,11 +4371,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_ErrorPage2.default)(ErrorPage);
 
 /***/ },
-/* 106 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(107);
+      var content = __webpack_require__(111);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4218,7 +4405,7 @@ module.exports =
     
 
 /***/ },
-/* 107 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4232,13 +4419,13 @@ module.exports =
 
 
 /***/ },
-/* 108 */
+/* 112 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 109 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4253,17 +4440,17 @@ module.exports =
   
   exports.default = configureStore;
   
-  var _redux = __webpack_require__(110);
+  var _redux = __webpack_require__(114);
   
-  var _reduxThunk = __webpack_require__(111);
+  var _reduxThunk = __webpack_require__(115);
   
   var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
   
-  var _reducers = __webpack_require__(112);
+  var _reducers = __webpack_require__(116);
   
   var _reducers2 = _interopRequireDefault(_reducers);
   
-  var _createHelpers = __webpack_require__(116);
+  var _createHelpers = __webpack_require__(120);
   
   var _createHelpers2 = _interopRequireDefault(_createHelpers);
   
@@ -4322,19 +4509,19 @@ module.exports =
   }
 
 /***/ },
-/* 110 */
+/* 114 */
 /***/ function(module, exports) {
 
   module.exports = require("redux");
 
 /***/ },
-/* 111 */
+/* 115 */
 /***/ function(module, exports) {
 
   module.exports = require("redux-thunk");
 
 /***/ },
-/* 112 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4343,9 +4530,9 @@ module.exports =
     value: true
   });
   
-  var _redux = __webpack_require__(110);
+  var _redux = __webpack_require__(114);
   
-  var _runtime = __webpack_require__(113);
+  var _runtime = __webpack_require__(117);
   
   var _runtime2 = _interopRequireDefault(_runtime);
   
@@ -4356,7 +4543,7 @@ module.exports =
   });
 
 /***/ },
-/* 113 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4365,7 +4552,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(114);
+  var _defineProperty2 = __webpack_require__(118);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -4375,7 +4562,7 @@ module.exports =
   
   exports.default = runtime;
   
-  var _constants = __webpack_require__(115);
+  var _constants = __webpack_require__(119);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -4392,13 +4579,13 @@ module.exports =
   }
 
 /***/ },
-/* 114 */
+/* 118 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/defineProperty");
 
 /***/ },
-/* 115 */
+/* 119 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -4409,7 +4596,7 @@ module.exports =
   var SET_RUNTIME_VARIABLE = exports.SET_RUNTIME_VARIABLE = 'SET_RUNTIME_VARIABLE';
 
 /***/ },
-/* 116 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4531,7 +4718,7 @@ module.exports =
   }
 
 /***/ },
-/* 117 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4541,7 +4728,7 @@ module.exports =
   });
   exports.setRuntimeVariable = setRuntimeVariable;
   
-  var _constants = __webpack_require__(115);
+  var _constants = __webpack_require__(119);
   
   function setRuntimeVariable(_ref) {
     var name = _ref.name;
@@ -4557,10 +4744,10 @@ module.exports =
   }
 
 /***/ },
-/* 118 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(119);
+  var jade = __webpack_require__(123);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ) ];
@@ -4601,6 +4788,9 @@ module.exports =
   buf.push("<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">");
   jade_debug.shift();
   jade_debug.unshift(new jade.DebugItem( 10, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<link rel=\"stylesheet\" href=\"//s3-us-west-2.amazonaws.com/s.cdpn.io/104946/animate.min.css\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 11, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<style id=\"css\">" + (null == (jade_interp = css) ? "" : jade_interp));
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
@@ -4609,39 +4799,39 @@ module.exports =
   jade_debug.shift();
   buf.push("</head>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 11, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 12, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<body>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 12, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 13, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<div id=\"app\">" + (null == (jade_interp = body) ? "" : jade_interp));
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
   buf.push("</div>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 13, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 14, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script id=\"source\"" + (jade.attr("src", entry, true, true)) + (jade.attr("data-initial-state", state, true, true)) + ">");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
   buf.push("</script>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 14, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 15, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script>");
-  jade_debug.unshift(new jade.DebugItem( 16, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 16, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
   buf.push("window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;");
   jade_debug.shift();
   buf.push("\n");
-  jade_debug.unshift(new jade.DebugItem( 16, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
   buf.push("ga('create','" + (jade.escape((jade_interp = trackingId) == null ? '' : jade_interp)) + "','auto');ga('send','pageview')");
   jade_debug.shift();
   jade_debug.shift();
   buf.push("</script>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 17, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 18, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   if ( trackingId)
   {
-  jade_debug.unshift(new jade.DebugItem( 18, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
-  jade_debug.unshift(new jade.DebugItem( 18, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 19, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 19, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script src=\"https://www.google-analytics.com/analytics.js\" async defer>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
@@ -4658,12 +4848,12 @@ module.exports =
   jade_debug.shift();
   jade_debug.shift();}.call(this,"body" in locals_for_with?locals_for_with.body:typeof body!=="undefined"?body:undefined,"css" in locals_for_with?locals_for_with.css:typeof css!=="undefined"?css:undefined,"description" in locals_for_with?locals_for_with.description:typeof description!=="undefined"?description:undefined,"entry" in locals_for_with?locals_for_with.entry:typeof entry!=="undefined"?entry:undefined,"state" in locals_for_with?locals_for_with.state:typeof state!=="undefined"?state:undefined,"title" in locals_for_with?locals_for_with.title:typeof title!=="undefined"?title:undefined,"trackingId" in locals_for_with?locals_for_with.trackingId:typeof trackingId!=="undefined"?trackingId:undefined));;return buf.join("");
   } catch (err) {
-    jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(class=\"no-js\", lang=\"\")\n  head\n    meta(charset=\"utf-8\")\n    meta(http-equiv=\"x-ua-compatible\", content=\"ie=edge\")\n    title= title\n    meta(name=\"description\", description=description)\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1, maximum-scale=1\")\n    link(rel=\"apple-touch-icon\", href=\"apple-touch-icon.png\")\n    style#css!= css\n  body\n    #app!= body\n    script#source(src=entry, data-initial-state=state)\n    script.\n      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;\n      ga('create','#{trackingId}','auto');ga('send','pageview')\n    if trackingId\n      script(src=\"https://www.google-analytics.com/analytics.js\", async=true, defer=true)\n");
+    jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(class=\"no-js\", lang=\"\")\n  head\n    meta(charset=\"utf-8\")\n    meta(http-equiv=\"x-ua-compatible\", content=\"ie=edge\")\n    title= title\n    meta(name=\"description\", description=description)\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1, maximum-scale=1\")\n    link(rel=\"apple-touch-icon\", href=\"apple-touch-icon.png\")\n    link(rel='stylesheet', href='//s3-us-west-2.amazonaws.com/s.cdpn.io/104946/animate.min.css')\n    style#css!= css\n  body\n    #app!= body\n    script#source(src=entry, data-initial-state=state)\n    script.\n      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;\n      ga('create','#{trackingId}','auto');ga('send','pageview')\n    if trackingId\n      script(src=\"https://www.google-analytics.com/analytics.js\", async=true, defer=true)\n");
   }
   }
 
 /***/ },
-/* 119 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4915,10 +5105,10 @@ module.exports =
 
 
 /***/ },
-/* 120 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(119);
+  var jade = __webpack_require__(123);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ) ];
