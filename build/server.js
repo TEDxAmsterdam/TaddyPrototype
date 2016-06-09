@@ -116,17 +116,17 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(117);
+  var _assets = __webpack_require__(118);
   
   var _assets2 = _interopRequireDefault(_assets);
   
   var _config = __webpack_require__(21);
   
-  var _configureStore = __webpack_require__(118);
+  var _configureStore = __webpack_require__(119);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
-  var _runtime = __webpack_require__(126);
+  var _runtime = __webpack_require__(127);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -209,7 +209,7 @@ module.exports =
                       case 0:
                         css = [];
                         statusCode = 200;
-                        template = __webpack_require__(127); // eslint-disable-line global-require
+                        template = __webpack_require__(128); // eslint-disable-line global-require
   
                         data = { title: '', description: '', css: '', body: '', entry: _assets2.default.main.js };
   
@@ -301,7 +301,7 @@ module.exports =
   app.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(129); // eslint-disable-line global-require
+    var template = __webpack_require__(130); // eslint-disable-line global-require
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -1668,23 +1668,23 @@ module.exports =
   
   var _chat2 = _interopRequireDefault(_chat);
   
-  var _contact = __webpack_require__(97);
+  var _contact = __webpack_require__(98);
   
   var _contact2 = _interopRequireDefault(_contact);
   
-  var _login = __webpack_require__(101);
+  var _login = __webpack_require__(102);
   
   var _login2 = _interopRequireDefault(_login);
   
-  var _register = __webpack_require__(105);
+  var _register = __webpack_require__(106);
   
   var _register2 = _interopRequireDefault(_register);
   
-  var _content = __webpack_require__(109);
+  var _content = __webpack_require__(110);
   
   var _content2 = _interopRequireDefault(_content);
   
-  var _error = __webpack_require__(113);
+  var _error = __webpack_require__(114);
   
   var _error2 = _interopRequireDefault(_error);
   
@@ -3277,6 +3277,10 @@ module.exports =
     value: true
   });
   
+  var _stringify = __webpack_require__(2);
+  
+  var _stringify2 = _interopRequireDefault(_stringify);
+  
   var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
@@ -3293,25 +3297,59 @@ module.exports =
   
   var _Messenger2 = _interopRequireDefault(_Messenger);
   
+  var _messenger = __webpack_require__(95);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
+  var title = 'TEDDYxAmsterdam'; /**
+                                  * React Starter Kit (https://www.reactstarterkit.com/)
+                                  *
+                                  * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                                  *
+                                  * This source code is licensed under the MIT license found in the
+                                  * LICENSE.txt file in the root directory of this source tree.
+                                  */
   
-  var title = 'TEDDYxAmsterdam';
+  var Wit = __webpack_require__(97).Wit;
+  var actions = {
+    say: function say(sessionId, context, message, cb) {
+      console.log(message);
+      cb();
+    },
+    merge: function merge(sessionId, context, entities, message, cb) {
+      cb(context);
+    },
+    error: function error(sessionId, context, _error) {
+      console.log(_error.message);
+    }
+  };
+  var client = new Wit('KJN5XTUXGTW27DC7VJ4Y64QX6N7BZXA5', actions);
+  var context = {};
+  client.message('Hi my name is Dave', context, function (error, data) {
+    if (error) {
+      console.log('Oops! Got an error: ' + error);
+    } else {
+      (0, _messenger.sendMsg)({
+        user: {
+          avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
+          className: _Chat2.default.them
+        },
+        text: (0, _stringify2.default)(data),
+        time: new Date().getTime()
+      });
+  
+      console.log('Yay, got Wit.ai response: ' + (0, _stringify2.default)(data));
+    }
+  });
   
   function Chat(props, context) {
     context.setTitle(title);
     return _react2.default.createElement(_Messenger2.default, null);
   }
   
-  Chat.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
+  Chat.contextTypes = {
+    setTitle: _react.PropTypes.func.isRequired
+  };
   
   exports.default = (0, _withStyles2.default)(_Chat2.default)(Chat);
 
@@ -3425,6 +3463,18 @@ module.exports =
   		}
   
   		(0, _createClass3.default)(Messenger, [{
+  				key: 'componentDidMount',
+  				value: function componentDidMount() {
+  						this.props.sendMsg({
+  								user: {
+  										avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
+  										className: _Messenger2.default.them
+  								},
+  								text: 'Hello! My name is TeddyX, What is your name?',
+  								time: new Date().getTime()
+  						});
+  				}
+  		}, {
   				key: 'render',
   				value: function render() {
   						var _this2 = this;
@@ -3464,8 +3514,8 @@ module.exports =
   												this.props.messenger.messageList.map(function (item, index) {
   														return _react2.default.createElement(
   																'div',
-  																{ key: index, className: _Messenger2.default.messageWrapper },
-  																_react2.default.createElement('div', { className: cx(_Messenger2.default.circleWrapper, "animated bounceIn") }),
+  																{ key: index, className: cx(_Messenger2.default.messageWrapper, item.user.className) },
+  																_react2.default.createElement('div', { className: cx(_Messenger2.default.circleWrapper, "animated bounceIn"), style: { backgroundImage: 'url("' + item.user.avatar + '")', backgroundPosition: '-70px -285px' } }),
   																_react2.default.createElement(
   																		'div',
   																		{ className: _Messenger2.default.textWrapper },
@@ -3484,7 +3534,10 @@ module.exports =
   												} }),
   										_react2.default.createElement('div', { className: _Messenger2.default.send, onClick: function onClick(e) {
   														_this2.props.sendMsg({
-  																user: 'test',
+  																user: {
+  																		avatar: '',
+  																		className: _Messenger2.default.me
+  																},
   																text: _this2.props.messenger.input,
   																time: new Date().getTime()
   														});
@@ -3636,6 +3689,12 @@ module.exports =
 
 /***/ },
 /* 97 */
+/***/ function(module, exports) {
+
+  module.exports = require("node-wit");
+
+/***/ },
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3648,7 +3707,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(98);
+  var _Contact = __webpack_require__(99);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3673,7 +3732,7 @@ module.exports =
   };
 
 /***/ },
-/* 98 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3690,7 +3749,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Contact = __webpack_require__(99);
+  var _Contact = __webpack_require__(100);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3732,11 +3791,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 99 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(100);
+      var content = __webpack_require__(101);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3766,7 +3825,7 @@ module.exports =
     
 
 /***/ },
-/* 100 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3783,7 +3842,7 @@ module.exports =
   };
 
 /***/ },
-/* 101 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3796,7 +3855,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(102);
+  var _Login = __webpack_require__(103);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3821,7 +3880,7 @@ module.exports =
   };
 
 /***/ },
-/* 102 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3838,7 +3897,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Login = __webpack_require__(103);
+  var _Login = __webpack_require__(104);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -4007,11 +4066,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 103 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(104);
+      var content = __webpack_require__(105);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4041,7 +4100,7 @@ module.exports =
     
 
 /***/ },
-/* 104 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4068,7 +4127,7 @@ module.exports =
   };
 
 /***/ },
-/* 105 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4081,7 +4140,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(106);
+  var _Register = __webpack_require__(107);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -4106,7 +4165,7 @@ module.exports =
   };
 
 /***/ },
-/* 106 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4123,7 +4182,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Register = __webpack_require__(107);
+  var _Register = __webpack_require__(108);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -4165,11 +4224,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 107 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(108);
+      var content = __webpack_require__(109);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4199,7 +4258,7 @@ module.exports =
     
 
 /***/ },
-/* 108 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4216,7 +4275,7 @@ module.exports =
   };
 
 /***/ },
-/* 109 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4241,7 +4300,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(110);
+  var _Content = __webpack_require__(111);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -4325,7 +4384,7 @@ module.exports =
       */
 
 /***/ },
-/* 110 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4362,7 +4421,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Content = __webpack_require__(111);
+  var _Content = __webpack_require__(112);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -4421,11 +4480,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 111 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(112);
+      var content = __webpack_require__(113);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4455,7 +4514,7 @@ module.exports =
     
 
 /***/ },
-/* 112 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4472,7 +4531,7 @@ module.exports =
   };
 
 /***/ },
-/* 113 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4489,7 +4548,7 @@ module.exports =
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _ErrorPage = __webpack_require__(114);
+  var _ErrorPage = __webpack_require__(115);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4520,7 +4579,7 @@ module.exports =
       */
 
 /***/ },
-/* 114 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4537,7 +4596,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _ErrorPage = __webpack_require__(115);
+  var _ErrorPage = __webpack_require__(116);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4593,11 +4652,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_ErrorPage2.default)(ErrorPage);
 
 /***/ },
-/* 115 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(116);
+      var content = __webpack_require__(117);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4627,7 +4686,7 @@ module.exports =
     
 
 /***/ },
-/* 116 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4641,13 +4700,13 @@ module.exports =
 
 
 /***/ },
-/* 117 */
+/* 118 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 118 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4662,17 +4721,17 @@ module.exports =
   
   exports.default = configureStore;
   
-  var _redux = __webpack_require__(119);
+  var _redux = __webpack_require__(120);
   
-  var _reduxThunk = __webpack_require__(120);
+  var _reduxThunk = __webpack_require__(121);
   
   var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
   
-  var _reducers = __webpack_require__(121);
+  var _reducers = __webpack_require__(122);
   
   var _reducers2 = _interopRequireDefault(_reducers);
   
-  var _createHelpers = __webpack_require__(125);
+  var _createHelpers = __webpack_require__(126);
   
   var _createHelpers2 = _interopRequireDefault(_createHelpers);
   
@@ -4731,43 +4790,16 @@ module.exports =
   }
 
 /***/ },
-/* 119 */
+/* 120 */
 /***/ function(module, exports) {
 
   module.exports = require("redux");
 
 /***/ },
-/* 120 */
+/* 121 */
 /***/ function(module, exports) {
 
   module.exports = require("redux-thunk");
-
-/***/ },
-/* 121 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _redux = __webpack_require__(119);
-  
-  var _runtime = __webpack_require__(122);
-  
-  var _runtime2 = _interopRequireDefault(_runtime);
-  
-  var _messenger = __webpack_require__(124);
-  
-  var _messenger2 = _interopRequireDefault(_messenger);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  exports.default = (0, _redux.combineReducers)({
-    runtime: _runtime2.default,
-    messenger: _messenger2.default
-  });
 
 /***/ },
 /* 122 */
@@ -4779,7 +4811,34 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(123);
+  var _redux = __webpack_require__(120);
+  
+  var _runtime = __webpack_require__(123);
+  
+  var _runtime2 = _interopRequireDefault(_runtime);
+  
+  var _messenger = __webpack_require__(125);
+  
+  var _messenger2 = _interopRequireDefault(_messenger);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = (0, _redux.combineReducers)({
+    runtime: _runtime2.default,
+    messenger: _messenger2.default
+  });
+
+/***/ },
+/* 123 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _defineProperty2 = __webpack_require__(124);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -4806,13 +4865,13 @@ module.exports =
   }
 
 /***/ },
-/* 123 */
+/* 124 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/defineProperty");
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4857,7 +4916,7 @@ module.exports =
   }
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4979,7 +5038,7 @@ module.exports =
   }
 
 /***/ },
-/* 126 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5005,10 +5064,10 @@ module.exports =
   }
 
 /***/ },
-/* 127 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(128);
+  var jade = __webpack_require__(129);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ) ];
@@ -5114,7 +5173,7 @@ module.exports =
   }
 
 /***/ },
-/* 128 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5366,10 +5425,10 @@ module.exports =
 
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(128);
+  var jade = __webpack_require__(129);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ) ];
