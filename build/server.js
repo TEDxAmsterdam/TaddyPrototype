@@ -52,13 +52,13 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _stringify = __webpack_require__(2);
-  
-  var _stringify2 = _interopRequireDefault(_stringify);
-  
-  var _asyncToGenerator2 = __webpack_require__(3);
+  var _asyncToGenerator2 = __webpack_require__(2);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+  
+  var _stringify = __webpack_require__(3);
+  
+  var _stringify2 = _interopRequireDefault(_stringify);
   
   __webpack_require__(4);
   
@@ -116,13 +116,13 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(118);
+  var _assets = __webpack_require__(120);
   
   var _assets2 = _interopRequireDefault(_assets);
   
   var _config = __webpack_require__(21);
   
-  var _configureStore = __webpack_require__(119);
+  var _configureStore = __webpack_require__(121);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
@@ -154,7 +154,9 @@ module.exports =
   // -----------------------------------------------------------------------------
   app.use(_express2.default.static(_path2.default.join(__dirname, 'public')));
   app.use((0, _cookieParser2.default)());
-  app.use(_bodyParser2.default.urlencoded({ extended: true }));
+  app.use(_bodyParser2.default.urlencoded({
+    extended: true
+  }));
   app.use(_bodyParser2.default.json());
   
   //
@@ -171,11 +173,22 @@ module.exports =
   /* jscs:enable requireCamelCaseOrUpperCaseIdentifiers */
   app.use(_passport2.default.initialize());
   
-  app.get('/login/facebook', _passport2.default.authenticate('facebook', { scope: ['email', 'user_location'], session: false }));
-  app.get('/login/facebook/return', _passport2.default.authenticate('facebook', { failureRedirect: '/login', session: false }), function (req, res) {
+  app.get('/login/facebook', _passport2.default.authenticate('facebook', {
+    scope: ['email', 'user_location'],
+    session: false
+  }));
+  app.get('/login/facebook/return', _passport2.default.authenticate('facebook', {
+    failureRedirect: '/login',
+    session: false
+  }), function (req, res) {
     var expiresIn = 60 * 60 * 24 * 180; // 180 days
-    var token = _jsonwebtoken2.default.sign(req.user, _config.auth.jwt.secret, { expiresIn: expiresIn });
-    res.cookie('id_token', token, { maxAge: 1000 * expiresIn, httpOnly: true });
+    var token = _jsonwebtoken2.default.sign(req.user, _config.auth.jwt.secret, {
+      expiresIn: expiresIn
+    });
+    res.cookie('id_token', token, {
+      maxAge: 1000 * expiresIn,
+      httpOnly: true
+    });
     res.redirect('/');
   });
   
@@ -186,10 +199,65 @@ module.exports =
     return {
       schema: _schema2.default,
       graphiql: true,
-      rootValue: { request: req },
+      rootValue: {
+        request: req
+      },
       pretty: ("development") !== 'production'
     };
   }));
+  
+  var Wit = __webpack_require__(128).Wit;
+  var actions = {
+    say: function say(sessionId, context, message, cb) {
+      console.log(message);
+      cb();
+    },
+    merge: function merge(sessionId, context, entities, message, cb) {
+      cb(context);
+    },
+    error: function error(sessionId, context, _error) {
+      console.log(_error.message);
+    }
+  };
+  var client = new Wit('KJN5XTUXGTW27DC7VJ4Y64QX6N7BZXA5', actions);
+  var context = {};
+  
+  app.get('/api/bot', function (req, res, next) {
+  
+    /*client.message(req.query.message, context, (error, data) => {
+      if (error) {
+        console.log('Oops! Got an error: ' + error);
+      } else {
+    		var obj = {
+    			  user: {
+    	        avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
+    	      },
+    	      text: JSON.stringify(data),
+    	      time: new Date().getTime()
+    		};
+         console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
+     		res.json(obj);
+      }
+    });*/
+  
+    client.converse('my-user-session-42', req.query.message, {}, function (error, data) {
+      if (error) {
+        console.log('Oops! Got an error: ' + error);
+      } else {
+  
+        var obj = {
+          user: {
+            avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180'
+          },
+          text: (0, _stringify2.default)(data.msg),
+          time: new Date().getTime()
+        };
+  
+        console.log('Yay, got Wit.ai response: ' + (0, _stringify2.default)(data));
+        res.json(obj);
+      }
+    });
+  });
   
   //
   // Register server-side rendering middleware
@@ -209,9 +277,15 @@ module.exports =
                       case 0:
                         css = [];
                         statusCode = 200;
-                        template = __webpack_require__(128); // eslint-disable-line global-require
+                        template = __webpack_require__(129); // eslint-disable-line global-require
   
-                        data = { title: '', description: '', css: '', body: '', entry: _assets2.default.main.js };
+                        data = {
+                          title: '',
+                          description: '',
+                          css: '',
+                          body: '',
+                          entry: _assets2.default.main.js
+                        };
   
   
                         if (false) {
@@ -301,7 +375,7 @@ module.exports =
   app.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(130); // eslint-disable-line global-require
+    var template = __webpack_require__(131); // eslint-disable-line global-require
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -333,13 +407,13 @@ module.exports =
 /* 2 */
 /***/ function(module, exports) {
 
-  module.exports = require("babel-runtime/core-js/json/stringify");
+  module.exports = require("babel-runtime/helpers/asyncToGenerator");
 
 /***/ },
 /* 3 */
 /***/ function(module, exports) {
 
-  module.exports = require("babel-runtime/helpers/asyncToGenerator");
+  module.exports = require("babel-runtime/core-js/json/stringify");
 
 /***/ },
 /* 4 */
@@ -421,7 +495,7 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(3);
+  var _asyncToGenerator2 = __webpack_require__(2);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -1123,7 +1197,7 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(3);
+  var _asyncToGenerator2 = __webpack_require__(2);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -1648,7 +1722,7 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(3);
+  var _asyncToGenerator2 = __webpack_require__(2);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -1668,23 +1742,23 @@ module.exports =
   
   var _chat2 = _interopRequireDefault(_chat);
   
-  var _contact = __webpack_require__(98);
+  var _contact = __webpack_require__(100);
   
   var _contact2 = _interopRequireDefault(_contact);
   
-  var _login = __webpack_require__(102);
+  var _login = __webpack_require__(104);
   
   var _login2 = _interopRequireDefault(_login);
   
-  var _register = __webpack_require__(106);
+  var _register = __webpack_require__(108);
   
   var _register2 = _interopRequireDefault(_register);
   
-  var _content = __webpack_require__(110);
+  var _content = __webpack_require__(112);
   
   var _content2 = _interopRequireDefault(_content);
   
-  var _error = __webpack_require__(114);
+  var _error = __webpack_require__(116);
   
   var _error2 = _interopRequireDefault(_error);
   
@@ -2041,7 +2115,7 @@ module.exports =
   
   var _assign2 = _interopRequireDefault(_assign);
   
-  var _stringify = __webpack_require__(2);
+  var _stringify = __webpack_require__(3);
   
   var _stringify2 = _interopRequireDefault(_stringify);
   
@@ -2952,11 +3026,11 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _stringify = __webpack_require__(2);
+  var _stringify = __webpack_require__(3);
   
   var _stringify2 = _interopRequireDefault(_stringify);
   
-  var _asyncToGenerator2 = __webpack_require__(3);
+  var _asyncToGenerator2 = __webpack_require__(2);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -3277,10 +3351,6 @@ module.exports =
     value: true
   });
   
-  var _stringify = __webpack_require__(2);
-  
-  var _stringify2 = _interopRequireDefault(_stringify);
-  
   var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
@@ -3293,55 +3363,70 @@ module.exports =
   
   var _Chat2 = _interopRequireDefault(_Chat);
   
-  var _Messenger = __webpack_require__(92);
+  var _reactRedux = __webpack_require__(81);
+  
+  var _redux = __webpack_require__(92);
+  
+  var _Messenger = __webpack_require__(93);
   
   var _Messenger2 = _interopRequireDefault(_Messenger);
   
-  var _messenger = __webpack_require__(95);
+  var _messenger = __webpack_require__(99);
+  
+  var _messenger2 = _interopRequireDefault(_messenger);
+  
+  var _messenger3 = __webpack_require__(96);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var title = 'TEDDYxAmsterdam'; /**
-                                  * React Starter Kit (https://www.reactstarterkit.com/)
-                                  *
-                                  * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-                                  *
-                                  * This source code is licensed under the MIT license found in the
-                                  * LICENSE.txt file in the root directory of this source tree.
-                                  */
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
   
-  var Wit = __webpack_require__(97).Wit;
-  var actions = {
-    say: function say(sessionId, context, message, cb) {
+  var store = (0, _redux.createStore)(_messenger2.default);
+  
+  var title = 'TEDDYxAmsterdam';
+  
+  /*const Wit = require('node-wit').Wit;
+  const actions = {
+    say(sessionId, context, message, cb) {
       console.log(message);
       cb();
     },
-    merge: function merge(sessionId, context, entities, message, cb) {
+    merge(sessionId, context, entities, message, cb) {
       cb(context);
     },
-    error: function error(sessionId, context, _error) {
-      console.log(_error.message);
-    }
+    error(sessionId, context, error) {
+      console.log(error.message);
+    },
   };
-  var client = new Wit('KJN5XTUXGTW27DC7VJ4Y64QX6N7BZXA5', actions);
-  var context = {};
-  client.message('Hi my name is Dave', context, function (error, data) {
+  const client = new Wit('KJN5XTUXGTW27DC7VJ4Y64QX6N7BZXA5', actions);
+  const context = {};
+  
+  client.message('Hi my name is Dave', context, (error, data) => {
     if (error) {
       console.log('Oops! Got an error: ' + error);
     } else {
-      (0, _messenger.sendMsg)({
-        user: {
-          avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
-          className: _Chat2.default.them
-        },
-        text: (0, _stringify2.default)(data),
-        time: new Date().getTime()
-      });
+  		store.dispatch(sendMsg({
+  			  user: {
+  	        avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
+  	        className: s.them
+  	      },
+  	      text: JSON.stringify(data),
+  	      time: new Date().getTime()
+  		}));
   
-      console.log('Yay, got Wit.ai response: ' + (0, _stringify2.default)(data));
+      console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
     }
   });
   
+  //	store.subscribe(() => { console.log('state', store.getState()) });
+  */
   function Chat(props, context) {
     context.setTitle(title);
     return _react2.default.createElement(_Messenger2.default, null);
@@ -3351,7 +3436,18 @@ module.exports =
     setTitle: _react.PropTypes.func.isRequired
   };
   
-  exports.default = (0, _withStyles2.default)(_Chat2.default)(Chat);
+  var mapState = function mapState(state) {
+    return {
+      messenger: state.messenger
+    };
+  };
+  
+  var mapDispatch = {
+    sendMsg: _messenger3.sendMsg,
+    updateMsger: _messenger3.updateMsger
+  };
+  
+  exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _withStyles2.default)(_Chat2.default)(Chat));
 
 /***/ },
 /* 90 */
@@ -3406,6 +3502,12 @@ module.exports =
 
 /***/ },
 /* 92 */
+/***/ function(module, exports) {
+
+  module.exports = require("redux");
+
+/***/ },
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3442,13 +3544,17 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Messenger = __webpack_require__(93);
+  var _Messenger = __webpack_require__(94);
   
   var _Messenger2 = _interopRequireDefault(_Messenger);
   
   var _reactRedux = __webpack_require__(81);
   
-  var _messenger = __webpack_require__(95);
+  var _messenger = __webpack_require__(96);
+  
+  var _isomorphicFetch = __webpack_require__(98);
+  
+  var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -3463,17 +3569,29 @@ module.exports =
   		}
   
   		(0, _createClass3.default)(Messenger, [{
-  				key: 'componentDidMount',
-  				value: function componentDidMount() {
-  						this.props.sendMsg({
-  								user: {
-  										avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
-  										className: _Messenger2.default.them
-  								},
-  								text: 'Hello! My name is TeddyX, What is your name?',
-  								time: new Date().getTime()
+  				key: 'chatWithBot',
+  				value: function chatWithBot(props) {
+  						(0, _isomorphicFetch2.default)('/api/bot?message=' + props.messenger.input).then(function (response) {
+  								return response.json();
+  						}).then(function (data) {
+  								if (data.text) {
+  										console.log(data, 'from chatbot');
+  										var update = {
+  												user: {
+  														avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
+  														className: _Messenger2.default.them
+  												},
+  												text: data.text,
+  												time: new Date().getTime()
+  										};
+  										props.sendMsg(update);
+  								}
   						});
+  						return props.messenger.input;
   				}
+  		}, {
+  				key: 'componentDidMount',
+  				value: function componentDidMount() {}
   		}, {
   				key: 'render',
   				value: function render() {
@@ -3538,7 +3656,7 @@ module.exports =
   																		avatar: '',
   																		className: _Messenger2.default.me
   																},
-  																text: _this2.props.messenger.input,
+  																text: _this2.chatWithBot(_this2.props),
   																time: new Date().getTime()
   														});
   														e.preventDefault();
@@ -3571,11 +3689,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _withStyles2.default)(_Messenger2.default)(Messenger));
 
 /***/ },
-/* 93 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(94);
+      var content = __webpack_require__(95);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3605,7 +3723,7 @@ module.exports =
     
 
 /***/ },
-/* 94 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3639,7 +3757,7 @@ module.exports =
   };
 
 /***/ },
-/* 95 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3650,7 +3768,7 @@ module.exports =
   exports.updateMsger = updateMsger;
   exports.sendMsg = sendMsg;
   
-  var _constants = __webpack_require__(96);
+  var _constants = __webpack_require__(97);
   
   var ActionTypes = _interopRequireWildcard(_constants);
   
@@ -3675,7 +3793,7 @@ module.exports =
   }
 
 /***/ },
-/* 96 */
+/* 97 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -3688,13 +3806,59 @@ module.exports =
   var MESSENGER_UPDATE = exports.MESSENGER_UPDATE = 'MESSENGER_UPDATE';
 
 /***/ },
-/* 97 */
+/* 98 */
 /***/ function(module, exports) {
 
-  module.exports = require("node-wit");
+  module.exports = require("isomorphic-fetch");
 
 /***/ },
-/* 98 */
+/* 99 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _extends2 = __webpack_require__(62);
+  
+  var _extends3 = _interopRequireDefault(_extends2);
+  
+  exports.default = messenger;
+  
+  var _constants = __webpack_require__(97);
+  
+  var ActionTypes = _interopRequireWildcard(_constants);
+  
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var defaultState = {
+    messageList: [],
+    input: ''
+  };
+  
+  function messenger() {
+    var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];
+    var action = arguments[1];
+  
+    switch (action.type) {
+      case ActionTypes.MESSENGER_UPDATE:
+        return (0, _extends3.default)({}, state, {
+          input: action.payload.message
+        });
+      case ActionTypes.MESSENGER_SEND:
+        state.messageList.push(action.payload.message);
+        return (0, _extends3.default)({}, state);
+      default:
+        return state;
+    }
+  }
+
+/***/ },
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3707,7 +3871,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(99);
+  var _Contact = __webpack_require__(101);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3732,7 +3896,7 @@ module.exports =
   };
 
 /***/ },
-/* 99 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3749,7 +3913,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Contact = __webpack_require__(100);
+  var _Contact = __webpack_require__(102);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3791,11 +3955,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 100 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(101);
+      var content = __webpack_require__(103);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -3825,7 +3989,7 @@ module.exports =
     
 
 /***/ },
-/* 101 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -3842,7 +4006,7 @@ module.exports =
   };
 
 /***/ },
-/* 102 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3855,7 +4019,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(103);
+  var _Login = __webpack_require__(105);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3880,7 +4044,7 @@ module.exports =
   };
 
 /***/ },
-/* 103 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3897,7 +4061,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Login = __webpack_require__(104);
+  var _Login = __webpack_require__(106);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -4066,11 +4230,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 104 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(105);
+      var content = __webpack_require__(107);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4100,7 +4264,7 @@ module.exports =
     
 
 /***/ },
-/* 105 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4127,7 +4291,7 @@ module.exports =
   };
 
 /***/ },
-/* 106 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4140,7 +4304,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(107);
+  var _Register = __webpack_require__(109);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -4165,7 +4329,7 @@ module.exports =
   };
 
 /***/ },
-/* 107 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4182,7 +4346,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Register = __webpack_require__(108);
+  var _Register = __webpack_require__(110);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -4224,11 +4388,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 108 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(109);
+      var content = __webpack_require__(111);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4258,7 +4422,7 @@ module.exports =
     
 
 /***/ },
-/* 109 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4275,7 +4439,7 @@ module.exports =
   };
 
 /***/ },
-/* 110 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4288,11 +4452,11 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _stringify = __webpack_require__(2);
+  var _stringify = __webpack_require__(3);
   
   var _stringify2 = _interopRequireDefault(_stringify);
   
-  var _asyncToGenerator2 = __webpack_require__(3);
+  var _asyncToGenerator2 = __webpack_require__(2);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -4300,7 +4464,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(111);
+  var _Content = __webpack_require__(113);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -4384,7 +4548,7 @@ module.exports =
       */
 
 /***/ },
-/* 111 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4421,7 +4585,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Content = __webpack_require__(112);
+  var _Content = __webpack_require__(114);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -4480,11 +4644,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 112 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(113);
+      var content = __webpack_require__(115);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4514,7 +4678,7 @@ module.exports =
     
 
 /***/ },
-/* 113 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4531,7 +4695,7 @@ module.exports =
   };
 
 /***/ },
-/* 114 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4548,7 +4712,7 @@ module.exports =
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _ErrorPage = __webpack_require__(115);
+  var _ErrorPage = __webpack_require__(117);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4579,7 +4743,7 @@ module.exports =
       */
 
 /***/ },
-/* 115 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4596,7 +4760,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _ErrorPage = __webpack_require__(116);
+  var _ErrorPage = __webpack_require__(118);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4652,11 +4816,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_ErrorPage2.default)(ErrorPage);
 
 /***/ },
-/* 116 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(117);
+      var content = __webpack_require__(119);
       var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
@@ -4686,7 +4850,7 @@ module.exports =
     
 
 /***/ },
-/* 117 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(54)();
@@ -4700,13 +4864,13 @@ module.exports =
 
 
 /***/ },
-/* 118 */
+/* 120 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 119 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4715,19 +4879,19 @@ module.exports =
     value: true
   });
   
-  var _stringify = __webpack_require__(2);
+  var _stringify = __webpack_require__(3);
   
   var _stringify2 = _interopRequireDefault(_stringify);
   
   exports.default = configureStore;
   
-  var _redux = __webpack_require__(120);
+  var _redux = __webpack_require__(92);
   
-  var _reduxThunk = __webpack_require__(121);
+  var _reduxThunk = __webpack_require__(122);
   
   var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
   
-  var _reducers = __webpack_require__(122);
+  var _reducers = __webpack_require__(123);
   
   var _reducers2 = _interopRequireDefault(_reducers);
   
@@ -4790,43 +4954,10 @@ module.exports =
   }
 
 /***/ },
-/* 120 */
-/***/ function(module, exports) {
-
-  module.exports = require("redux");
-
-/***/ },
-/* 121 */
+/* 122 */
 /***/ function(module, exports) {
 
   module.exports = require("redux-thunk");
-
-/***/ },
-/* 122 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _redux = __webpack_require__(120);
-  
-  var _runtime = __webpack_require__(123);
-  
-  var _runtime2 = _interopRequireDefault(_runtime);
-  
-  var _messenger = __webpack_require__(125);
-  
-  var _messenger2 = _interopRequireDefault(_messenger);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  exports.default = (0, _redux.combineReducers)({
-    runtime: _runtime2.default,
-    messenger: _messenger2.default
-  });
 
 /***/ },
 /* 123 */
@@ -4838,7 +4969,34 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(124);
+  var _redux = __webpack_require__(92);
+  
+  var _runtime = __webpack_require__(124);
+  
+  var _runtime2 = _interopRequireDefault(_runtime);
+  
+  var _messenger = __webpack_require__(99);
+  
+  var _messenger2 = _interopRequireDefault(_messenger);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = (0, _redux.combineReducers)({
+    runtime: _runtime2.default,
+    messenger: _messenger2.default
+  });
+
+/***/ },
+/* 124 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _defineProperty2 = __webpack_require__(125);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -4848,7 +5006,7 @@ module.exports =
   
   exports.default = runtime;
   
-  var _constants = __webpack_require__(96);
+  var _constants = __webpack_require__(97);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -4865,55 +5023,10 @@ module.exports =
   }
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/defineProperty");
-
-/***/ },
-/* 125 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _extends2 = __webpack_require__(62);
-  
-  var _extends3 = _interopRequireDefault(_extends2);
-  
-  exports.default = messenger;
-  
-  var _constants = __webpack_require__(96);
-  
-  var ActionTypes = _interopRequireWildcard(_constants);
-  
-  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  var defaultState = {
-    messageList: [],
-    input: ''
-  };
-  
-  function messenger() {
-    var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];
-    var action = arguments[1];
-  
-    switch (action.type) {
-      case ActionTypes.MESSENGER_UPDATE:
-        return (0, _extends3.default)({}, state, { input: action.payload.message
-        });
-      case ActionTypes.MESSENGER_SEND:
-        state.messageList.push(action.payload.message);
-        return (0, _extends3.default)({}, state);
-      default:
-        return state;
-    }
-  }
 
 /***/ },
 /* 126 */
@@ -4933,11 +5046,11 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _stringify = __webpack_require__(2);
+  var _stringify = __webpack_require__(3);
   
   var _stringify2 = _interopRequireDefault(_stringify);
   
-  var _asyncToGenerator2 = __webpack_require__(3);
+  var _asyncToGenerator2 = __webpack_require__(2);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -5048,7 +5161,7 @@ module.exports =
   });
   exports.setRuntimeVariable = setRuntimeVariable;
   
-  var _constants = __webpack_require__(96);
+  var _constants = __webpack_require__(97);
   
   function setRuntimeVariable(_ref) {
     var name = _ref.name;
@@ -5065,52 +5178,58 @@ module.exports =
 
 /***/ },
 /* 128 */
+/***/ function(module, exports) {
+
+  module.exports = require("node-wit");
+
+/***/ },
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(129);
+  var jade = __webpack_require__(130);
   
   module.exports = function template(locals) {
-  var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ) ];
+  var jade_debug = [ new jade.DebugItem( 1, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ) ];
   try {
   var buf = [];
   var jade_mixins = {};
   var jade_interp;
   ;var locals_for_with = (locals || {});(function (body, css, description, entry, state, title, trackingId) {
-  jade_debug.unshift(new jade.DebugItem( 0, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
-  jade_debug.unshift(new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 0, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 1, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<!DOCTYPE html>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 2, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 2, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<html lang=\"\" class=\"no-js\">");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 3, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 3, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<head>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 4, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 4, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<meta charset=\"utf-8\">");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 5, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 5, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 6, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 6, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<title>" + (jade.escape(null == (jade_interp = title) ? "" : jade_interp)));
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
   buf.push("</title>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 7, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 7, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<meta name=\"description\"" + (jade.attr("description", description, true, true)) + ">");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 8, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 8, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 9, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 9, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 10, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 10, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<link rel=\"stylesheet\" href=\"//s3-us-west-2.amazonaws.com/s.cdpn.io/104946/animate.min.css\">");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 11, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 11, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<style id=\"css\">" + (null == (jade_interp = css) ? "" : jade_interp));
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
@@ -5119,22 +5238,22 @@ module.exports =
   jade_debug.shift();
   buf.push("</head>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 12, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 12, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<body>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 13, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 13, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<div id=\"app\">" + (null == (jade_interp = body) ? "" : jade_interp));
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
   buf.push("</div>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 14, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 14, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script id=\"source\"" + (jade.attr("src", entry, true, true)) + (jade.attr("data-initial-state", state, true, true)) + ">");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
   buf.push("</script>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 15, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 15, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script>");
   jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
   jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
@@ -5147,11 +5266,11 @@ module.exports =
   jade_debug.shift();
   buf.push("</script>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 18, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 18, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   if ( trackingId)
   {
-  jade_debug.unshift(new jade.DebugItem( 19, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
-  jade_debug.unshift(new jade.DebugItem( 19, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 19, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 19, "/Users/daveligthart/Projects/TaddyPrototype/src/views/index.jade" ));
   buf.push("<script src=\"https://www.google-analytics.com/analytics.js\" async defer>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
@@ -5173,7 +5292,7 @@ module.exports =
   }
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5425,32 +5544,32 @@ module.exports =
 
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(129);
+  var jade = __webpack_require__(130);
   
   module.exports = function template(locals) {
-  var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ) ];
+  var jade_debug = [ new jade.DebugItem( 1, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ) ];
   try {
   var buf = [];
   var jade_mixins = {};
   var jade_interp;
   ;var locals_for_with = (locals || {});(function (stack) {
-  jade_debug.unshift(new jade.DebugItem( 0, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
-  jade_debug.unshift(new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 0, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 1, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<!DOCTYPE html>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 2, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 2, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<html lang=\"en\">");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 3, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 3, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<head>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 4, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 4, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<meta charset=\"utf-8\">");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 5, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 5, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<title>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.unshift(new jade.DebugItem( 5, jade_debug[0].filename ));
@@ -5459,10 +5578,10 @@ module.exports =
   jade_debug.shift();
   buf.push("</title>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 6, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 6, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 7, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 7, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<style>");
   jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
   jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
@@ -5666,10 +5785,10 @@ module.exports =
   jade_debug.shift();
   buf.push("</head>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 57, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 57, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<body>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
-  jade_debug.unshift(new jade.DebugItem( 58, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 58, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<h1>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.unshift(new jade.DebugItem( 58, jade_debug[0].filename ));
@@ -5678,7 +5797,7 @@ module.exports =
   jade_debug.shift();
   buf.push("</h1>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 59, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 59, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<p>");
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.unshift(new jade.DebugItem( 59, jade_debug[0].filename ));
@@ -5687,7 +5806,7 @@ module.exports =
   jade_debug.shift();
   buf.push("</p>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 60, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 60, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<pre>" + (jade.escape(null == (jade_interp = stack) ? "" : jade_interp)));
   jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
   jade_debug.shift();
@@ -5699,7 +5818,7 @@ module.exports =
   jade_debug.shift();
   buf.push("</html>");
   jade_debug.shift();
-  jade_debug.unshift(new jade.DebugItem( 61, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 61, "/Users/daveligthart/Projects/TaddyPrototype/src/views/error.jade" ));
   buf.push("<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx-->");
   jade_debug.shift();
   jade_debug.shift();}.call(this,"stack" in locals_for_with?locals_for_with.stack:typeof stack!=="undefined"?stack:undefined));;return buf.join("");

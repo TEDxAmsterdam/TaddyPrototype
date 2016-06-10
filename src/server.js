@@ -16,16 +16,24 @@ import expressJwt from 'express-jwt';
 import expressGraphQL from 'express-graphql';
 import jwt from 'jsonwebtoken';
 import ReactDOM from 'react-dom/server';
-import { match } from 'universal-router';
+import {
+  match
+} from 'universal-router';
 import PrettyError from 'pretty-error';
 import passport from './core/passport';
 import models from './data/models';
 import schema from './data/schema';
 import routes from './routes';
 import assets from './assets'; // eslint-disable-line import/no-unresolved
-import { port, auth, analytics } from './config';
+import {
+  port,
+  auth,
+  analytics
+} from './config';
 import configureStore from './redux/store/configureStore';
-import { setRuntimeVariable } from './redux/actions/runtime';
+import {
+  setRuntimeVariable
+} from './redux/actions/runtime';
 
 const app = express();
 
@@ -41,7 +49,9 @@ global.navigator.userAgent = global.navigator.userAgent || 'all';
 // -----------------------------------------------------------------------------
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
 //
@@ -57,14 +67,25 @@ app.use(expressJwt({
 app.use(passport.initialize());
 
 app.get('/login/facebook',
-  passport.authenticate('facebook', { scope: ['email', 'user_location'], session: false })
+  passport.authenticate('facebook', {
+    scope: ['email', 'user_location'],
+    session: false
+  })
 );
 app.get('/login/facebook/return',
-  passport.authenticate('facebook', { failureRedirect: '/login', session: false }),
+  passport.authenticate('facebook', {
+    failureRedirect: '/login',
+    session: false
+  }),
   (req, res) => {
     const expiresIn = 60 * 60 * 24 * 180; // 180 days
-    const token = jwt.sign(req.user, auth.jwt.secret, { expiresIn });
-    res.cookie('id_token', token, { maxAge: 1000 * expiresIn, httpOnly: true });
+    const token = jwt.sign(req.user, auth.jwt.secret, {
+      expiresIn
+    });
+    res.cookie('id_token', token, {
+      maxAge: 1000 * expiresIn,
+      httpOnly: true
+    });
     res.redirect('/');
   }
 );
@@ -75,19 +96,82 @@ app.get('/login/facebook/return',
 app.use('/graphql', expressGraphQL(req => ({
   schema,
   graphiql: true,
-  rootValue: { request: req },
+  rootValue: {
+    request: req
+  },
   pretty: process.env.NODE_ENV !== 'production',
 })));
+
+const Wit = require('node-wit').Wit;
+const actions = {
+  say(sessionId, context, message, cb) {
+    console.log(message);
+    cb();
+  },
+  merge(sessionId, context, entities, message, cb) {
+    cb(context);
+  },
+  error(sessionId, context, error) {
+    console.log(error.message);
+  },
+};
+const client = new Wit('KJN5XTUXGTW27DC7VJ4Y64QX6N7BZXA5', actions);
+const context = {};
+
+app.get('/api/bot', function(req, res, next) {
+
+  /*client.message(req.query.message, context, (error, data) => {
+    if (error) {
+      console.log('Oops! Got an error: ' + error);
+    } else {
+  		var obj = {
+  			  user: {
+  	        avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
+  	      },
+  	      text: JSON.stringify(data),
+  	      time: new Date().getTime()
+  		};
+
+      console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
+
+  		res.json(obj);
+    }
+  });*/
+
+  client.converse('my-user-session-42', req.query.message, {}, (error, data) => {
+    if (error) {
+      console.log('Oops! Got an error: ' + error);
+    } else {
+
+      var obj = {
+        user: {
+          avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
+        },
+        text: JSON.stringify(data.msg),
+        time: new Date().getTime()
+      };
+
+      console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
+      res.json(obj);
+    }
+  });
+});
 
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------
-app.get('*', async (req, res, next) => {
+app.get('*', async(req, res, next) => {
   try {
     let css = [];
     let statusCode = 200;
     const template = require('./views/index.jade'); // eslint-disable-line global-require
-    const data = { title: '', description: '', css: '', body: '', entry: assets.main.js };
+    const data = {
+      title: '',
+      description: '',
+      css: '',
+      body: '',
+      entry: assets.main.js
+    };
 
     if (process.env.NODE_ENV === 'production') {
       data.trackingId = analytics.google.trackingId;

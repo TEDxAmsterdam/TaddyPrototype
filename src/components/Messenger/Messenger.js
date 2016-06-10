@@ -4,6 +4,7 @@ import s from './Messenger.css';
 const cx = require('classnames');
 import { connect } from 'react-redux';
 import { sendMsg, updateMsger } from '../../redux/actions/messenger';
+import fetch from 'isomorphic-fetch';
 
 class Messenger extends Component {
   static propTypes = {
@@ -12,16 +13,27 @@ class Messenger extends Component {
     updateMsger: PropTypes.func.isRequired,
   };
 
-	componentDidMount() {
-		this.props.sendMsg({
-			user: {
-				avatar:'//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
-				className: s.them
-			},
-			text: 'Hello! My name is TeddyX, What is your name?',
-			time: new Date().getTime()
-		});
+	chatWithBot(props) {
+				fetch(`/api/bot?message=${props.messenger.input}`)
+				.then(response => response.json())
+				.then(function(data) {
+					if(data.text) {
+						console.log(data, 'from chatbot');
+						let update = {
+							user: {
+								avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
+							className: s.them
+							},
+							text: data.text,
+							time: new Date().getTime()
+						};
+						props.sendMsg(update);
+					}
+				});
+			return props.messenger.input;
+	};
 
+	componentDidMount() {
 
 	};
 
@@ -61,7 +73,7 @@ class Messenger extends Component {
 											avatar:'',
 											className: s.me
 										},
-						        text: this.props.messenger.input,
+						        text: this.chatWithBot(this.props),
 						        time: new Date().getTime()
 						      });
                   e.preventDefault();
