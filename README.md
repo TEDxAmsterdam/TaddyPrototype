@@ -1,2 +1,0 @@
-# TaddyPrototype
-conversational AI
