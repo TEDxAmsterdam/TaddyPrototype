@@ -1,13 +1,15 @@
 import { SET_RUNTIME_VARIABLE } from '../constants';
 
+const actionsMap = {
+  [SET_RUNTIME_VARIABLE]: (state, action) => ({
+    ...state,
+    [action.payload.name]: action.payload.value,
+  }),
+};
+
 export default function runtime(state = {}, action) {
-  switch (action.type) {
-    case SET_RUNTIME_VARIABLE:
-      return {
-        ...state,
-        [action.payload.name]: action.payload.value,
-      };
-    default:
-      return state;
-  }
+  const reduceFn = actionsMap[action.type];
+  if (!reduceFn) return state;
+
+  return { ...state, ...reduceFn(state, action) };
 }
