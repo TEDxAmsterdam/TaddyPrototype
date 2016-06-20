@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import { sendMsg, updateMsger } from '../../redux/actions/messenger';
 import fetch from 'isomorphic-fetch';
 
+const io = require('socket.io-client');
+const socket = io.connect('http://tedxchatbot.herokuapp.com');
+
 class Messenger extends Component {
   static propTypes = {
     messenger: PropTypes.object,
@@ -14,27 +17,30 @@ class Messenger extends Component {
   };
 
 	chatWithBot(props) {
-				fetch(`/api/bot?message=${props.messenger.input}`)
-				.then(response => response.json())
-				.then(function(data) {
-					if(data.text) {
-						console.log(data, 'from chatbot');
-						let update = {
-							user: {
-								avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
-							className: s.them
-							},
-							text: data.text,
-							time: new Date().getTime()
-						};
-						props.sendMsg(update);
-					}
-				});
-			return props.messenger.input;
+		var data = {
+			user: 'You',
+			channel: socket.io.engine.id,
+			text: props.messenger.input,
+		  time: new Date().getTime()
+		};
+		socket.emit('message', data);
+    props.updateMsger('');
+    return props.messenger.input;
 	};
 
-	componentDidMount() {
+	componentWillMount() {
+    const comp = this;
 
+		socket.on('connect', function() {
+			console.log('Client has connected to the server!');
+      socket.on('message', function(data) {
+        data.user = { name: data.user, className: s.them };
+        comp.props.sendMsg(data);
+      });
+		});
+		socket.on('disconnect', function() {
+			console.log('The client has disconnected!');
+		});
 	};
 
 	render() {
@@ -63,7 +69,7 @@ class Messenger extends Component {
 						</div>
 		      </div>
 		      <div className={s.bottom}>
-		          <textarea className={s.input} onChange={(e) => {
+		          <textarea className={s.input} value={this.props.messenger.input} onChange={(e) => {
                   this.props.updateMsger(e.target.value);
                   e.preventDefault();
                 }}></textarea>

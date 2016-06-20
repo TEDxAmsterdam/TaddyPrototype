@@ -202,7 +202,7 @@ module.exports =
       rootValue: {
         request: req
       },
-      pretty: ("production") !== 'production'
+      pretty: ("development") !== 'production'
     };
   }));
   
@@ -288,7 +288,7 @@ module.exports =
                         };
   
   
-                        if (true) {
+                        if (false) {
                           data.trackingId = _config.analytics.google.trackingId;
                         }
   
@@ -380,7 +380,7 @@ module.exports =
     res.status(statusCode);
     res.send(template({
       message: err.message,
-      stack:  true ? '' : err.stack
+      stack:  false ? '' : err.stack
     }));
   });
   
@@ -1722,27 +1722,23 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
   var _asyncToGenerator2 = __webpack_require__(2);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _App = __webpack_require__(46);
+  var _App = __webpack_require__(45);
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _home = __webpack_require__(83);
+  var _home = __webpack_require__(82);
   
   var _home2 = _interopRequireDefault(_home);
   
-  var _chat = __webpack_require__(89);
+  var _chat = __webpack_require__(88);
   
   var _chat2 = _interopRequireDefault(_chat);
   
@@ -1800,9 +1796,11 @@ module.exports =
                 return _context.abrupt('return', component);
   
               case 5:
-                return _context.abrupt('return', render((0, _jsx3.default)(_App2.default, {
-                  context: context
-                }, void 0, component)));
+                return _context.abrupt('return', render(_react2.default.createElement(
+                  _App2.default,
+                  { context: context },
+                  component
+                )));
   
               case 6:
               case 'end':
@@ -1828,16 +1826,10 @@ module.exports =
 /* 44 */
 /***/ function(module, exports) {
 
-  module.exports = require("babel-runtime/helpers/jsx");
-
-/***/ },
-/* 45 */
-/***/ function(module, exports) {
-
   module.exports = require("react");
 
 /***/ },
-/* 46 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -1846,66 +1838,53 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _getPrototypeOf = __webpack_require__(47);
+  var _getPrototypeOf = __webpack_require__(46);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(48);
+  var _classCallCheck2 = __webpack_require__(47);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(49);
+  var _createClass2 = __webpack_require__(48);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(50);
+  var _possibleConstructorReturn2 = __webpack_require__(49);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(51);
+  var _inherits2 = __webpack_require__(50);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _emptyFunction = __webpack_require__(52);
+  var _emptyFunction = __webpack_require__(51);
   
   var _emptyFunction2 = _interopRequireDefault(_emptyFunction);
   
-  var _App = __webpack_require__(53);
+  var _App = __webpack_require__(52);
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _Header = __webpack_require__(58);
+  var _Header = __webpack_require__(57);
   
   var _Header2 = _interopRequireDefault(_Header);
   
-  var _Feedback = __webpack_require__(76);
+  var _Feedback = __webpack_require__(75);
   
   var _Feedback2 = _interopRequireDefault(_Feedback);
   
-  var _Footer = __webpack_require__(79);
+  var _Footer = __webpack_require__(78);
   
   var _Footer2 = _interopRequireDefault(_Footer);
   
-  var _reactRedux = __webpack_require__(82);
+  var _reactRedux = __webpack_require__(81);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  var _ref = (0, _jsx3.default)(_Header2.default, {}); /**
-                                                        * React Starter Kit (https://www.reactstarterkit.com/)
-                                                        *
-                                                        * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-                                                        *
-                                                        * This source code is licensed under the MIT license found in the
-                                                        * LICENSE.txt file in the root directory of this source tree.
-                                                        */
   
   var App = function (_Component) {
     (0, _inherits3.default)(App, _Component);
@@ -1945,16 +1924,38 @@ module.exports =
         }
   
         var store = this.props.context.store;
-        return (0, _jsx3.default)(_reactRedux.Provider, {
-          store: store
-        }, void 0, (0, _jsx3.default)('div', {
-          className: _App2.default.root
-        }, void 0, _ref, this.props.children));
+        return _react2.default.createElement(
+          _reactRedux.Provider,
+          { store: store },
+          _react2.default.createElement(
+            'div',
+            { className: _App2.default.root },
+            _react2.default.createElement(_Header2.default, null),
+            this.props.children
+          )
+        );
       }
     }]);
     return App;
-  }(_react.Component);
+  }(_react.Component); /**
+                        * React Starter Kit (https://www.reactstarterkit.com/)
+                        *
+                        * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                        *
+                        * This source code is licensed under the MIT license found in the
+                        * LICENSE.txt file in the root directory of this source tree.
+                        */
   
+  App.propTypes = {
+    context: _react.PropTypes.shape({
+      store: _react.PropTypes.object.isRequired,
+      insertCss: _react.PropTypes.func,
+      setTitle: _react.PropTypes.func,
+      setMeta: _react.PropTypes.func
+    }).isRequired,
+    children: _react.PropTypes.element.isRequired,
+    error: _react.PropTypes.object
+  };
   App.childContextTypes = {
     insertCss: _react.PropTypes.func.isRequired,
     setTitle: _react.PropTypes.func.isRequired,
@@ -1963,48 +1964,48 @@ module.exports =
   exports.default = App;
 
 /***/ },
-/* 47 */
+/* 46 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/object/get-prototype-of");
 
 /***/ },
-/* 48 */
+/* 47 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/classCallCheck");
 
 /***/ },
-/* 49 */
+/* 48 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/createClass");
 
 /***/ },
-/* 50 */
+/* 49 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/possibleConstructorReturn");
 
 /***/ },
-/* 51 */
+/* 50 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/inherits");
 
 /***/ },
-/* 52 */
+/* 51 */
 /***/ function(module, exports) {
 
   module.exports = require("fbjs/lib/emptyFunction");
 
 /***/ },
-/* 53 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(54);
-      var insertCss = __webpack_require__(56);
+      var content = __webpack_require__(53);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -2014,25 +2015,42 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./App.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./App.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
-/* 54 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}\n\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */html{color:#222;font-weight:100;font-size:1em;font-family:HelveticaNeue-Light,Segoe UI,sans-serif;line-height:1.375;box-sizing:border-box;background-color:#290300}._3AVL,body,html{height:100%}a{color:#0074c2}::-moz-selection{background:#b3d4fc;text-shadow:none}::selection{background:#b3d4fc;text-shadow:none}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}audio,canvas,iframe,img,svg,video{vertical-align:middle}fieldset{border:0;margin:0;padding:0}textarea{resize:vertical}.browserupgrade{margin:.2em 0;background:#ccc;color:#000;padding:.2em 0}@media print{*,:after,:before{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}a,a:visited{text-decoration:underline}a[href]:after{content:' (' attr(href) ')'}abbr[title]:after{content:' (' attr(title) ')'}a[href^='#']:after,a[href^='javascript:']:after{content:''}blockquote,pre{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}img,tr{page-break-inside:avoid}img{max-width:100%!important}h2,h3,p{orphans:3;widows:3}h2,h3{page-break-after:avoid}}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */\n\n/**\n * 1. Change the default font family in all browsers (opinionated).\n * 2. Prevent adjustments of font size after orientation changes in IE and iOS.\n */\n\nhtml {\n  font-family: sans-serif; /* 1 */\n  -ms-text-size-adjust: 100%; /* 2 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n\n/**\n * Remove the margin in all browsers (opinionated).\n */\n\nbody {\n  margin: 0;\n}\n\n/* HTML5 display definitions\n   ========================================================================== */\n\n/**\n * Add the correct display in IE 9-.\n * 1. Add the correct display in Edge, IE, and Firefox.\n * 2. Add the correct display in IE.\n */\n\narticle,\naside,\ndetails, /* 1 */\nfigcaption,\nfigure,\nfooter,\nheader,\nmain, /* 2 */\nmenu,\nnav,\nsection,\nsummary { /* 1 */\n  display: block;\n}\n\n/**\n * Add the correct display in IE 9-.\n */\n\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n}\n\n/**\n * Add the correct display in iOS 4-7.\n */\n\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n\n/**\n * Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\n\nprogress {\n  vertical-align: baseline;\n}\n\n/**\n * Add the correct display in IE 10-.\n * 1. Add the correct display in IE.\n */\n\ntemplate, /* 1 */\n[hidden] {\n  display: none;\n}\n\n/* Links\n   ========================================================================== */\n\n/**\n * 1. Remove the gray background on active links in IE 10.\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\n */\n\na {\n  background-color: transparent; /* 1 */\n  -webkit-text-decoration-skip: objects; /* 2 */\n}\n\n/**\n * Remove the outline on focused links when they are also active or hovered\n * in all browsers (opinionated).\n */\n\na:active,\na:hover {\n  outline-width: 0;\n}\n\n/* Text-level semantics\n   ========================================================================== */\n\n/**\n * 1. Remove the bottom border in Firefox 39-.\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\n\nabbr[title] {\n  border-bottom: none; /* 1 */\n  text-decoration: underline; /* 2 */\n  text-decoration: underline dotted; /* 2 */\n}\n\n/**\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\n */\n\nb,\nstrong {\n  font-weight: inherit;\n}\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/**\n * Add the correct font style in Android 4.3-.\n */\n\ndfn {\n  font-style: italic;\n}\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\n\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n\n/**\n * Add the correct background and color in IE 9-.\n */\n\nmark {\n  background-color: #ff0;\n  color: #000;\n}\n\n/**\n * Add the correct font size in all browsers.\n */\n\nsmall {\n  font-size: 80%;\n}\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/* Embedded content\n   ========================================================================== */\n\n/**\n * Remove the border on images inside links in IE 10-.\n */\n\nimg {\n  border-style: none;\n}\n\n/**\n * Hide the overflow in IE.\n */\n\nsvg:not(:root) {\n  overflow: hidden;\n}\n\n/* Grouping content\n   ========================================================================== */\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\n\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/**\n * Add the correct margin in IE 8.\n */\n\nfigure {\n  margin: 1em 40px;\n}\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\n\nhr {\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box; /* 1 */\n  height: 0; /* 1 */\n  overflow: visible; /* 2 */\n}\n\n/* Forms\n   ========================================================================== */\n\n/**\n * 1. Change font properties to `inherit` in all browsers (opinionated).\n * 2. Remove the margin in Firefox and Safari.\n */\n\nbutton,\ninput,\nselect,\ntextarea {\n  font: inherit; /* 1 */\n  margin: 0; /* 2 */\n}\n\n/**\n * Restore the font weight unset by the previous rule.\n */\n\noptgroup {\n  font-weight: bold;\n}\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\n\nbutton,\ninput { /* 1 */\n  overflow: visible;\n}\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\n\nbutton,\nselect { /* 1 */\n  text-transform: none;\n}\n\n/**\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\n *    controls in Android 4.\n * 2. Correct the inability to style clickable types in iOS and Safari.\n */\n\nbutton,\nhtml [type=\"button\"], /* 1 */\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n}\n\n/**\n * Remove the inner border and padding in Firefox.\n */\n\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0;\n}\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\n\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText;\n}\n\n/**\n * Change the border, margin, and padding in all browsers (opinionated).\n */\n\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\n\nlegend {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; /* 1 */\n  color: inherit; /* 2 */\n  display: table; /* 1 */\n  max-width: 100%; /* 1 */\n  padding: 0; /* 3 */\n  white-space: normal; /* 1 */\n}\n\n/**\n * Remove the default vertical scrollbar in IE.\n */\n\ntextarea {\n  overflow: auto;\n}\n\n/**\n * 1. Add the correct box sizing in IE 10-.\n * 2. Remove the padding in IE 10-.\n */\n\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n\n[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/**\n * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.\n */\n\n[type=\"search\"]::-webkit-search-cancel-button,\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n * Correct the text style of placeholders in Chrome, Edge, and Safari.\n */\n\n::-webkit-input-placeholder {\n  color: inherit;\n  opacity: 0.54;\n}\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n/*\n * Base styles\n * ========================================================================== */\n\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em; /* ~16px; */\n  font-family: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n  line-height: 1.375; /* ~22px */\n  height: 100%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background-color: #290300;\n}\n\nbody {\n  height: 100%;\n}\n\n.App_root_3AV {\n  height: 100%;\n}\n\na {\n  color: #0074c2;\n}\n\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n\n::selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n\n/*\n * A better looking default horizontal rule\n */\n\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0;\n}\n\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\n\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle;\n}\n\n/*\n * Remove default fieldset styles.\n */\n\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0;\n}\n\n/*\n * Allow only vertical resizing of textareas.\n */\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n\n.browserupgrade {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0;\n}\n\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n\n@media print {\n  *,\n  *::before,\n  *::after {\n    background: transparent !important;\n    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    -webkit-box-shadow: none !important;\n            box-shadow: none !important;\n    text-shadow: none !important;\n  }\n\n  a,\n  a:visited {\n    text-decoration: underline;\n  }\n\n  a[href]::after {\n    content: ' (' attr(href) ')';\n  }\n\n  abbr[title]::after {\n    content: ' (' attr(title) ')';\n  }\n\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n\n  a[href^='#']::after,\n  a[href^='javascript:']::after {\n    content: '';\n  }\n\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid;\n  }\n\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n\n  thead {\n    display: table-header-group;\n  }\n\n  tr,\n  img {\n    page-break-inside: avoid;\n  }\n\n  img {\n    max-width: 100% !important;\n  }\n\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3;\n  }\n\n  h2,\n  h3 {\n    page-break-after: avoid;\n  }\n}\n", "", {"version":3,"sources":["/./components/App/App.css","/../node_modules/normalize.css/normalize.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH,4EAA4E;;AAE5E;;;GAGG;;AAEH;EACE,wBAAwB,CAAC,OAAO;EAChC,2BAA2B,CAAC,OAAO;EACnC,+BAA+B,CAAC,OAAO;CACxC;;AAED;;GAEG;;AAEH;EACE,UAAU;CACX;;AAED;gFACgF;;AAEhF;;;;GAIG;;AAEH;;;;;;;;;;;UAWU,OAAO;EACf,eAAe;CAChB;;AAED;;GAEG;;AAEH;;;;EAIE,sBAAsB;CACvB;;AAED;;GAEG;;AAEH;EACE,cAAc;EACd,UAAU;CACX;;AAED;;GAEG;;AAEH;EACE,yBAAyB;CAC1B;;AAED;;;GAGG;;AAEH;;EAEE,cAAc;CACf;;AAED;gFACgF;;AAEhF;;;GAGG;;AAEH;EACE,8BAA8B,CAAC,OAAO;EACtC,sCAAsC,CAAC,OAAO;CAC/C;;AAED;;;GAGG;;AAEH;;EAEE,iBAAiB;CAClB;;AAED;gFACgF;;AAEhF;;;GAGG;;AAEH;EACE,oBAAoB,CAAC,OAAO;EAC5B,2BAA2B,CAAC,OAAO;EACnC,kCAAkC,CAAC,OAAO;CAC3C;;AAED;;GAEG;;AAEH;;EAEE,qBAAqB;CACtB;;AAED;;GAEG;;AAEH;;EAEE,oBAAoB;CACrB;;AAED;;GAEG;;AAEH;EACE,mBAAmB;CACpB;;AAED;;;GAGG;;AAEH;EACE,eAAe;EACf,iBAAiB;CAClB;;AAED;;GAEG;;AAEH;EACE,uBAAuB;EACvB,YAAY;CACb;;AAED;;GAEG;;AAEH;EACE,eAAe;CAChB;;AAED;;;GAGG;;AAEH;;EAEE,eAAe;EACf,eAAe;EACf,mBAAmB;EACnB,yBAAyB;CAC1B;;AAED;EACE,gBAAgB;CACjB;;AAED;EACE,YAAY;CACb;;AAED;gFACgF;;AAEhF;;GAEG;;AAEH;EACE,mBAAmB;CACpB;;AAED;;GAEG;;AAEH;EACE,iBAAiB;CAClB;;AAED;gFACgF;;AAEhF;;;GAGG;;AAEH;;;;EAIE,kCAAkC,CAAC,OAAO;EAC1C,eAAe,CAAC,OAAO;CACxB;;AAED;;GAEG;;AAEH;EACE,iBAAiB;CAClB;;AAED;;;GAGG;;AAEH;EACE,gCAAwB;UAAxB,wBAAwB,CAAC,OAAO;EAChC,UAAU,CAAC,OAAO;EAClB,kBAAkB,CAAC,OAAO;CAC3B;;AAED;gFACgF;;AAEhF;;;GAGG;;AAEH;;;;EAIE,cAAc,CAAC,OAAO;EACtB,UAAU,CAAC,OAAO;CACnB;;AAED;;GAEG;;AAEH;EACE,kBAAkB;CACnB;;AAED;;;GAGG;;AAEH;QACQ,OAAO;EACb,kBAAkB;CACnB;;AAED;;;GAGG;;AAEH;SACS,OAAO;EACd,qBAAqB;CACtB;;AAED;;;;GAIG;;AAEH;;;;EAIE,2BAA2B,CAAC,OAAO;CACpC;;AAED;;GAEG;;AAEH;;;;EAIE,mBAAmB;EACnB,WAAW;CACZ;;AAED;;GAEG;;AAEH;;;;EAIE,+BAA+B;CAChC;;AAED;;GAEG;;AAEH;EACE,0BAA0B;EAC1B,cAAc;EACd,+BAA+B;CAChC;;AAED;;;;;GAKG;;AAEH;EACE,+BAAuB;UAAvB,uBAAuB,CAAC,OAAO;EAC/B,eAAe,CAAC,OAAO;EACvB,eAAe,CAAC,OAAO;EACvB,gBAAgB,CAAC,OAAO;EACxB,WAAW,CAAC,OAAO;EACnB,oBAAoB,CAAC,OAAO;CAC7B;;AAED;;GAEG;;AAEH;EACE,eAAe;CAChB;;AAED;;;GAGG;;AAEH;;EAEE,+BAAuB;UAAvB,uBAAuB,CAAC,OAAO;EAC/B,WAAW,CAAC,OAAO;CACpB;;AAED;;GAEG;;AAEH;;EAEE,aAAa;CACd;;AAED;;;GAGG;;AAEH;EACE,8BAA8B,CAAC,OAAO;EACtC,qBAAqB,CAAC,OAAO;CAC9B;;AAED;;GAEG;;AAEH;;EAEE,yBAAyB;CAC1B;;AAED;;GAEG;;AAEH;EACE,eAAe;EACf,cAAc;CACf;;AAED;;;GAGG;;AAEH;EACE,2BAA2B,CAAC,OAAO;EACnC,cAAc,CAAC,OAAO;CACvB;;ADvZD,yEAAyE;;AEXzE;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;AFjBD;;gFAEgF;;AAEhF;EACE,YAAY;EACZ,iBAAiB;EACjB,eAAe,CAAC,YAAY;EAC5B,2DAAqC;EACrC,mBAAmB,CAAC,WAAW;EAC/B,aAAa;EACb,+BAAuB;UAAvB,uBAAuB;EACvB,0BAA0C;CAC3C;;AAED;EACE,aAAa;CACd;;AAED;EACE,aAAa;CACd;;AAED;EACE,eAAe;CAChB;;AAED;;;;;;GAMG;;AAEH;EACE,oBAAoB;EACpB,kBAAkB;CACnB;;AAED;EACE,oBAAoB;EACpB,kBAAkB;CACnB;;AAED;;GAEG;;AAEH;EACE,eAAe;EACf,YAAY;EACZ,UAAU;EACV,2BAA2B;EAC3B,cAAc;EACd,WAAW;CACZ;;AAED;;;;GAIG;;AAEH;;;;;;EAME,uBAAuB;CACxB;;AAED;;GAEG;;AAEH;EACE,UAAU;EACV,UAAU;EACV,WAAW;CACZ;;AAED;;GAEG;;AAEH;EACE,iBAAiB;CAClB;;AAED;;gFAEgF;;AAEhF;EACE,gBAAgB;EAChB,iBAAiB;EACjB,YAAY;EACZ,iBAAiB;CAClB;;AAED;;;;gFAIgF;;AAEhF;EACE;;;IAGE,mCAAmC;IACnC,uBAAuB,CAAC,+DAA+D;IACvF,oCAA4B;YAA5B,4BAA4B;IAC5B,6BAA6B;GAC9B;;EAED;;IAEE,2BAA2B;GAC5B;;EAED;IACE,6BAA6B;GAC9B;;EAED;IACE,8BAA8B;GAC/B;;EAED;;;KAGG;;EAEH;;IAEE,YAAY;GACb;;EAED;;IAEE,uBAAuB;IACvB,yBAAyB;GAC1B;;EAED;;;KAGG;;EAEH;IACE,4BAA4B;GAC7B;;EAED;;IAEE,yBAAyB;GAC1B;;EAED;IACE,2BAA2B;GAC5B;;EAED;;;IAGE,WAAW;IACX,UAAU;GACX;;EAED;;IAEE,wBAAwB;GACzB;CACF","file":"App.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../../node_modules/normalize.css/normalize.css';\n\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n\n@import '../variables.css';\n\n/*\n * Base styles\n * ========================================================================== */\n\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em; /* ~16px; */\n  font-family: var(--font-family-base);\n  line-height: 1.375; /* ~22px */\n  height: 100%;\n  box-sizing: border-box;\n  background-color: var(--background-color);\n}\n\nbody {\n  height: 100%;\n}\n\n.root {\n  height: 100%;\n}\n\na {\n  color: #0074c2;\n}\n\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n\n::selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n\n/*\n * A better looking default horizontal rule\n */\n\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0;\n}\n\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\n\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle;\n}\n\n/*\n * Remove default fieldset styles.\n */\n\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0;\n}\n\n/*\n * Allow only vertical resizing of textareas.\n */\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n\n:global(.browserupgrade) {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0;\n}\n\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n\n@media print {\n  *,\n  *::before,\n  *::after {\n    background: transparent !important;\n    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    box-shadow: none !important;\n    text-shadow: none !important;\n  }\n\n  a,\n  a:visited {\n    text-decoration: underline;\n  }\n\n  a[href]::after {\n    content: ' (' attr(href) ')';\n  }\n\n  abbr[title]::after {\n    content: ' (' attr(title) ')';\n  }\n\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n\n  a[href^='#']::after,\n  a[href^='javascript:']::after {\n    content: '';\n  }\n\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid;\n  }\n\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n\n  thead {\n    display: table-header-group;\n  }\n\n  tr,\n  img {\n    page-break-inside: avoid;\n  }\n\n  img {\n    max-width: 100% !important;\n  }\n\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3;\n  }\n\n  h2,\n  h3 {\n    page-break-after: avoid;\n  }\n}\n","/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */\n\n/**\n * 1. Change the default font family in all browsers (opinionated).\n * 2. Prevent adjustments of font size after orientation changes in IE and iOS.\n */\n\nhtml {\n  font-family: sans-serif; /* 1 */\n  -ms-text-size-adjust: 100%; /* 2 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n\n/**\n * Remove the margin in all browsers (opinionated).\n */\n\nbody {\n  margin: 0;\n}\n\n/* HTML5 display definitions\n   ========================================================================== */\n\n/**\n * Add the correct display in IE 9-.\n * 1. Add the correct display in Edge, IE, and Firefox.\n * 2. Add the correct display in IE.\n */\n\narticle,\naside,\ndetails, /* 1 */\nfigcaption,\nfigure,\nfooter,\nheader,\nmain, /* 2 */\nmenu,\nnav,\nsection,\nsummary { /* 1 */\n  display: block;\n}\n\n/**\n * Add the correct display in IE 9-.\n */\n\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n}\n\n/**\n * Add the correct display in iOS 4-7.\n */\n\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n\n/**\n * Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\n\nprogress {\n  vertical-align: baseline;\n}\n\n/**\n * Add the correct display in IE 10-.\n * 1. Add the correct display in IE.\n */\n\ntemplate, /* 1 */\n[hidden] {\n  display: none;\n}\n\n/* Links\n   ========================================================================== */\n\n/**\n * 1. Remove the gray background on active links in IE 10.\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\n */\n\na {\n  background-color: transparent; /* 1 */\n  -webkit-text-decoration-skip: objects; /* 2 */\n}\n\n/**\n * Remove the outline on focused links when they are also active or hovered\n * in all browsers (opinionated).\n */\n\na:active,\na:hover {\n  outline-width: 0;\n}\n\n/* Text-level semantics\n   ========================================================================== */\n\n/**\n * 1. Remove the bottom border in Firefox 39-.\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\n\nabbr[title] {\n  border-bottom: none; /* 1 */\n  text-decoration: underline; /* 2 */\n  text-decoration: underline dotted; /* 2 */\n}\n\n/**\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\n */\n\nb,\nstrong {\n  font-weight: inherit;\n}\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/**\n * Add the correct font style in Android 4.3-.\n */\n\ndfn {\n  font-style: italic;\n}\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\n\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n\n/**\n * Add the correct background and color in IE 9-.\n */\n\nmark {\n  background-color: #ff0;\n  color: #000;\n}\n\n/**\n * Add the correct font size in all browsers.\n */\n\nsmall {\n  font-size: 80%;\n}\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/* Embedded content\n   ========================================================================== */\n\n/**\n * Remove the border on images inside links in IE 10-.\n */\n\nimg {\n  border-style: none;\n}\n\n/**\n * Hide the overflow in IE.\n */\n\nsvg:not(:root) {\n  overflow: hidden;\n}\n\n/* Grouping content\n   ========================================================================== */\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\n\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/**\n * Add the correct margin in IE 8.\n */\n\nfigure {\n  margin: 1em 40px;\n}\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\n\nhr {\n  box-sizing: content-box; /* 1 */\n  height: 0; /* 1 */\n  overflow: visible; /* 2 */\n}\n\n/* Forms\n   ========================================================================== */\n\n/**\n * 1. Change font properties to `inherit` in all browsers (opinionated).\n * 2. Remove the margin in Firefox and Safari.\n */\n\nbutton,\ninput,\nselect,\ntextarea {\n  font: inherit; /* 1 */\n  margin: 0; /* 2 */\n}\n\n/**\n * Restore the font weight unset by the previous rule.\n */\n\noptgroup {\n  font-weight: bold;\n}\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\n\nbutton,\ninput { /* 1 */\n  overflow: visible;\n}\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\n\nbutton,\nselect { /* 1 */\n  text-transform: none;\n}\n\n/**\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\n *    controls in Android 4.\n * 2. Correct the inability to style clickable types in iOS and Safari.\n */\n\nbutton,\nhtml [type=\"button\"], /* 1 */\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n}\n\n/**\n * Remove the inner border and padding in Firefox.\n */\n\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0;\n}\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\n\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText;\n}\n\n/**\n * Change the border, margin, and padding in all browsers (opinionated).\n */\n\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\n\nlegend {\n  box-sizing: border-box; /* 1 */\n  color: inherit; /* 2 */\n  display: table; /* 1 */\n  max-width: 100%; /* 1 */\n  padding: 0; /* 3 */\n  white-space: normal; /* 1 */\n}\n\n/**\n * Remove the default vertical scrollbar in IE.\n */\n\ntextarea {\n  overflow: auto;\n}\n\n/**\n * 1. Add the correct box sizing in IE 10-.\n * 2. Remove the padding in IE 10-.\n */\n\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n\n[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/**\n * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.\n */\n\n[type=\"search\"]::-webkit-search-cancel-button,\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n * Correct the text style of placeholders in Chrome, Edge, and Safari.\n */\n\n::-webkit-input-placeholder {\n  color: inherit;\n  opacity: 0.54;\n}\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "_3AVL"
+  	"root": "App_root_3AV"
   };
 
 /***/ },
-/* 55 */
+/* 54 */
 /***/ function(module, exports) {
 
   /*
@@ -2088,7 +2106,7 @@ module.exports =
 
 
 /***/ },
-/* 56 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2101,7 +2119,7 @@ module.exports =
   
   var _stringify2 = _interopRequireDefault(_stringify);
   
-  var _slicedToArray2 = __webpack_require__(57);
+  var _slicedToArray2 = __webpack_require__(56);
   
   var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
   
@@ -2249,13 +2267,13 @@ module.exports =
   module.exports = insertCss;
 
 /***/ },
-/* 57 */
+/* 56 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/slicedToArray");
 
 /***/ },
-/* 58 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2264,40 +2282,38 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Header = __webpack_require__(60);
+  var _Header = __webpack_require__(59);
   
   var _Header2 = _interopRequireDefault(_Header);
   
-  var _Link = __webpack_require__(62);
+  var _Link = __webpack_require__(61);
   
   var _Link2 = _interopRequireDefault(_Link);
   
-  var _Navigation = __webpack_require__(69);
+  var _Navigation = __webpack_require__(68);
   
   var _Navigation2 = _interopRequireDefault(_Navigation);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   function Header() {
-    return (0, _jsx3.default)('div', {
-      className: _Header2.default.root
-    }, void 0, (0, _jsx3.default)('div', {
-      className: _Header2.default.container
-    }, void 0, (0, _jsx3.default)(_Navigation2.default, {
-      className: _Header2.default.nav
-    })));
+    return _react2.default.createElement(
+      'div',
+      { className: _Header2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _Header2.default.container },
+        _react2.default.createElement(_Navigation2.default, { className: _Header2.default.nav })
+      )
+    );
   } /**
      * React Starter Kit (https://www.reactstarterkit.com/)
      *
@@ -2310,18 +2326,18 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Header2.default)(Header);
 
 /***/ },
-/* 59 */
+/* 58 */
 /***/ function(module, exports) {
 
   module.exports = require("isomorphic-style-loader/lib/withStyles");
 
 /***/ },
-/* 60 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(61);
-      var insertCss = __webpack_require__(56);
+      var content = __webpack_require__(60);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -2331,32 +2347,49 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Header.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Header.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
-/* 61 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "._3Gi4{background:#fff;color:#fff;position:fixed;top:0;width:100%;z-index:1}._1rGb{margin:0 auto;padding:10px;max-width:1000px}._19ln{color:#92e5fc;text-decoration:none}._2mix{margin-left:10px}._1zCy{display:inline-block;margin-top:6px}._2Lc2{text-align:center}._2Qzp{margin:0;padding:10px;font-weight:400;font-size:4em;line-height:1em}._3mmk{padding:0;color:hsla(0,0%,100%,.5);font-size:1.25em;margin:0}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Header_root_3Gi {\n  background: #fff;\n  color: #fff;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 1;\n}\n\n.Header_container_1rG {\n  margin: 0 auto;\n  padding: 10px 10px;\n  max-width: 1000px;\n}\n\n.Header_brand_19l {\n  color: rgb(146, 229, 252);\n  text-decoration: none;\n  /*font-size: 1.75em;*/\n}\n\n.Header_brandTxt_2mi {\n  margin-left: 10px;\n}\n\n.Header_nav_1zC {\n  /*float: right;*/\n  display: inline-block;\n  margin-top: 6px;\n}\n\n.Header_banner_2Lc {\n  text-align: center;\n}\n\n.Header_bannerTitle_2Qz {\n  margin: 0;\n  padding: 10px;\n  font-weight: normal;\n  font-size: 4em;\n  line-height: 1em;\n}\n\n.Header_bannerDesc_3mm {\n  padding: 0;\n  color: rgba(255, 255, 255, 0.5);\n  font-size: 1.25em;\n  margin: 0;\n}\n", "", {"version":3,"sources":["/./components/Header/Header.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADjBD;EACE,iBAAiB;EACjB,YAAY;EACZ,gBAAgB;EAChB,OAAO;EACP,YAAY;EACZ,WAAW;CACZ;;AAED;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAoC;CACrC;;AAED;EACE,0BAAiD;EACjD,sBAAsB;EACtB,sBAAsB;CACvB;;AAED;EACE,kBAAkB;CACnB;;AAED;EACE,iBAAiB;EACjB,sBAAsB;EACtB,gBAAgB;CACjB;;AAED;EACE,mBAAmB;CACpB;;AAED;EACE,UAAU;EACV,cAAc;EACd,oBAAoB;EACpB,eAAe;EACf,iBAAiB;CAClB;;AAED;EACE,WAAW;EACX,gCAAgC;EAChC,kBAAkB;EAClB,UAAU;CACX","file":"Header.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n\n:root {\n  --brand-color: #61dafb;\n}\n\n.root {\n  background: #fff;\n  color: #fff;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 1;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 10px 10px;\n  max-width: var(--max-content-width);\n}\n\n.brand {\n  color: color(var(--brand-color) lightness(+10%));\n  text-decoration: none;\n  /*font-size: 1.75em;*/\n}\n\n.brandTxt {\n  margin-left: 10px;\n}\n\n.nav {\n  /*float: right;*/\n  display: inline-block;\n  margin-top: 6px;\n}\n\n.banner {\n  text-align: center;\n}\n\n.bannerTitle {\n  margin: 0;\n  padding: 10px;\n  font-weight: normal;\n  font-size: 4em;\n  line-height: 1em;\n}\n\n.bannerDesc {\n  padding: 0;\n  color: rgba(255, 255, 255, 0.5);\n  font-size: 1.25em;\n  margin: 0;\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "_3Gi4",
-  	"container": "_1rGb",
-  	"brand": "_19ln",
-  	"brandTxt": "_2mix",
-  	"nav": "_1zCy",
-  	"banner": "_2Lc2",
-  	"bannerTitle": "_2Qzp",
-  	"bannerDesc": "_3mmk"
+  	"root": "Header_root_3Gi",
+  	"container": "Header_container_1rG",
+  	"brand": "Header_brand_19l",
+  	"brandTxt": "Header_brandTxt_2mi",
+  	"nav": "Header_nav_1zC",
+  	"banner": "Header_banner_2Lc",
+  	"bannerTitle": "Header_bannerTitle_2Qz",
+  	"bannerDesc": "Header_bannerDesc_3mm"
   };
 
 /***/ },
-/* 62 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2365,39 +2398,39 @@ module.exports =
     value: true
   });
   
-  var _extends2 = __webpack_require__(63);
+  var _extends2 = __webpack_require__(62);
   
   var _extends3 = _interopRequireDefault(_extends2);
   
-  var _objectWithoutProperties2 = __webpack_require__(64);
+  var _objectWithoutProperties2 = __webpack_require__(63);
   
   var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
   
-  var _getPrototypeOf = __webpack_require__(47);
+  var _getPrototypeOf = __webpack_require__(46);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(48);
+  var _classCallCheck2 = __webpack_require__(47);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(49);
+  var _createClass2 = __webpack_require__(48);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(50);
+  var _possibleConstructorReturn2 = __webpack_require__(49);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(51);
+  var _inherits2 = __webpack_require__(50);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _history = __webpack_require__(65);
+  var _history = __webpack_require__(64);
   
   var _history2 = _interopRequireDefault(_history);
   
@@ -2462,12 +2495,10 @@ module.exports =
           }
         }
       }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-    }
+    } // eslint-disable-line react/prefer-stateless-function
   
     (0, _createClass3.default)(Link, [{
       key: 'render',
-      // eslint-disable-line react/prefer-stateless-function
-  
       value: function render() {
         var _props = this.props;
         var to = _props.to;
@@ -2479,22 +2510,26 @@ module.exports =
     return Link;
   }(_react.Component);
   
+  Link.propTypes = {
+    to: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]).isRequired,
+    onClick: _react.PropTypes.func
+  };
   exports.default = Link;
 
 /***/ },
-/* 63 */
+/* 62 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/extends");
 
 /***/ },
-/* 64 */
+/* 63 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/objectWithoutProperties");
 
 /***/ },
-/* 65 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2503,15 +2538,15 @@ module.exports =
     value: true
   });
   
-  var _createBrowserHistory = __webpack_require__(66);
+  var _createBrowserHistory = __webpack_require__(65);
   
   var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
   
-  var _createMemoryHistory = __webpack_require__(67);
+  var _createMemoryHistory = __webpack_require__(66);
   
   var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
   
-  var _useQueries = __webpack_require__(68);
+  var _useQueries = __webpack_require__(67);
   
   var _useQueries2 = _interopRequireDefault(_useQueries);
   
@@ -2529,25 +2564,25 @@ module.exports =
   exports.default = history;
 
 /***/ },
-/* 66 */
+/* 65 */
 /***/ function(module, exports) {
 
   module.exports = require("history/lib/createBrowserHistory");
 
 /***/ },
-/* 67 */
+/* 66 */
 /***/ function(module, exports) {
 
   module.exports = require("history/lib/createMemoryHistory");
 
 /***/ },
-/* 68 */
+/* 67 */
 /***/ function(module, exports) {
 
   module.exports = require("history/lib/useQueries");
 
 /***/ },
-/* 69 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2556,39 +2591,35 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _classnames = __webpack_require__(70);
+  var _classnames = __webpack_require__(69);
   
   var _classnames2 = _interopRequireDefault(_classnames);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Navigation = __webpack_require__(71);
+  var _Navigation = __webpack_require__(70);
   
   var _Navigation2 = _interopRequireDefault(_Navigation);
   
-  var _Link = __webpack_require__(62);
+  var _Link = __webpack_require__(61);
   
   var _Link2 = _interopRequireDefault(_Link);
   
-  var _key = __webpack_require__(73);
+  var _key = __webpack_require__(72);
   
   var _key2 = _interopRequireDefault(_key);
   
-  var _dots = __webpack_require__(74);
+  var _dots = __webpack_require__(73);
   
   var _dots2 = _interopRequireDefault(_dots);
   
-  var _logo = __webpack_require__(75);
+  var _logo = __webpack_require__(74);
   
   var _logo2 = _interopRequireDefault(_logo);
   
@@ -2603,50 +2634,52 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
-  var _ref2 = (0, _jsx3.default)('img', {
-    src: _logo2.default,
-    alt: 'TEDxAmsterdam'
-  });
-  
   function Navigation(_ref) {
     var className = _ref.className;
   
-    return (0, _jsx3.default)('div', {
-      className: (0, _classnames2.default)(_Navigation2.default.root, className),
-      role: 'navigation'
-    }, void 0, (0, _jsx3.default)(_Link2.default, {
-      className: (0, _classnames2.default)(_Navigation2.default.link, _Navigation2.default.login),
-      to: '/chat'
-    }, void 0, 'Login', (0, _jsx3.default)('img', {
-      src: _key2.default,
-      className: _Navigation2.default.icon
-    }), 'Register'), (0, _jsx3.default)(_Link2.default, {
-      className: _Navigation2.default.brand,
-      to: '/'
-    }, void 0, _ref2), (0, _jsx3.default)(_Link2.default, {
-      className: (0, _classnames2.default)(_Navigation2.default.link, _Navigation2.default.filter),
-      to: ''
-    }, void 0, (0, _jsx3.default)('img', {
-      src: _dots2.default,
-      className: _Navigation2.default.icon
-    }), 'Filter Menu'));
+    return _react2.default.createElement(
+      'div',
+      { className: (0, _classnames2.default)(_Navigation2.default.root, className), role: 'navigation' },
+      _react2.default.createElement(
+        _Link2.default,
+        { className: (0, _classnames2.default)(_Navigation2.default.link, _Navigation2.default.login), to: '/chat' },
+        'Login',
+        _react2.default.createElement('img', { src: _key2.default, className: _Navigation2.default.icon }),
+        'Register'
+      ),
+      _react2.default.createElement(
+        _Link2.default,
+        { className: _Navigation2.default.brand, to: '/' },
+        _react2.default.createElement('img', { src: _logo2.default, alt: 'TEDxAmsterdam' })
+      ),
+      _react2.default.createElement(
+        _Link2.default,
+        { className: (0, _classnames2.default)(_Navigation2.default.link, _Navigation2.default.filter), to: '' },
+        _react2.default.createElement('img', { src: _dots2.default, className: _Navigation2.default.icon }),
+        'Filter Menu'
+      )
+    );
   }
+  
+  Navigation.propTypes = {
+    className: _react.PropTypes.string
+  };
   
   exports.default = (0, _withStyles2.default)(_Navigation2.default)(Navigation);
 
 /***/ },
-/* 70 */
+/* 69 */
 /***/ function(module, exports) {
 
   module.exports = require("classnames");
 
 /***/ },
-/* 71 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(72);
-      var insertCss = __webpack_require__(56);
+      var content = __webpack_require__(71);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -2656,50 +2689,67 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Navigation.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Navigation.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
-/* 72 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, ".Kev6{margin:0;width:100%;position:relative}._1-rh,.Kev6{text-align:center}._1-rh{display:inline-block;text-decoration:none;font-size:1.125em}._1-rh,._1-rh:active,._1-rh:visited{color:rgba(0,0,0,.6)}._1-rh:hover{color:#000}.g6k6{margin-right:8px;margin-left:8px;border-radius:3px;background:rgba(0,0,0,.15);color:#fff}.g6k6:hover{background:rgba(0,0,0,.3)}._2KA9{color:hsla(0,0%,100%,.3)}._36Si{text-decoration:none;display:inline-block;position:relative;top:20px}._2SYg{float:left}._1B9i{float:right;position:relative;top:20px}._2woE{display:block;margin:0 auto}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n.Navigation_root_Kev {\n  margin: 0;\n  width: 100%;\n  position: relative;\n  text-align: center;\n}\n\n.Navigation_link_1-r {\n  text-align: center;\n  display: inline-block;\n  text-decoration: none;\n  font-size: 1.125em; /* ~18px */\n}\n\n.Navigation_link_1-r,\n.Navigation_link_1-r:active,\n.Navigation_link_1-r:visited {\n  color: rgba(0, 0, 0, 0.6);\n}\n\n.Navigation_link_1-r:hover {\n  color: rgba(0, 0, 0, 1);\n}\n\n.Navigation_highlight_g6k {\n  margin-right: 8px;\n  margin-left: 8px;\n  border-radius: 3px;\n  background: rgba(0, 0, 0, 0.15);\n  color: #fff;\n}\n\n.Navigation_highlight_g6k:hover {\n  background: rgba(0, 0, 0, 0.3);\n}\n\n.Navigation_spacer_2KA {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.Navigation_brand_36S {\n  text-decoration: none;\n  display: inline-block;\n  position: relative;\n  top: 20px;\n  /*font-size: 1.75em;*/\n}\n\n.Navigation_login_2SY {\n  float: left;\n}\n\n.Navigation_filter_1B9 {\n  float: right;\n  position: relative;\n  top: 20px\n}\n\n.Navigation_icon_2wo {\n  display: block;\n  margin: 0 auto;\n}\n", "", {"version":3,"sources":["/./components/Navigation/Navigation.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE,UAAU;EACV,YAAY;EACZ,mBAAmB;EACnB,mBAAmB;CACpB;;AAED;EACE,mBAAmB;EACnB,sBAAsB;EACtB,sBAAsB;EACtB,mBAAmB,CAAC,WAAW;CAChC;;AAED;;;EAGE,0BAA0B;CAC3B;;AAED;EACE,wBAAwB;CACzB;;AAED;EACE,kBAAkB;EAClB,iBAAiB;EACjB,mBAAmB;EACnB,gCAAgC;EAChC,YAAY;CACb;;AAED;EACE,+BAA+B;CAChC;;AAED;EACE,gCAAgC;CACjC;;AAED;EACE,sBAAsB;EACtB,sBAAsB;EACtB,mBAAmB;EACnB,UAAU;EACV,sBAAsB;CACvB;;AAED;EACE,YAAY;CACb;;AAED;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;CACV;;AAED;EACE,eAAe;EACf,eAAe;CAChB","file":"Navigation.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n.root {\n  margin: 0;\n  width: 100%;\n  position: relative;\n  text-align: center;\n}\n\n.link {\n  text-align: center;\n  display: inline-block;\n  text-decoration: none;\n  font-size: 1.125em; /* ~18px */\n}\n\n.link,\n.link:active,\n.link:visited {\n  color: rgba(0, 0, 0, 0.6);\n}\n\n.link:hover {\n  color: rgba(0, 0, 0, 1);\n}\n\n.highlight {\n  margin-right: 8px;\n  margin-left: 8px;\n  border-radius: 3px;\n  background: rgba(0, 0, 0, 0.15);\n  color: #fff;\n}\n\n.highlight:hover {\n  background: rgba(0, 0, 0, 0.3);\n}\n\n.spacer {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.brand {\n  text-decoration: none;\n  display: inline-block;\n  position: relative;\n  top: 20px;\n  /*font-size: 1.75em;*/\n}\n\n.login {\n  float: left;\n}\n\n.filter {\n  float: right;\n  position: relative;\n  top: 20px\n}\n\n.icon {\n  display: block;\n  margin: 0 auto;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "Kev6",
-  	"link": "_1-rh",
-  	"highlight": "g6k6",
-  	"spacer": "_2KA9",
-  	"brand": "_36Si",
-  	"login": "_2SYg",
-  	"filter": "_1B9i",
-  	"icon": "_2woE"
+  	"root": "Navigation_root_Kev",
+  	"link": "Navigation_link_1-r",
+  	"highlight": "Navigation_highlight_g6k",
+  	"spacer": "Navigation_spacer_2KA",
+  	"brand": "Navigation_brand_36S",
+  	"login": "Navigation_login_2SY",
+  	"filter": "Navigation_filter_1B9",
+  	"icon": "Navigation_icon_2wo"
   };
 
 /***/ },
-/* 73 */
+/* 72 */
 /***/ function(module, exports) {
 
   module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI1cHgiIGhlaWdodD0iMjVweCIgdmlld0JveD0iMCAwIDI1IDI1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IHNrZXRjaHRvb2wgMy44LjEgKDI5Njg3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT40MTc0RTM1Qy0zRDNGLTQ4OUEtODA0My05MEEyMjY1Q0U2NkY8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIHNrZXRjaHRvb2wuPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlN5bWJvbHMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJtLlRvcGJhciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI2LjAwMDAwMCwgLTI0LjAwMDAwMCkiIGZpbGw9IiMzMzMzMzMiPgogICAgICAgICAgICA8ZyBpZD0iVG9wYmFyLXdoaXRlIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJSZWdpc3RlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTguMDAwMDAwLCA5LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJrZXkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDguMDAwMDAwLCAxNS4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IlNoYXBlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNi43MDEzMjgzLDAgQzEyLjUwOTI5NzksMCA5LjExMTE5NTQ1LDMuNDc3OTA0NzcgOS4xMTExOTU0NSw3Ljc2NjY0NzU0IEM5LjExMTE5NTQ1LDguNzY0NjYxNzUgOS4zMTUzNzAwMiw5LjcwOTA4NjEgOS42NTIzNzE5MiwxMC41ODUxNjM5IEwwLjQzMTExOTU0NSwyMC4wMjAwODc0IEMwLjE2NDcwNTg4MiwyMC4yOTM0NzM0IDAsMjAuNTUyODc5NCAwLDIwLjk2OTk0ODQgTDAsMjMuMjk5OTQyNiBDMCwyNC4xMzA5NzM5IDAuNzA1MTIzMzQsMjQuODUzMjcyMSAxLjUxODAyNjU3LDI0Ljg1MzI3MjEgTDMuNzk1MDY2NDEsMjQuODUzMjcyMSBDNC4yMDE4OTc1MywyNC44NTMyNzIxIDQuNDU5MjAzMDQsMjQuNjg2Mjg5MiA0LjcyNTYxNjcsMjQuNDE1MjMzMiBMNS44MTQ4MDA3NiwyMy4yOTk5NDI2IEw3LjU5MzE2ODg4LDIzLjI5OTk0MjYgQzguNDMxMTE5NTQsMjMuMjk5OTQyNiA5LjExMTE5NTQ1LDIyLjYwNDA1MSA5LjExMTE5NTQ1LDIxLjc0NjYxMzEgTDkuMTExMTk1NDUsMjAuMTkzMjgzNiBMMTAuNjI5MjIyLDIwLjE5MzI4MzYgQzExLjQ2NzE3MjcsMjAuMTkzMjgzNiAxMi4xNDcyNDg2LDE5LjQ5NzM5MiAxMi4xNDcyNDg2LDE4LjYzOTk1NDEgTDEyLjE0NzI0ODYsMTYuODE5NDUxOSBMMTMuOTQ1MzUxLDE0Ljk3Nzk3OTggQzE0LjgwMjI3NywxNS4zMjM1OTU2IDE1LjcyNDQ3ODIsMTUuNTMzMjk1MSAxNi43MDEzMjgzLDE1LjUzMzI5NTEgQzIwLjg5MTg0MDYsMTUuNTMzMjk1MSAyNC4yOTE0NjExLDEyLjA1NTM5MDMgMjQuMjkxNDYxMSw3Ljc2NjY0NzU0IEMyNC4yOTE0NjExLDMuNDc3OTA0NzcgMjAuODkxODQwNiwwIDE2LjcwMTMyODMsMCBMMTYuNzAxMzI4MywwIFogTTE2LjcwMTMyODMsMTMuOTc5OTY1NiBDMTUuNTc3OTg4NiwxMy45Nzk5NjU2IDE0LjUzNjYyMjQsMTMuNjQ1OTk5NyAxMy42MzQxNTU2LDEzLjEwMDc4MTEgTDEzLjM3MzA1NSwxMy4zNjcxNzcxIEwxMi41MTkxNjUxLDE0LjI0MDkyNDkgTDExLjA3MzI0NDgsMTUuNzIxMjQ4IEMxMC43ODg2MTQ4LDE2LjAxMjQ5NzIgMTAuNjI4NDYzLDE2LjQwNzA0MjkgMTAuNjI4NDYzLDE2LjgxOTQ1MTkgTDEwLjYyODQ2MywxOC42Mzk5NTQxIEw5LjExMDQzNjQzLDE4LjYzOTk1NDEgQzguMjcyNDg1NzcsMTguNjM5OTU0MSA3LjU5MjQwOTg3LDE5LjMzNTA2OTEgNy41OTI0MDk4NywyMC4xOTMyODM2IEw3LjU5MjQwOTg3LDIxLjc0NjYxMzEgTDUuODE0ODAwNzYsMjEuNzQ2NjEzMSBDNS40MTI1MjM3MiwyMS43NDY2MTMxIDUuMDI2MTg1OTYsMjEuOTEwNDg5NCA0Ljc0MTU1NTk4LDIyLjIwMTczODcgTDMuNjY1Mjc1MTQsMjMuMzAzMDQ5MyBMMS41MjAzMDM2MSwyMy4yOTk5NDI2IEwxLjUxODAyNjU3LDIxLjA4NjQ0ODEgTDEwLjM3MTkxNjUsMTIuMDQyOTYzNyBDMTAuMzcxOTE2NSwxMi4wNDI5NjM3IDEwLjM3MTkxNjUsMTIuMDQzNzQwMyAxMC4zNzI2NzU1LDEyLjA0NDUxNyBMMTEuNDg3NjY2LDEwLjkwMzU5NjUgQzEwLjk1NDgzODcsOS45ODAxNDIwOSAxMC42Mjg0NjMsOC45MTUzMzQ3MiAxMC42Mjg0NjMsNy43NjU4NzA4OCBDMTAuNjI4NDYzLDQuMzM0NTY1OTkgMTMuMzQ4MDA3NiwxLjU1MjU1Mjg0IDE2LjcwMDU2OTMsMS41NTI1NTI4NCBDMjAuMDUzMTMwOSwxLjU1MjU1Mjg0IDIyLjc3MjY3NTUsNC4zMzQ1NjU5OSAyMi43NzI2NzU1LDcuNzY1ODcwODggQzIyLjc3MjY3NTUsMTEuMTk3MTc1OCAyMC4wNTQ2NDksMTMuOTc5OTY1NiAxNi43MDEzMjgzLDEzLjk3OTk2NTYgTDE2LjcwMTMyODMsMTMuOTc5OTY1NiBaIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMjEuMTE1NzQ5NSw2LjM5ODk0MDkxIEMyMC4yNjQ4OTU2LDUuMTg1NzkwNTcgMTkuMjI4ODQyNSw0LjEyNzE5NjUxIDE4LjAzNzk1MDcsMy4yNTAzNDIgQzE3Ljg0NDQwMjMsMy4xMDY2NTkwMiAxNy41OTM5Mjc5LDMuMDcwOTMyNDQgMTcuMzY4NTAwOSwzLjE1MTcwNTU3IEMxNi4zMTQyMzE1LDMuNTMxNDk0NjQgMTUuNTkyNDA5OSw0LjI2OTMyNjE2IDE1LjIyMzUyOTQsNS4zNDgxMTM1IEMxNS4xOTU0NDU5LDUuNDI4ODg2NjMgMTUuMTgxNzgzNyw1LjUxMjc2NjQzIDE1LjE4MTc4MzcsNS41OTU4Njk1NiBDMTUuMTgxNzgzNyw1Ljc1MDQyNTg0IDE1LjIyODg0MjUsNS45MDM0Mjg4IDE1LjMxOTkyNDEsNi4wMzMxMzE4MSBDMTYuMTczODE0LDcuMjQ3ODM1NDkgMTcuMjA4MzQ5MSw4LjMwNzIwNjIxIDE4LjM5NjIwNDksOS4xODA5NTQwNiBDMTguNTkwNTEyMyw5LjMyMzg2MDM4IDE4LjgzOTQ2ODcsOS4zNjAzNjM2MiAxOS4wNjQ4OTU2LDkuMjgwMzY3MTUgQzIwLjEyMDY4MzEsOC45MDI5MDgwOCAyMC44NDI1MDQ3LDguMTYzNTIzMjMgMjEuMjEyOTAzMiw3LjA4Mzk1OTIzIEMyMS4yNDA5ODY3LDcuMDAzMTg2MDkgMjEuMjU0NjQ5LDYuOTE5MzA2MyAyMS4yNTQ2NDksNi44MzYyMDMxNyBDMjEuMjUzODg5OSw2LjY4MTY0Njg4IDIxLjIwNjA3MjEsNi41Mjg2NDM5MyAyMS4xMTU3NDk1LDYuMzk4OTQwOTEgTDIxLjExNTc0OTUsNi4zOTg5NDA5MSBaIE0xOC44Mzg3MDk3LDguNTUxMDc4OTUgQzE3LjcxNjg4OCw3LjcyNTQ4NDMxIDE2Ljc0MDAzOCw2LjcyNTkxNjc3IDE1LjkzOTI3ODksNS42MDUxODk1MyBDMTYuMjMzMDE3MSw0Ljc0ODUyODMxIDE2Ljc4MjU0MjcsNC4xODYyMjMwMyAxNy41OTU0NDU5LDMuODgwMjE3MTEgQzE4LjcxODAyNjYsNC43MDczNjUwOCAxOS42OTMzNTg2LDUuNzA0NjAyNjIgMjAuNDkxODQwNiw2Ljg0MDA4NjQ5IEMyMC4xOTUwNjY0LDcuNjkwNTM0NCAxOS42NDcwNTg4LDguMjQ5NzMzMDIgMTguODM4NzA5Nyw4LjU1MTA3ODk1IEwxOC44Mzg3MDk3LDguNTUxMDc4OTUgWiI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
 
 /***/ },
-/* 74 */
+/* 73 */
 /***/ function(module, exports) {
 
   module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjM4cHgiIGhlaWdodD0iOHB4IiB2aWV3Qm94PSIwIDAgMzggOCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBza2V0Y2h0b29sIDMuOC4xICgyOTY4NykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+QjI0RUIxRjQtNjQ1QS00MjJELTk1Q0UtMjA0N0E0RkRCMjNGPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBza2V0Y2h0b29sLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxyZWN0IGlkPSJwYXRoLTEiIHg9IjAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHJ4PSI0Ij48L3JlY3Q+CiAgICAgICAgPG1hc2sgaWQ9Im1hc2stMiIgbWFza0NvbnRlbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hc2tVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHg9IjAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IndoaXRlIj4KICAgICAgICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4KICAgICAgICA8L21hc2s+CiAgICAgICAgPHJlY3QgaWQ9InBhdGgtMyIgeD0iMTAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHJ4PSI0Ij48L3JlY3Q+CiAgICAgICAgPG1hc2sgaWQ9Im1hc2stNCIgbWFza0NvbnRlbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hc2tVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHg9IjAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IndoaXRlIj4KICAgICAgICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aC0zIj48L3VzZT4KICAgICAgICA8L21hc2s+CiAgICAgICAgPHJlY3QgaWQ9InBhdGgtNSIgeD0iMjAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHJ4PSI0Ij48L3JlY3Q+CiAgICAgICAgPG1hc2sgaWQ9Im1hc2stNiIgbWFza0NvbnRlbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hc2tVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHg9IjAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IndoaXRlIj4KICAgICAgICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aC01Ij48L3VzZT4KICAgICAgICA8L21hc2s+CiAgICAgICAgPHJlY3QgaWQ9InBhdGgtNyIgeD0iMzAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHJ4PSI0Ij48L3JlY3Q+CiAgICAgICAgPG1hc2sgaWQ9Im1hc2stOCIgbWFza0NvbnRlbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hc2tVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHg9IjAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IndoaXRlIj4KICAgICAgICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aC03Ij48L3VzZT4KICAgICAgICA8L21hc2s+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iU3ltYm9scyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Im0uVG9wYmFyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzA5LjAwMDAwMCwgLTIyLjAwMDAwMCkiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlPSIjMEEwQjA5Ij4KICAgICAgICAgICAgPGcgaWQ9IlRvcGJhci13aGl0ZSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iTWVudSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLjAwMDAwMCwgMjIuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Imljb25zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5LjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPHVzZSBpZD0iUmVjdGFuZ2xlLTg2IiBtYXNrPSJ1cmwoI21hc2stMikiIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPgogICAgICAgICAgICAgICAgICAgICAgICA8dXNlIGlkPSJSZWN0YW5nbGUtODYiIG1hc2s9InVybCgjbWFzay00KSIgeGxpbms6aHJlZj0iI3BhdGgtMyI+PC91c2U+CiAgICAgICAgICAgICAgICAgICAgICAgIDx1c2UgaWQ9IlJlY3RhbmdsZS04NiIgbWFzaz0idXJsKCNtYXNrLTYpIiB4bGluazpocmVmPSIjcGF0aC01Ij48L3VzZT4KICAgICAgICAgICAgICAgICAgICAgICAgPHVzZSBpZD0iUmVjdGFuZ2xlLTg2IiBtYXNrPSJ1cmwoI21hc2stOCkiIHhsaW5rOmhyZWY9IiNwYXRoLTciPjwvdXNlPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+"
 
 /***/ },
-/* 75 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
-  module.exports = __webpack_require__.p + "ae72e82da34f88bb6b8bc0277bbeaf9b.svg";
+  module.exports = __webpack_require__.p + "components/Navigation/logo.svg?ae72e82da34f88bb6b8bc0277bbeaf9b";
 
 /***/ },
-/* 76 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2708,38 +2758,50 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Feedback = __webpack_require__(77);
+  var _Feedback = __webpack_require__(76);
   
   var _Feedback2 = _interopRequireDefault(_Feedback);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   function Feedback() {
-    return (0, _jsx3.default)('div', {
-      className: _Feedback2.default.root
-    }, void 0, (0, _jsx3.default)('div', {
-      className: _Feedback2.default.container
-    }, void 0, (0, _jsx3.default)('a', {
-      className: _Feedback2.default.link,
-      href: 'https://gitter.im/kriasoft/react-starter-kit'
-    }, void 0, 'Ask a question'), (0, _jsx3.default)('span', {
-      className: _Feedback2.default.spacer
-    }, void 0, '|'), (0, _jsx3.default)('a', {
-      className: _Feedback2.default.link,
-      href: 'https://github.com/kriasoft/react-starter-kit/issues/new'
-    }, void 0, 'Report an issue')));
+    return _react2.default.createElement(
+      'div',
+      { className: _Feedback2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _Feedback2.default.container },
+        _react2.default.createElement(
+          'a',
+          {
+            className: _Feedback2.default.link,
+            href: 'https://gitter.im/kriasoft/react-starter-kit'
+          },
+          'Ask a question'
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: _Feedback2.default.spacer },
+          '|'
+        ),
+        _react2.default.createElement(
+          'a',
+          {
+            className: _Feedback2.default.link,
+            href: 'https://github.com/kriasoft/react-starter-kit/issues/new'
+          },
+          'Report an issue'
+        )
+      )
+    );
   } /**
      * React Starter Kit (https://www.reactstarterkit.com/)
      *
@@ -2752,12 +2814,12 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Feedback2.default)(Feedback);
 
 /***/ },
-/* 77 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(78);
-      var insertCss = __webpack_require__(56);
+      var content = __webpack_require__(77);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -2767,28 +2829,45 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Feedback.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Feedback.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
-/* 78 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "._2NP0{background:#f5f5f5;color:#333}._2AyN{margin:0 auto;padding:20px 8px;max-width:1000px;text-align:center;font-size:1.5em}._17M0,._17M0:active,._17M0:hover,._17M0:visited{color:#333;text-decoration:none}._17M0:hover{text-decoration:underline}._2n9Q{padding-right:15px;padding-left:15px}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Feedback_root_2NP {\n  background: #f5f5f5;\n  color: #333;\n}\n\n.Feedback_container_2Ay {\n  margin: 0 auto;\n  padding: 20px 8px;\n  max-width: 1000px;\n  text-align: center;\n  font-size: 1.5em; /* ~24px */\n}\n\n.Feedback_link_17M,\n.Feedback_link_17M:active,\n.Feedback_link_17M:hover,\n.Feedback_link_17M:visited {\n  color: #333;\n  text-decoration: none;\n}\n\n.Feedback_link_17M:hover {\n  text-decoration: underline;\n}\n\n.Feedback_spacer_2n9 {\n  padding-right: 15px;\n  padding-left: 15px;\n}\n", "", {"version":3,"sources":["/./components/Feedback/Feedback.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADrBD;EACE,oBAAoB;EACpB,YAAY;CACb;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;EACpC,mBAAmB;EACnB,iBAAiB,CAAC,WAAW;CAC9B;;AAED;;;;EAIE,YAAY;EACZ,sBAAsB;CACvB;;AAED;EACE,2BAA2B;CAC5B;;AAED;EACE,oBAAoB;EACpB,mBAAmB;CACpB","file":"Feedback.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n\n.root {\n  background: #f5f5f5;\n  color: #333;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 20px 8px;\n  max-width: var(--max-content-width);\n  text-align: center;\n  font-size: 1.5em; /* ~24px */\n}\n\n.link,\n.link:active,\n.link:hover,\n.link:visited {\n  color: #333;\n  text-decoration: none;\n}\n\n.link:hover {\n  text-decoration: underline;\n}\n\n.spacer {\n  padding-right: 15px;\n  padding-left: 15px;\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "_2NP0",
-  	"container": "_2AyN",
-  	"link": "_17M0",
-  	"spacer": "_2n9Q"
+  	"root": "Feedback_root_2NP",
+  	"container": "Feedback_container_2Ay",
+  	"link": "Feedback_link_17M",
+  	"spacer": "Feedback_spacer_2n9"
   };
 
 /***/ },
-/* 79 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2797,23 +2876,19 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Footer = __webpack_require__(80);
+  var _Footer = __webpack_require__(79);
   
   var _Footer2 = _interopRequireDefault(_Footer);
   
-  var _Link = __webpack_require__(62);
+  var _Link = __webpack_require__(61);
   
   var _Link2 = _interopRequireDefault(_Link);
   
@@ -2829,39 +2904,60 @@ module.exports =
    */
   
   function Footer() {
-    return (0, _jsx3.default)('div', {
-      className: _Footer2.default.root
-    }, void 0, (0, _jsx3.default)('div', {
-      className: _Footer2.default.container
-    }, void 0, (0, _jsx3.default)('span', {
-      className: _Footer2.default.text
-    }, void 0, '© Your Company'), (0, _jsx3.default)('span', {
-      className: _Footer2.default.spacer
-    }, void 0, '·'), (0, _jsx3.default)(_Link2.default, {
-      className: _Footer2.default.link,
-      to: '/'
-    }, void 0, 'Home'), (0, _jsx3.default)('span', {
-      className: _Footer2.default.spacer
-    }, void 0, '·'), (0, _jsx3.default)(_Link2.default, {
-      className: _Footer2.default.link,
-      to: '/privacy'
-    }, void 0, 'Privacy'), (0, _jsx3.default)('span', {
-      className: _Footer2.default.spacer
-    }, void 0, '·'), (0, _jsx3.default)(_Link2.default, {
-      className: _Footer2.default.link,
-      to: '/not-found'
-    }, void 0, 'Not Found')));
+    return _react2.default.createElement(
+      'div',
+      { className: _Footer2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _Footer2.default.container },
+        _react2.default.createElement(
+          'span',
+          { className: _Footer2.default.text },
+          '© Your Company'
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: _Footer2.default.spacer },
+          '·'
+        ),
+        _react2.default.createElement(
+          _Link2.default,
+          { className: _Footer2.default.link, to: '/' },
+          'Home'
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: _Footer2.default.spacer },
+          '·'
+        ),
+        _react2.default.createElement(
+          _Link2.default,
+          { className: _Footer2.default.link, to: '/privacy' },
+          'Privacy'
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: _Footer2.default.spacer },
+          '·'
+        ),
+        _react2.default.createElement(
+          _Link2.default,
+          { className: _Footer2.default.link, to: '/not-found' },
+          'Not Found'
+        )
+      )
+    );
   }
   
   exports.default = (0, _withStyles2.default)(_Footer2.default)(Footer);
 
 /***/ },
-/* 80 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(81);
-      var insertCss = __webpack_require__(56);
+      var content = __webpack_require__(80);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -2871,36 +2967,53 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Footer.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Footer.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
-/* 81 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "._3Jih{background:#333;color:#fff}.n1bV{margin:0 auto;padding:20px 15px;max-width:1000px;text-align:center}._2mr6{color:hsla(0,0%,100%,.5)}._3HO-,._9iT6{color:hsla(0,0%,100%,.3)}._1sUk,._2mr6{padding:2px 5px;font-size:1em}._1sUk,._1sUk:active,._1sUk:visited{color:hsla(0,0%,100%,.6);text-decoration:none}._1sUk:hover{color:#fff}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Footer_root_3Ji {\n  background: #333;\n  color: #fff;\n}\n\n.Footer_container_n1b {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: 1000px;\n  text-align: center;\n}\n\n.Footer_text_2mr {\n  color: rgba(255, 255, 255, 0.5);\n}\n\n.Footer_textMuted_9iT {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.Footer_spacer_3HO {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.Footer_text_2mr,\n.Footer_link_1sU {\n  padding: 2px 5px;\n  font-size: 1em;\n}\n\n.Footer_link_1sU,\n.Footer_link_1sU:active,\n.Footer_link_1sU:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none;\n}\n\n.Footer_link_1sU:hover {\n  color: rgba(255, 255, 255, 1);\n}\n", "", {"version":3,"sources":["/./components/Footer/Footer.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADrBD;EACE,iBAAiB;EACjB,YAAY;CACb;;AAED;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAoC;EACpC,mBAAmB;CACpB;;AAED;EACE,gCAAgC;CACjC;;AAED;EAEE,gCAAgC;CACjC;;AAED;EACE,gCAAgC;CACjC;;AAED;;EAEE,iBAAiB;EACjB,eAAe;CAChB;;AAED;;;EAGE,gCAAgC;EAChC,sBAAsB;CACvB;;AAED;EACE,8BAA8B;CAC/B","file":"Footer.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n\n.root {\n  background: #333;\n  color: #fff;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: var(--max-content-width);\n  text-align: center;\n}\n\n.text {\n  color: rgba(255, 255, 255, 0.5);\n}\n\n.textMuted {\n  composes: text;\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.spacer {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.text,\n.link {\n  padding: 2px 5px;\n  font-size: 1em;\n}\n\n.link,\n.link:active,\n.link:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none;\n}\n\n.link:hover {\n  color: rgba(255, 255, 255, 1);\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "_3Jih",
-  	"container": "n1bV",
-  	"text": "_2mr6",
-  	"textMuted": "_9iT6 _2mr6",
-  	"spacer": "_3HO-",
-  	"link": "_1sUk"
+  	"root": "Footer_root_3Ji",
+  	"container": "Footer_container_n1b",
+  	"text": "Footer_text_2mr",
+  	"textMuted": "Footer_textMuted_9iT Footer_text_2mr",
+  	"spacer": "Footer_spacer_3HO",
+  	"link": "Footer_link_1sU"
   };
 
 /***/ },
-/* 82 */
+/* 81 */
 /***/ function(module, exports) {
 
   module.exports = require("react-redux");
 
 /***/ },
-/* 83 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2913,10 +3026,6 @@ module.exports =
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
   var _stringify = __webpack_require__(3);
   
   var _stringify2 = _interopRequireDefault(_stringify);
@@ -2925,11 +3034,11 @@ module.exports =
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Home = __webpack_require__(84);
+  var _Home = __webpack_require__(83);
   
   var _Home2 = _interopRequireDefault(_Home);
   
@@ -2983,9 +3092,7 @@ module.exports =
                 throw new Error('Failed to load the news feed.');
   
               case 9:
-                return _context.abrupt('return', (0, _jsx3.default)(_Home2.default, {
-                  news: data.news
-                }));
+                return _context.abrupt('return', _react2.default.createElement(_Home2.default, { news: data.news }));
   
               case 10:
               case 'end':
@@ -3005,7 +3112,7 @@ module.exports =
       */
 
 /***/ },
-/* 84 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3014,31 +3121,27 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _classnames = __webpack_require__(70);
+  var _classnames = __webpack_require__(69);
   
   var _classnames2 = _interopRequireDefault(_classnames);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Home = __webpack_require__(85);
+  var _Home = __webpack_require__(84);
   
   var _Home2 = _interopRequireDefault(_Home);
   
-  var _tedx = __webpack_require__(88);
+  var _tedx = __webpack_require__(87);
   
   var _tedx2 = _interopRequireDefault(_tedx);
   
-  var _Link = __webpack_require__(62);
+  var _Link = __webpack_require__(61);
   
   var _Link2 = _interopRequireDefault(_Link);
   
@@ -3055,52 +3158,86 @@ module.exports =
   
   var title = 'TEDDYxAmsterdam';
   
-  var _ref2 = (0, _jsx3.default)('b', {}, void 0, '#');
-  
   function Home(_ref, context) {
     var news = _ref.news;
   
     context.setTitle(title);
-    return (0, _jsx3.default)('div', {
-      className: _Home2.default.root
-    }, void 0, (0, _jsx3.default)('div', {
-      className: _Home2.default.container
-    }, void 0, (0, _jsx3.default)('header', {
-      className: _Home2.default.header
-    }, void 0, (0, _jsx3.default)('h1', {
-      className: _Home2.default.title
-    }, void 0, _ref2, (0, _jsx3.default)('img', {
-      className: _Home2.default.brand,
-      src: _tedx2.default
-    }), 'Ams'), (0, _jsx3.default)('span', {
-      className: _Home2.default.year
-    }, void 0, '2016')), (0, _jsx3.default)('section', {
-      className: _Home2.default.power
-    }, void 0, (0, _jsx3.default)('span', {
-      className: _Home2.default.small
-    }, void 0, 'new'), (0, _jsx3.default)('span', {
-      className: _Home2.default.big
-    }, void 0, 'POWER')), (0, _jsx3.default)(_Link2.default, {
-      className: (0, _classnames2.default)(_Home2.default.link, _Home2.default.button),
-      to: '/chat'
-    }, void 0, (0, _jsx3.default)('h2', {
-      className: _Home2.default.text
-    }, void 0, 'Do you want to join us this year?'), (0, _jsx3.default)('span', {
-      className: _Home2.default.text
-    }, void 0, 'Click here to register for your ticket!!!'))));
+    return _react2.default.createElement(
+      'div',
+      { className: _Home2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _Home2.default.container },
+        _react2.default.createElement(
+          'header',
+          { className: _Home2.default.header },
+          _react2.default.createElement(
+            'h1',
+            { className: _Home2.default.title },
+            _react2.default.createElement(
+              'b',
+              null,
+              '#'
+            ),
+            _react2.default.createElement('img', { className: _Home2.default.brand, src: _tedx2.default }),
+            'Ams'
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: _Home2.default.year },
+            '2016'
+          )
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: _Home2.default.power },
+          _react2.default.createElement(
+            'span',
+            { className: _Home2.default.small },
+            'new'
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: _Home2.default.big },
+            'POWER'
+          )
+        ),
+        _react2.default.createElement(
+          _Link2.default,
+          { className: (0, _classnames2.default)(_Home2.default.link, _Home2.default.button), to: '/chat' },
+          _react2.default.createElement(
+            'h2',
+            { className: _Home2.default.text },
+            'Do you want to join us this year?'
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: _Home2.default.text },
+            'Click here to register for your ticket!!!'
+          )
+        )
+      )
+    );
   }
   
+  Home.propTypes = {
+    news: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+      title: _react.PropTypes.string.isRequired,
+      link: _react.PropTypes.string.isRequired,
+      contentSnippet: _react.PropTypes.string
+    })).isRequired
+  };
   Home.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
   
   exports.default = (0, _withStyles2.default)(_Home2.default)(Home);
 
 /***/ },
-/* 85 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(86);
-      var insertCss = __webpack_require__(56);
+      var content = __webpack_require__(85);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -3110,47 +3247,64 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Home.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Home.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(54)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Home_root_2IM {\n  background: url(" + __webpack_require__(86) + ");\n  -webkit-background-size: cover;\n          background-size: cover;\n  background-position: 50%;\n\tbackground-color: #db352a;\n  height: 100%;\n}\n\n.Home_container_2Ye {\n  padding: 145px 10px 45px 10px;\n  margin: 0 auto;\n  max-width: 1000px;\n  text-align: center;\n}\n\n.Home_button_3s- {\n  display: block;\n\tborder-radius: 95px;\n\tbackground-color: #db352a;\n\t-webkit-box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.5);\n\t        box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.5);\n  color: #fff;\n  text-decoration: none;\n  padding: 25px 15px;\n  font-size: .9em;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  position: fixed;\n  bottom: 15px;\n  left: 10px;\n  right: 10px;\n\n}\n\n@media (min-width: 600px) {\n  .Home_button_3s- {\n    display: block;\n    width: 445px;\n    position: relative;\n    bottom: 0;\n    left: 0;\n    right: 0;\n  }\n}\n\n.Home_header_3rY {\n  position: relative;\n  margin-bottom: 30px;\n  text-align: right;\n  padding-right: 120px;\n}\n\n.Home_title_1Lo {\n  color: #fff;\n  font-size: 4em;\n  font-family: 'Helvetica', 'Segoe UI', sans-serif;\n  font-weight: normal;\n  line-height: normal;\n  margin: 0;\n}\n\n.Home_brand_2zT {\n  margin: 0 10px;\n  height: 50px;\n  vertical-align: baseline;\n}\n\n.Home_year_GEm {\n  position: absolute;\n  right: 0;\n  top: -40px;\n\topacity: 0.2;\n  color: #fff;\n  font-size: 7.5em;\n  line-height: normal;\n  font-family: HelveticaNeue-CondensedBlack;\n}\n\n@media (max-width: 500px) {\n  .Home_header_3rY {\n    padding-right: 70px;\n  }\n\n  .Home_title_1Lo {\n    font-size: 3em;\n  }\n\n  .Home_brand_2zT {\n    height: 35px;\n  }\n\n  .Home_year_GEm {\n    font-size: 5em;\n    top: -25px;\n  }\n}\n\n.Home_text_2J9 {\n  margin: 0;\n  text-shadow: 2px 2px 7px rgba(0, 0, 0, .8);\n}\n\n.Home_power_3AG {\n  color: #fff;\n  font-family: HelveticaNeue-CondensedBlack;\n  text-align: left;\n  margin-bottom: 40px;\n}\n\n.Home_small_1zB,\n.Home_big_3gW {\n  display: block;\n}\n\n.Home_small_1zB {\n  font-size: 100px;\n  line-height: .9em;\n}\n\n.Home_big_3gW {\n  font-size: 150px;\n  line-height: .8em;\n}\n\n@media (max-width: 470px) {\n  .Home_small_1zB {\n    font-size: 70px;\n    line-height: .9em;\n  }\n\n  .Home_big_3gW {\n    font-size: 100px;\n    line-height: .8em;\n  }\n}\n", "", {"version":3,"sources":["/./routes/home/Home.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADrBD;EACE,0CAA0B;EAC1B,+BAAuB;UAAvB,uBAAuB;EACvB,yBAAyB;CAC1B,0BAA0B;EACzB,aAAa;CACd;;AAED;EACE,8BAA8B;EAC9B,eAAe;EACf,kBAAoC;EACpC,mBAAmB;CACpB;;AAED;EACE,eAAe;CAChB,oBAAoB;CACpB,0BAA0B;CAC1B,wDAAgD;SAAhD,gDAAgD;EAC/C,YAAY;EACZ,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,+BAAuB;UAAvB,uBAAuB;EACvB,gBAAgB;EAChB,aAAa;EACb,WAAW;EACX,YAAY;;CAEb;;AAED;EACE;IACE,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,UAAU;IACV,QAAQ;IACR,SAAS;GACV;CACF;;AAED;EACE,mBAAmB;EACnB,oBAAoB;EACpB,kBAAkB;EAClB,qBAAqB;CACtB;;AAED;EACE,YAAY;EACZ,eAAe;EACf,iDAAiD;EACjD,oBAAoB;EACpB,oBAAoB;EACpB,UAAU;CACX;;AAED;EACE,eAAe;EACf,aAAa;EACb,yBAAyB;CAC1B;;AAED;EACE,mBAAmB;EACnB,SAAS;EACT,WAAW;CACZ,aAAa;EACZ,YAAY;EACZ,iBAAiB;EACjB,oBAAoB;EACpB,0CAA0C;CAC3C;;AAED;EACE;IACE,oBAAoB;GACrB;;EAED;IACE,eAAe;GAChB;;EAED;IACE,aAAa;GACd;;EAED;IACE,eAAe;IACf,WAAW;GACZ;CACF;;AAED;EACE,UAAU;EACV,2CAA2C;CAC5C;;AAED;EACE,YAAY;EACZ,0CAA0C;EAC1C,iBAAiB;EACjB,oBAAoB;CACrB;;AAED;;EAEE,eAAe;CAChB;;AAED;EACE,iBAAiB;EACjB,kBAAkB;CACnB;;AAED;EACE,iBAAiB;EACjB,kBAAkB;CACnB;;AAED;EACE;IACE,gBAAgB;IAChB,kBAAkB;GACnB;;EAED;IACE,iBAAiB;IACjB,kBAAkB;GACnB;CACF","file":"Home.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n\n.root {\n  background: url(./BG.jpg);\n  background-size: cover;\n  background-position: 50%;\n\tbackground-color: #db352a;\n  height: 100%;\n}\n\n.container {\n  padding: 145px 10px 45px 10px;\n  margin: 0 auto;\n  max-width: var(--max-content-width);\n  text-align: center;\n}\n\n.button {\n  display: block;\n\tborder-radius: 95px;\n\tbackground-color: #db352a;\n\tbox-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.5);\n  color: #fff;\n  text-decoration: none;\n  padding: 25px 15px;\n  font-size: .9em;\n  box-sizing: border-box;\n  position: fixed;\n  bottom: 15px;\n  left: 10px;\n  right: 10px;\n\n}\n\n@media (min-width: 600px) {\n  .button {\n    display: block;\n    width: 445px;\n    position: relative;\n    bottom: 0;\n    left: 0;\n    right: 0;\n  }\n}\n\n.header {\n  position: relative;\n  margin-bottom: 30px;\n  text-align: right;\n  padding-right: 120px;\n}\n\n.title {\n  color: #fff;\n  font-size: 4em;\n  font-family: 'Helvetica', 'Segoe UI', sans-serif;\n  font-weight: normal;\n  line-height: normal;\n  margin: 0;\n}\n\n.brand {\n  margin: 0 10px;\n  height: 50px;\n  vertical-align: baseline;\n}\n\n.year {\n  position: absolute;\n  right: 0;\n  top: -40px;\n\topacity: 0.2;\n  color: #fff;\n  font-size: 7.5em;\n  line-height: normal;\n  font-family: HelveticaNeue-CondensedBlack;\n}\n\n@media (max-width: 500px) {\n  .header {\n    padding-right: 70px;\n  }\n\n  .title {\n    font-size: 3em;\n  }\n\n  .brand {\n    height: 35px;\n  }\n\n  .year {\n    font-size: 5em;\n    top: -25px;\n  }\n}\n\n.text {\n  margin: 0;\n  text-shadow: 2px 2px 7px rgba(0, 0, 0, .8);\n}\n\n.power {\n  color: #fff;\n  font-family: HelveticaNeue-CondensedBlack;\n  text-align: left;\n  margin-bottom: 40px;\n}\n\n.small,\n.big {\n  display: block;\n}\n\n.small {\n  font-size: 100px;\n  line-height: .9em;\n}\n\n.big {\n  font-size: 150px;\n  line-height: .8em;\n}\n\n@media (max-width: 470px) {\n  .small {\n    font-size: 70px;\n    line-height: .9em;\n  }\n\n  .big {\n    font-size: 100px;\n    line-height: .8em;\n  }\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Home_root_2IM",
+  	"container": "Home_container_2Ye",
+  	"button": "Home_button_3s-",
+  	"header": "Home_header_3rY",
+  	"title": "Home_title_1Lo",
+  	"brand": "Home_brand_2zT",
+  	"year": "Home_year_GEm",
+  	"text": "Home_text_2J9",
+  	"power": "Home_power_3AG",
+  	"small": "Home_small_1zB",
+  	"big": "Home_big_3gW"
+  };
 
 /***/ },
 /* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "._2IMq{background:url(" + __webpack_require__(87) + ");background-size:cover;background-position:50%;background-color:#db352a;height:100%}._2Yej{padding:145px 10px 45px;margin:0 auto;max-width:1000px;text-align:center}._3s-c{display:block;border-radius:95px;background-color:#db352a;box-shadow:inset 0 -3px 0 0 rgba(0,0,0,.5);color:#fff;text-decoration:none;padding:25px 15px;font-size:.9em;box-sizing:border-box;position:fixed;bottom:15px;left:10px;right:10px}@media (min-width:600px){._3s-c{display:block;width:445px;position:relative;bottom:0;left:0;right:0}}._3rYP{position:relative;margin-bottom:30px;text-align:right;padding-right:120px}._1LoY{color:#fff;font-size:4em;font-family:Helvetica,Segoe UI,sans-serif;font-weight:400;line-height:normal;margin:0}._2zTv{margin:0 10px;height:50px;vertical-align:baseline}.GEmG{position:absolute;right:0;top:-40px;opacity:.2;color:#fff;font-size:7.5em;line-height:normal;font-family:HelveticaNeue-CondensedBlack}@media (max-width:500px){._3rYP{padding-right:70px}._1LoY{font-size:3em}._2zTv{height:35px}.GEmG{font-size:5em;top:-25px}}._2J9g{margin:0;text-shadow:2px 2px 7px rgba(0,0,0,.8)}._3AGa{color:#fff;font-family:HelveticaNeue-CondensedBlack;text-align:left;margin-bottom:40px}._1zBx,._3gWZ{display:block}._1zBx{font-size:100px;line-height:.9em}._3gWZ{font-size:150px;line-height:.8em}@media (max-width:470px){._1zBx{font-size:70px;line-height:.9em}._3gWZ{font-size:100px;line-height:.8em}}", ""]);
-  
-  // exports
-  exports.locals = {
-  	"root": "_2IMq",
-  	"container": "_2Yej",
-  	"button": "_3s-c",
-  	"header": "_3rYP",
-  	"title": "_1LoY",
-  	"brand": "_2zTv",
-  	"year": "GEmG",
-  	"text": "_2J9g",
-  	"power": "_3AGa",
-  	"small": "_1zBx",
-  	"big": "_3gWZ"
-  };
+  module.exports = __webpack_require__.p + "routes/home/BG.jpg?f0eff9649f2a793bbf1ce19a141a0a89";
 
 /***/ },
 /* 87 */
-/***/ function(module, exports, __webpack_require__) {
-
-  module.exports = __webpack_require__.p + "f0eff9649f2a793bbf1ce19a141a0a89.jpg";
-
-/***/ },
-/* 88 */
 /***/ function(module, exports) {
 
   module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjEwM3B4IiBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAxMDMgMzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogc2tldGNodG9vbCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjFGQ0RFREIzLTE5MzEtNEQwNy1CNzVGLUMzNTM4OURCNjQ1RjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggc2tldGNodG9vbC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iT25ib2FyZGluZyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Im0uSG9tZShMYW5kaW5nc3BhZ2UpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtODAuMDAwMDAwLCAtMTAwLjAwMDAwMCkiIGZpbGw9IiNEQjM1MkEiPgogICAgICAgICAgICA8ZyBpZD0iI1RFRHhBbXMyMDE2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Mi4wMDAwMDAsIDY0LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlRFRHhBbXN0ZXJkYW1fbG9nby1Db3B5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOC4wMDAwMDAsIDI1LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJURUR4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTEuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iRmlsbC0zNSIgcG9pbnRzPSI5LjExMzgyNjgzIDguMDI3NTc2NiAwLjg1NzAyNTQ2NyA4LjAyNzU3NjYgMC44NTcwMjU0NjcgMC40NzI5ODA1MDEgMjYuNDM5NjMzMyAwLjQ3Mjk4MDUwMSAyNi40Mzk2MzMzIDguMDI3NTc2NiAxOC4xODU2MTYzIDguMDI3NTc2NiAxOC4xODU2MTYzIDI5Ljk0ODE4OTQgOS4xMTM4MjY4MyAyOS45NDgxODk0IDkuMTEzODI2ODMgOC4wMjc1NzY2Ij48L3BvbHlsaW5lPgogICAgICAgICAgICAgICAgICAgICAgICA8cG9seWxpbmUgaWQ9IkZpbGwtMzYiIHBvaW50cz0iMjcuODQ5NjQzNSAwLjQ3Mjk4MDUwMSA1Mi42ODQwODgzIDAuNDcyOTgwNTAxIDUyLjY4NDA4ODMgOC4wMjc1NzY2IDM2LjkyNzI4MDEgOC4wMjc1NzY2IDM2LjkyNzI4MDEgMTEuNzAwNTU3MSA1Mi42ODQwODgzIDExLjcwMDU1NzEgNTIuNjg0MDg4MyAxOC43MjA2MTI4IDM2LjkyNzI4MDEgMTguNzIwNjEyOCAzNi45MjcyODAxIDIyLjM5Mzg3MTkgNTIuNjg4MjY0OSAyMi4zOTM4NzE5IDUyLjY4ODI2NDkgMjkuOTQ4MTg5NCAyNy44NDk2NDM1IDI5Ljk0ODE4OTQgMjcuODQ5NjQzNSAwLjQ3Mjk4MDUwMSI+PC9wb2x5bGluZT4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTYzLjI4ODk1NzYsMjIuMzkzODcxOSBMNjYuODM5MDQyNCwyMi4zOTM4NzE5IEM3Mi40OTM4NDA0LDIyLjM5Mzg3MTkgNzMuMzIwNTIyOSwxNy44MTAwMjc5IDczLjMyMDUyMjksMTUuMDQxMjI1NiBDNzMuMzIwNTIyOSwxMy4xODcxODY2IDcyLjczOTcwMTIsOC4wMjc1NzY2IDY2LjE3ODAzMDYsOC4wMjc1NzY2IEw2My4yODg5NTc2LDguMDI3NTc2NiBMNjMuMjg4OTU3NiwyMi4zOTM4NzE5IEw2My4yODg5NTc2LDIyLjM5Mzg3MTkgWiBNNTQuMjExODc3OCwwLjQ3Mjk4MDUwMSBMNjkuMTA4MzEyNCwwLjQ3Mjk4MDUwMSBDNzguOTI3NzA4LDAuNDcyOTgwNTAxIDgyLjM5ODE1OTYsNy43Mzg3MTg2NiA4Mi4zOTgxNTk2LDE1LjE2NzEzMDkgQzgyLjM5ODE1OTYsMjQuMjEwNTg1IDc3LjYxMTI1MywyOS45NDgxODk0IDY3LjMzNTc3NTksMjkuOTQ4MTg5NCBMNTQuMjExODc3OCwyOS45NDgxODk0IEw1NC4yMTE4Nzc4LDAuNDcyOTgwNTAxIEw1NC4yMTE4Nzc4LDAuNDcyOTgwNTAxIFoiIGlkPSJGaWxsLTM3Ij48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iRmlsbC0zOCIgcG9pbnRzPSI5NS40NDE1ODkxIDE4LjU4OTY5MzYgOTIuNjcyNTIyOSAxMy45OTU4MjE3IDg5Ljk3MjIzMDkgMTguNTg5NjkzNiA4My4zMjExODE3IDE4LjU4OTY5MzYgODkuNjM1MzIwOSA5LjMwMTExNDIxIDgzLjU1NTM0OCAwLjQxNjE1NTk4OSA5MC4yMDg2MjQ4IDAuNDE2MTU1OTg5IDkyLjY3MjUyMjkgNC44MDgwNzc5OSA5NS4yMDcxNDQzIDAuNDE2MTU1OTg5IDEwMS44NTg0NzIgMC40MTYxNTU5ODkgOTUuNzgwNDQ4MiA5LjMwMTExNDIxIDEwMi4wOTQzMDkgMTguNTg5NjkzNiA5NS40NDE1ODkxIDE4LjU4OTY5MzYiPjwvcG9seWxpbmU+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
 
 /***/ },
-/* 89 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3159,15 +3313,11 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Chat = __webpack_require__(90);
+  var _Chat = __webpack_require__(89);
   
   var _Chat2 = _interopRequireDefault(_Chat);
   
@@ -3182,19 +3332,17 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
-  var _ref = (0, _jsx3.default)(_Chat2.default, {});
-  
   exports.default = {
   
     path: '/chat',
   
     action: function action() {
-      return _ref;
+      return _react2.default.createElement(_Chat2.default, null);
     }
   };
 
 /***/ },
-/* 90 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3203,27 +3351,23 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Chat = __webpack_require__(91);
+  var _Chat = __webpack_require__(90);
   
   var _Chat2 = _interopRequireDefault(_Chat);
   
-  var _reactRedux = __webpack_require__(82);
+  var _reactRedux = __webpack_require__(81);
   
-  var _redux = __webpack_require__(93);
+  var _redux = __webpack_require__(92);
   
-  var _Messenger = __webpack_require__(94);
+  var _Messenger = __webpack_require__(93);
   
   var _Messenger2 = _interopRequireDefault(_Messenger);
   
@@ -3231,7 +3375,7 @@ module.exports =
   
   var _messenger2 = _interopRequireDefault(_messenger);
   
-  var _messenger3 = __webpack_require__(97);
+  var _messenger3 = __webpack_require__(96);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -3283,12 +3427,9 @@ module.exports =
   
   //	store.subscribe(() => { console.log('state', store.getState()) });
   */
-  
-  var _ref = (0, _jsx3.default)(_Messenger2.default, {});
-  
   function Chat(props, context) {
     context.setTitle(title);
-    return _ref;
+    return _react2.default.createElement(_Messenger2.default, null);
   }
   
   Chat.contextTypes = {
@@ -3309,12 +3450,12 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _withStyles2.default)(_Chat2.default)(Chat));
 
 /***/ },
-/* 91 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(92);
-      var insertCss = __webpack_require__(56);
+      var content = __webpack_require__(91);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -3324,32 +3465,49 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Chat.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Chat.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
-/* 92 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "._3Qps{padding-left:20px;padding-right:20px}._1ptS{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Chat_root_3Qp {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.Chat_container_1pt {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", "", {"version":3,"sources":["/./routes/chat/Chat.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADrBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;CACrC","file":"Chat.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "_3Qps",
-  	"container": "_1ptS"
+  	"root": "Chat_root_3Qp",
+  	"container": "Chat_container_1pt"
   };
 
 /***/ },
-/* 93 */
+/* 92 */
 /***/ function(module, exports) {
 
   module.exports = require("redux");
 
 /***/ },
-/* 94 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3358,53 +3516,53 @@ module.exports =
   		value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _getPrototypeOf = __webpack_require__(47);
+  var _getPrototypeOf = __webpack_require__(46);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(48);
+  var _classCallCheck2 = __webpack_require__(47);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(49);
+  var _createClass2 = __webpack_require__(48);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(50);
+  var _possibleConstructorReturn2 = __webpack_require__(49);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(51);
+  var _inherits2 = __webpack_require__(50);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Messenger = __webpack_require__(95);
+  var _Messenger = __webpack_require__(94);
   
   var _Messenger2 = _interopRequireDefault(_Messenger);
   
-  var _reactRedux = __webpack_require__(82);
+  var _reactRedux = __webpack_require__(81);
   
-  var _messenger = __webpack_require__(97);
+  var _messenger = __webpack_require__(96);
   
-  var _isomorphicFetch = __webpack_require__(99);
+  var _isomorphicFetch = __webpack_require__(98);
   
   var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var cx = __webpack_require__(70);
+  var cx = __webpack_require__(69);
+  
+  
+  var io = __webpack_require__(99);
+  var socket = io.connect('http://tedxchatbot.herokuapp.com');
   
   var Messenger = function (_Component) {
   		(0, _inherits3.default)(Messenger, _Component);
@@ -3417,88 +3575,114 @@ module.exports =
   		(0, _createClass3.default)(Messenger, [{
   				key: 'chatWithBot',
   				value: function chatWithBot(props) {
-  						(0, _isomorphicFetch2.default)('/api/bot?message=' + props.messenger.input).then(function (response) {
-  								return response.json();
-  						}).then(function (data) {
-  								if (data.text) {
-  										console.log(data, 'from chatbot');
-  										var update = {
-  												user: {
-  														avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
-  														className: _Messenger2.default.them
-  												},
-  												text: data.text,
-  												time: new Date().getTime()
-  										};
-  										props.sendMsg(update);
-  								}
-  						});
+  						var data = {
+  								user: 'You',
+  								channel: socket.io.engine.id,
+  								text: props.messenger.input,
+  								time: new Date().getTime()
+  						};
+  						socket.emit('message', data);
+  						props.updateMsger('');
   						return props.messenger.input;
   				}
   		}, {
-  				key: 'componentDidMount',
-  				value: function componentDidMount() {}
+  				key: 'componentWillMount',
+  				value: function componentWillMount() {
+  						var comp = this;
+  
+  						socket.on('connect', function () {
+  								console.log('Client has connected to the server!');
+  								socket.on('message', function (data) {
+  										data.user = { name: data.user, className: _Messenger2.default.them };
+  										comp.props.sendMsg(data);
+  								});
+  						});
+  						socket.on('disconnect', function () {
+  								console.log('The client has disconnected!');
+  						});
+  				}
   		}, {
   				key: 'render',
   				value: function render() {
   						var _this2 = this;
   
-  						return (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.wrapper
-  						}, void 0, (0, _jsx3.default)('nav', {
-  								id: 'nav',
-  								className: _Messenger2.default.nav
-  						}, void 0, (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.defaultNav
-  						}, void 0, (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.mainNav
-  						}, void 0, (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.toggle
-  						}, void 0), (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.mainNavItem
-  						}, void 0, (0, _jsx3.default)('a', {
-  								className: _Messenger2.default.mainNavItemLink
-  						}, void 0, 'Chat')), (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.options
-  						}, void 0)))), (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.inner
-  						}, void 0, (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.content
-  						}, void 0, this.props.messenger.messageList.map(function (item, index) {
-  								return (0, _jsx3.default)('div', {
-  										className: cx(_Messenger2.default.messageWrapper, item.user.className)
-  								}, index, (0, _jsx3.default)('div', {
-  										className: cx(_Messenger2.default.circleWrapper, "animated bounceIn"),
-  										style: { backgroundImage: 'url("' + item.user.avatar + '")', backgroundPosition: '-70px -285px' }
-  								}), (0, _jsx3.default)('div', {
-  										className: _Messenger2.default.textWrapper
-  								}, void 0, item.text));
-  						}))), (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.bottom
-  						}, void 0, (0, _jsx3.default)('textarea', {
-  								className: _Messenger2.default.input,
-  								onChange: function onChange(e) {
-  										_this2.props.updateMsger(e.target.value);
-  										e.preventDefault();
-  								}
-  						}), (0, _jsx3.default)('div', {
-  								className: _Messenger2.default.send,
-  								onClick: function onClick(e) {
-  										_this2.props.sendMsg({
-  												user: {
-  														avatar: '',
-  														className: _Messenger2.default.me
-  												},
-  												text: _this2.chatWithBot(_this2.props),
-  												time: new Date().getTime()
-  										});
-  										e.preventDefault();
-  								}
-  						})));
+  						return _react2.default.createElement(
+  								'div',
+  								{ className: _Messenger2.default.wrapper },
+  								_react2.default.createElement(
+  										'nav',
+  										{ id: 'nav', className: _Messenger2.default.nav },
+  										_react2.default.createElement(
+  												'div',
+  												{ className: _Messenger2.default.defaultNav },
+  												_react2.default.createElement(
+  														'div',
+  														{ className: _Messenger2.default.mainNav },
+  														_react2.default.createElement('div', { className: _Messenger2.default.toggle }),
+  														_react2.default.createElement(
+  																'div',
+  																{ className: _Messenger2.default.mainNavItem },
+  																_react2.default.createElement(
+  																		'a',
+  																		{ className: _Messenger2.default.mainNavItemLink },
+  																		'Chat'
+  																)
+  														),
+  														_react2.default.createElement('div', { className: _Messenger2.default.options })
+  												)
+  										)
+  								),
+  								_react2.default.createElement(
+  										'div',
+  										{ className: _Messenger2.default.inner },
+  										_react2.default.createElement(
+  												'div',
+  												{ className: _Messenger2.default.content },
+  												this.props.messenger.messageList.map(function (item, index) {
+  														return _react2.default.createElement(
+  																'div',
+  																{ key: index, className: cx(_Messenger2.default.messageWrapper, item.user.className) },
+  																_react2.default.createElement('div', { className: cx(_Messenger2.default.circleWrapper, "animated bounceIn"), style: { backgroundImage: 'url("' + item.user.avatar + '")', backgroundPosition: '-70px -285px' } }),
+  																_react2.default.createElement(
+  																		'div',
+  																		{ className: _Messenger2.default.textWrapper },
+  																		item.text
+  																)
+  														);
+  												})
+  										)
+  								),
+  								_react2.default.createElement(
+  										'div',
+  										{ className: _Messenger2.default.bottom },
+  										_react2.default.createElement('textarea', { className: _Messenger2.default.input, value: this.props.messenger.input, onChange: function onChange(e) {
+  														_this2.props.updateMsger(e.target.value);
+  														e.preventDefault();
+  												} }),
+  										_react2.default.createElement('div', { className: _Messenger2.default.send, onClick: function onClick(e) {
+  														_this2.props.sendMsg({
+  																user: {
+  																		avatar: '',
+  																		className: _Messenger2.default.me
+  																},
+  																text: _this2.chatWithBot(_this2.props),
+  																time: new Date().getTime()
+  														});
+  														e.preventDefault();
+  												} })
+  								)
+  						);
   				}
   		}]);
   		return Messenger;
   }(_react.Component);
+  
+  Messenger.propTypes = {
+  		messenger: _react.PropTypes.object,
+  		sendMsg: _react.PropTypes.func.isRequired,
+  		updateMsger: _react.PropTypes.func.isRequired
+  };
+  
   
   var mapState = function mapState(state) {
   		return {
@@ -3514,12 +3698,12 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _withStyles2.default)(_Messenger2.default)(Messenger));
 
 /***/ },
-/* 95 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(96);
-      var insertCss = __webpack_require__(56);
+      var content = __webpack_require__(95);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -3529,43 +3713,60 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Messenger.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Messenger.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
-/* 96 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "*{box-sizing:border-box}body{background-color:#ff5722}.iXTn{color:#fff;text-align:center;font-weight:100}.nRKI{height:520px;width:320px;overflow:hidden;background-color:#fff;position:fixed;top:100px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);box-shadow:0 3px 3px 0 rgba(50,50,50,.5);-webkit-transition:.3s ease;transition:.3s ease}.nRKI ._1flk{overflow:scroll;height:520px;padding-top:64px;background:#f2f2f2;-ms-overflow-style:none;overflow:-moz-scrollbars-none}.nRKI ._1flk::-webkit-scrollbar{width:0!important}.nRKI ._1flk ._2t8e{padding:10.66667px;position:relative;margin-bottom:32px}._1mGK{position:fixed;top:0;left:0;right:0;height:64px;z-index:100;-webkit-transition:.3s ease;transition:.3s ease}._1mGK ._3XWU{z-index:110;background-color:#f44336;border-bottom:3px solid #ea1c0d;color:#fff;box-shadow:0 3px 3px 0 rgba(50,50,50,.1)}._1mGK ._3XWU,._1mGK ._3XWU ._2m7q{height:64px;width:100%;position:absolute;left:0;top:0;-webkit-transition:.3s ease;transition:.3s ease}._1mGK ._3XWU ._2m7q{margin:0;padding:0;list-style:none}._1mGK ._3XWU ._2m7q ._2-RL{height:32px;width:32px;background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_arrow_back_white_48dp.png);background-size:contain;margin:16px;float:left}._1mGK ._3XWU ._2m7q ._2-RL:hover{cursor:pointer}._1mGK ._3XWU ._2m7q ._1pBL{height:32px;width:32px;background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_more_vert_white_48dp.png);background-size:contain;margin:16px;position:absolute;right:0}._1mGK ._3XWU ._2m7q ._1pBL:hover{cursor:pointer}._1mGK ._3XWU ._2m7q ._1S-U{float:left;margin-right:50px}._1mGK ._3XWU ._2m7q ._1S-U,._1mGK ._3XWU ._2m7q ._1S-U .vPms{height:64px;position:relative;line-height:64px;-webkit-transition:.3s ease;transition:.3s ease}._1mGK ._3XWU ._2m7q ._1S-U .vPms{display:block;width:100%;text-align:center;text-decoration:none;color:inherit}.WmIo{position:fixed;bottom:0;right:0}.WmIo,.WmIo ._3VXN{left:0;height:64px;background:#fff}.WmIo ._3VXN{border:none;width:calc(100% - 64px);position:absolute;top:0;padding:0 5%;resize:none;overflow:scroll;padding-top:24px;font-weight:300;-ms-overflow-style:none;overflow:-moz-scrollbars-none}.WmIo ._3VXN:focus{outline:none}.WmIo ._3VXN::-webkit-scrollbar{width:0!important}.WmIo ._3PT5{position:fixed;height:42.66667px;width:42.66667px;border-radius:50%;border:0;background:#f44336;color:#fff;bottom:10.66667px;right:10.66667px}.WmIo ._3PT5:before{content:'';background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png) no-repeat 50%;background-size:25.6px;position:absolute;top:0;left:0;right:0;bottom:0}.WmIo ._3PT5:focus{outline:none}.WmIo ._3PT5:hover{cursor:pointer}._1g7K{position:relative;overflow:hidden;width:100%;margin:10.66667px 0;padding:10.66667px 0}._1g7K .N7FI{height:42.66667px;width:42.66667px;border-radius:50%}._1g7K ._3-j3{padding:10.66667px;min-height:42.66667px;width:60%;margin:0 10.66667px;box-shadow:0 1px 0 0 rgba(50,50,50,.3);border-radius:2px;font-weight:300;position:relative}._1g7K ._3-j3:before{content:'';width:0;height:0;border-style:solid}._1g7K._2jjM ._3-j3,._1g7K._2jjM .N7FI{background:#f44336;float:left;color:#fff}._1g7K._2jjM ._3-j3:before{border-width:0 10px 10px 0;border-color:transparent #f44336 transparent transparent;position:absolute;top:0;left:-9px}._1g7K._20bL ._3-j3,._1g7K._20bL .N7FI{background:#ff5722;float:right;color:#333}._1g7K._20bL ._3-j3{background:#fff}._1g7K._20bL ._3-j3:before{border-width:10px 10px 0 0;border-color:#fff transparent transparent;position:absolute;top:0;right:-9px}@media (max-width:560px){.nRKI{width:100%;top:0;left:0;-webkit-transform:translateX(0);transform:translateX(0)}.nRKI,.nRKI ._1flk{height:100%;height:100vh}}", ""]);
+  exports.push([module.id, "\n* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n\nbody {\n  /* position: relative; */\n  background-color: #FF5722;\n}\n\n.Messenger_title_iXT {\n  color: #ffffff;\n  text-align: center;\n  font-weight: 100;\n}\n\n.Messenger_wrapper_nRK {\n  height: 520px;\n  width: 320px;\n  overflow: hidden;\n  background-color: white;\n  position: fixed;\n  top: 100px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          -ms-transform: translateX(-50%);\n           -o-transform: translateX(-50%);\n      transform: translateX(-50%);\n  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n          box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_wrapper_nRK .Messenger_inner_1fl {\n  overflow: scroll;\n  height: 520px;\n  padding-top: 64px;\n  background: #f2f2f2;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n\n.Messenger_wrapper_nRK .Messenger_inner_1fl::-webkit-scrollbar {\n  width: 0 !important;\n}\n\n.Messenger_wrapper_nRK .Messenger_inner_1fl .Messenger_content_2t8 {\n  padding: 10.66667px;\n  position: relative;\n  margin-bottom: 32px;\n}\n\n.Messenger_nav_1mG {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  z-index: 100;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW {\n  height: 64px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: 110;\n  background-color: #F44336;\n  border-bottom: 3px solid #ea1c0d;\n  color: #ffffff;\n  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n          box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  height: 64px;\n  top: 0;\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_toggle_2-R {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_arrow_back_white_48dp.png);\n  -webkit-background-size: contain;\n          background-size: contain;\n  margin: 16px;\n  float: left;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_toggle_2-R:hover {\n  cursor: pointer;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_options_1pB {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_more_vert_white_48dp.png);\n  -webkit-background-size: contain;\n          background-size: contain;\n  margin: 16px;\n  position: absolute;\n  right: 0;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_options_1pB:hover {\n  cursor: pointer;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_mainNavItem_1S- {\n  float: left;\n  height: 64px;\n  margin-right: 50px;\n  position: relative;\n  line-height: 64px;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_nav_1mG .Messenger_defaultNav_3XW .Messenger_mainNav_2m7 .Messenger_mainNavItem_1S- .Messenger_mainNavItemLink_vPm {\n  display: block;\n  position: relative;\n  height: 64px;\n  width: 100%;\n  text-align: center;\n  line-height: 64px;\n  text-decoration: none;\n  color: inherit;\n  -webkit-transition: 0.3s ease;\n  -o-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.Messenger_bottom_WmI {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  background: #ffffff;\n  /* box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.1); */\n}\n\n.Messenger_bottom_WmI .Messenger_input_3VX {\n  height: 64px;\n  background: #ffffff;\n  border: none;\n  width: calc(100% - 64px);\n  position: absolute;\n  left: 0;\n  top: 0;\n  padding: 0 5%;\n  resize: none;\n  overflow: scroll;\n  padding-top: 24px;\n  font-weight: 300;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n\n.Messenger_bottom_WmI .Messenger_input_3VX:focus {\n  outline: none;\n}\n\n.Messenger_bottom_WmI .Messenger_input_3VX::-webkit-scrollbar {\n  width: 0 !important;\n}\n\n.Messenger_bottom_WmI .Messenger_send_3PT {\n  position: fixed;\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n  border: 0;\n  background: #F44336;\n  color: #ffffff;\n  bottom: 10.66667px;\n  right: 10.66667px;\n}\n\n.Messenger_bottom_WmI .Messenger_send_3PT:before {\n  content: '';\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png) no-repeat center center;\n  -webkit-background-size: 25.6px 25.6px;\n          background-size: 25.6px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n\n.Messenger_bottom_WmI .Messenger_send_3PT:focus {\n  outline: none;\n}\n\n.Messenger_bottom_WmI .Messenger_send_3PT:hover {\n  cursor: pointer;\n}\n\n.Messenger_messageWrapper_1g7 {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  margin: 10.66667px 0;\n  padding: 10.66667px 0;\n}\n\n.Messenger_messageWrapper_1g7 .Messenger_circleWrapper_N7F {\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n}\n\n.Messenger_messageWrapper_1g7 .Messenger_textWrapper_3-j {\n  padding: 10.66667px;\n  min-height: 42.66667px;\n  width: 60%;\n  margin: 0 10.66667px;\n  -webkit-box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n          box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n  border-radius: 2px;\n  font-weight: 300;\n  position: relative;\n  /* word-break: break-all; */\n  /*opacity: 0;*/\n}\n\n.Messenger_messageWrapper_1g7 .Messenger_textWrapper_3-j:before {\n  content: '';\n  width: 0;\n  height: 0;\n  border-style: solid;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_them_2jj .Messenger_circleWrapper_N7F, .Messenger_messageWrapper_1g7.Messenger_them_2jj .Messenger_textWrapper_3-j {\n  background: #F44336;\n  float: left;\n  color: #ffffff;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_them_2jj .Messenger_textWrapper_3-j:before {\n  border-width: 0 10px 10px 0;\n  border-color: transparent #F44336 transparent transparent;\n  position: absolute;\n  top: 0;\n  left: -9px;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_me_20b .Messenger_circleWrapper_N7F, .Messenger_messageWrapper_1g7.Messenger_me_20b .Messenger_textWrapper_3-j {\n  background: #FF5722;\n  float: right;\n  color: #333333;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_me_20b .Messenger_textWrapper_3-j {\n  background: #ffffff;\n}\n\n.Messenger_messageWrapper_1g7.Messenger_me_20b .Messenger_textWrapper_3-j:before {\n  border-width: 10px 10px 0 0;\n  border-color: #ffffff transparent transparent transparent;\n  position: absolute;\n  top: 0;\n  right: -9px;\n}\n\n@media (max-width: 560px) {\n  .Messenger_wrapper_nRK {\n    width: 100%;\n    height: 100%;\n    height: 100vh;\n    top: 0;\n    left: 0;\n    -webkit-transform: translateX(0);\n            -ms-transform: translateX(0);\n             -o-transform: translateX(0);\n        transform: translateX(0);\n  }\n  .Messenger_wrapper_nRK .Messenger_inner_1fl {\n    height: 100%;\n    height: 100vh;\n  }\n}\n", "", {"version":3,"sources":["/./components/Messenger/Messenger.css"],"names":[],"mappings":";AACA;EACE,+BAAuB;UAAvB,uBAAuB;CACxB;;AAED;EACE,yBAAyB;EACzB,0BAA0B;CAC3B;;AAED;EACE,eAAe;EACf,mBAAmB;EACnB,iBAAiB;CAClB;;AAED;EACE,cAAc;EACd,aAAa;EACb,iBAAiB;EACjB,wBAAwB;EACxB,gBAAgB;EAChB,WAAW;EACX,UAAU;EACV,oCAAoC;UAC5B,gCAA4B;WAA5B,+BAA4B;MAA5B,4BAA4B;EACpC,0DAAkD;UAAlD,kDAAkD;EAClD,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,iBAAiB;EACjB,cAAc;EACd,kBAAkB;EAClB,oBAAoB;EACpB,yBAAyB;EACzB,+BAA+B;CAChC;;AACD;EACE,oBAAoB;CACrB;;AACD;EACE,oBAAoB;EACpB,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,gBAAgB;EAChB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,aAAa;EACb,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,aAAa;EACb,YAAY;EACZ,mBAAmB;EACnB,QAAQ;EACR,OAAO;EACP,aAAa;EACb,0BAA0B;EAC1B,iCAAiC;EACjC,eAAe;EACf,0DAAkD;UAAlD,kDAAkD;EAClD,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,mBAAmB;EACnB,QAAQ;EACR,YAAY;EACZ,aAAa;EACb,OAAO;EACP,UAAU;EACV,WAAW;EACX,iBAAiB;EACjB,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,aAAa;EACb,YAAY;EACZ,kGAAkG;EAClG,iCAAyB;UAAzB,yBAAyB;EACzB,aAAa;EACb,YAAY;CACb;;AACD;EACE,gBAAgB;CACjB;;AACD;EACE,aAAa;EACb,YAAY;EACZ,iGAAiG;EACjG,iCAAyB;UAAzB,yBAAyB;EACzB,aAAa;EACb,mBAAmB;EACnB,SAAS;CACV;;AACD;EACE,gBAAgB;CACjB;;AACD;EACE,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;EAClB,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AACD;EACE,eAAe;EACf,mBAAmB;EACnB,aAAa;EACb,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;EAClB,sBAAsB;EACtB,eAAe;EACf,8BAA8B;EAC9B,yBAAsB;EAAtB,sBAAsB;CACvB;;AAED;EACE,gBAAgB;EAChB,UAAU;EACV,QAAQ;EACR,SAAS;EACT,aAAa;EACb,oBAAoB;EACpB,yDAAyD;CAC1D;;AACD;EACE,aAAa;EACb,oBAAoB;EACpB,aAAa;EACb,yBAAyB;EACzB,mBAAmB;EACnB,QAAQ;EACR,OAAO;EACP,cAAc;EACd,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,iBAAiB;EACjB,yBAAyB;EACzB,+BAA+B;CAChC;;AACD;EACE,cAAc;CACf;;AACD;EACE,oBAAoB;CACrB;;AACD;EACE,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,UAAU;EACV,oBAAoB;EACpB,eAAe;EACf,mBAAmB;EACnB,kBAAkB;CACnB;;AACD;EACE,YAAY;EACZ,oHAAoH;EACpH,uCAAwB;UAAxB,wBAAwB;EACxB,mBAAmB;EACnB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,UAAU;CACX;;AACD;EACE,cAAc;CACf;;AACD;EACE,gBAAgB;CACjB;;AAED;EACE,mBAAmB;EACnB,iBAAiB;EACjB,YAAY;EACZ,qBAAqB;EACrB,sBAAsB;CACvB;;AACD;EACE,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;CACpB;;AACD;EACE,oBAAoB;EACpB,uBAAuB;EACvB,WAAW;EACX,qBAAqB;EACrB,0DAAkD;UAAlD,kDAAkD;EAClD,mBAAmB;EACnB,iBAAiB;EACjB,mBAAmB;EACnB,4BAA4B;EAC5B,eAAe;CAChB;;AACD;EACE,YAAY;EACZ,SAAS;EACT,UAAU;EACV,oBAAoB;CACrB;;AACD;EACE,oBAAoB;EACpB,YAAY;EACZ,eAAe;CAChB;;AACD;EACE,4BAA4B;EAC5B,0DAA0D;EAC1D,mBAAmB;EACnB,OAAO;EACP,WAAW;CACZ;;AACD;EACE,oBAAoB;EACpB,aAAa;EACb,eAAe;CAChB;;AACD;EACE,oBAAoB;CACrB;;AACD;EACE,4BAA4B;EAC5B,0DAA0D;EAC1D,mBAAmB;EACnB,OAAO;EACP,YAAY;CACb;;AAED;EACE;IACE,YAAY;IACZ,aAAa;IACb,cAAc;IACd,OAAO;IACP,QAAQ;IACR,iCAAiC;YACzB,6BAAyB;aAAzB,4BAAyB;QAAzB,yBAAyB;GAClC;EACD;IACE,aAAa;IACb,cAAc;GACf;CACF","file":"Messenger.css","sourcesContent":["\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  /* position: relative; */\n  background-color: #FF5722;\n}\n\n.title {\n  color: #ffffff;\n  text-align: center;\n  font-weight: 100;\n}\n\n.wrapper {\n  height: 520px;\n  width: 320px;\n  overflow: hidden;\n  background-color: white;\n  position: fixed;\n  top: 100px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.wrapper .inner {\n  overflow: scroll;\n  height: 520px;\n  padding-top: 64px;\n  background: #f2f2f2;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n.wrapper .inner::-webkit-scrollbar {\n  width: 0 !important;\n}\n.wrapper .inner .content {\n  padding: 10.66667px;\n  position: relative;\n  margin-bottom: 32px;\n}\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  z-index: 100;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav {\n  height: 64px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: 110;\n  background-color: #F44336;\n  border-bottom: 3px solid #ea1c0d;\n  color: #ffffff;\n  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  height: 64px;\n  top: 0;\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav .toggle {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_arrow_back_white_48dp.png);\n  background-size: contain;\n  margin: 16px;\n  float: left;\n}\n.nav .defaultNav .mainNav .toggle:hover {\n  cursor: pointer;\n}\n.nav .defaultNav .mainNav .options {\n  height: 32px;\n  width: 32px;\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_more_vert_white_48dp.png);\n  background-size: contain;\n  margin: 16px;\n  position: absolute;\n  right: 0;\n}\n.nav .defaultNav .mainNav .options:hover {\n  cursor: pointer;\n}\n.nav .defaultNav .mainNav .mainNavItem {\n  float: left;\n  height: 64px;\n  margin-right: 50px;\n  position: relative;\n  line-height: 64px;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n.nav .defaultNav .mainNav .mainNavItem .mainNavItemLink {\n  display: block;\n  position: relative;\n  height: 64px;\n  width: 100%;\n  text-align: center;\n  line-height: 64px;\n  text-decoration: none;\n  color: inherit;\n  -webkit-transition: 0.3s ease;\n  transition: 0.3s ease;\n}\n\n.bottom {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 64px;\n  background: #ffffff;\n  /* box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.1); */\n}\n.bottom .input {\n  height: 64px;\n  background: #ffffff;\n  border: none;\n  width: calc(100% - 64px);\n  position: absolute;\n  left: 0;\n  top: 0;\n  padding: 0 5%;\n  resize: none;\n  overflow: scroll;\n  padding-top: 24px;\n  font-weight: 300;\n  -ms-overflow-style: none;\n  overflow: -moz-scrollbars-none;\n}\n.bottom .input:focus {\n  outline: none;\n}\n.bottom .input::-webkit-scrollbar {\n  width: 0 !important;\n}\n.bottom .send {\n  position: fixed;\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n  border: 0;\n  background: #F44336;\n  color: #ffffff;\n  bottom: 10.66667px;\n  right: 10.66667px;\n}\n.bottom .send:before {\n  content: '';\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png) no-repeat center center;\n  background-size: 25.6px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n.bottom .send:focus {\n  outline: none;\n}\n.bottom .send:hover {\n  cursor: pointer;\n}\n\n.messageWrapper {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  margin: 10.66667px 0;\n  padding: 10.66667px 0;\n}\n.messageWrapper .circleWrapper {\n  height: 42.66667px;\n  width: 42.66667px;\n  border-radius: 50%;\n}\n.messageWrapper .textWrapper {\n  padding: 10.66667px;\n  min-height: 42.66667px;\n  width: 60%;\n  margin: 0 10.66667px;\n  box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);\n  border-radius: 2px;\n  font-weight: 300;\n  position: relative;\n  /* word-break: break-all; */\n  /*opacity: 0;*/\n}\n.messageWrapper .textWrapper:before {\n  content: '';\n  width: 0;\n  height: 0;\n  border-style: solid;\n}\n.messageWrapper.them .circleWrapper, .messageWrapper.them .textWrapper {\n  background: #F44336;\n  float: left;\n  color: #ffffff;\n}\n.messageWrapper.them .textWrapper:before {\n  border-width: 0 10px 10px 0;\n  border-color: transparent #F44336 transparent transparent;\n  position: absolute;\n  top: 0;\n  left: -9px;\n}\n.messageWrapper.me .circleWrapper, .messageWrapper.me .textWrapper {\n  background: #FF5722;\n  float: right;\n  color: #333333;\n}\n.messageWrapper.me .textWrapper {\n  background: #ffffff;\n}\n.messageWrapper.me .textWrapper:before {\n  border-width: 10px 10px 0 0;\n  border-color: #ffffff transparent transparent transparent;\n  position: absolute;\n  top: 0;\n  right: -9px;\n}\n\n@media (max-width: 560px) {\n  .wrapper {\n    width: 100%;\n    height: 100%;\n    height: 100vh;\n    top: 0;\n    left: 0;\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n  }\n  .wrapper .inner {\n    height: 100%;\n    height: 100vh;\n  }\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"title": "iXTn",
-  	"wrapper": "nRKI",
-  	"inner": "_1flk",
-  	"content": "_2t8e",
-  	"nav": "_1mGK",
-  	"defaultNav": "_3XWU",
-  	"mainNav": "_2m7q",
-  	"toggle": "_2-RL",
-  	"options": "_1pBL",
-  	"mainNavItem": "_1S-U",
-  	"mainNavItemLink": "vPms",
-  	"bottom": "WmIo",
-  	"input": "_3VXN",
-  	"send": "_3PT5",
-  	"messageWrapper": "_1g7K",
-  	"circleWrapper": "N7FI",
-  	"textWrapper": "_3-j3",
-  	"them": "_2jjM",
-  	"me": "_20bL"
+  	"title": "Messenger_title_iXT",
+  	"wrapper": "Messenger_wrapper_nRK",
+  	"inner": "Messenger_inner_1fl",
+  	"content": "Messenger_content_2t8",
+  	"nav": "Messenger_nav_1mG",
+  	"defaultNav": "Messenger_defaultNav_3XW",
+  	"mainNav": "Messenger_mainNav_2m7",
+  	"toggle": "Messenger_toggle_2-R",
+  	"options": "Messenger_options_1pB",
+  	"mainNavItem": "Messenger_mainNavItem_1S-",
+  	"mainNavItemLink": "Messenger_mainNavItemLink_vPm",
+  	"bottom": "Messenger_bottom_WmI",
+  	"input": "Messenger_input_3VX",
+  	"send": "Messenger_send_3PT",
+  	"messageWrapper": "Messenger_messageWrapper_1g7",
+  	"circleWrapper": "Messenger_circleWrapper_N7F",
+  	"textWrapper": "Messenger_textWrapper_3-j",
+  	"them": "Messenger_them_2jj",
+  	"me": "Messenger_me_20b"
   };
 
 /***/ },
-/* 97 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3576,7 +3777,7 @@ module.exports =
   exports.updateMsger = updateMsger;
   exports.sendMsg = sendMsg;
   
-  var _constants = __webpack_require__(98);
+  var _constants = __webpack_require__(97);
   
   var ActionTypes = _interopRequireWildcard(_constants);
   
@@ -3601,7 +3802,7 @@ module.exports =
   }
 
 /***/ },
-/* 98 */
+/* 97 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -3614,10 +3815,16 @@ module.exports =
   var MESSENGER_UPDATE = exports.MESSENGER_UPDATE = 'MESSENGER_UPDATE';
 
 /***/ },
-/* 99 */
+/* 98 */
 /***/ function(module, exports) {
 
   module.exports = require("isomorphic-fetch");
+
+/***/ },
+/* 99 */
+/***/ function(module, exports) {
+
+  module.exports = require("socket.io-client");
 
 /***/ },
 /* 100 */
@@ -3629,13 +3836,13 @@ module.exports =
     value: true
   });
   
-  var _extends2 = __webpack_require__(63);
+  var _extends2 = __webpack_require__(62);
   
   var _extends3 = _interopRequireDefault(_extends2);
   
   exports.default = messenger;
   
-  var _constants = __webpack_require__(98);
+  var _constants = __webpack_require__(97);
   
   var ActionTypes = _interopRequireWildcard(_constants);
   
@@ -3675,11 +3882,7 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
@@ -3698,14 +3901,12 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
-  var _ref = (0, _jsx3.default)(_Contact2.default, {});
-  
   exports.default = {
   
     path: '/contact',
   
     action: function action() {
-      return _ref;
+      return _react2.default.createElement(_Contact2.default, null);
     }
   };
 
@@ -3719,15 +3920,11 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
@@ -3746,17 +3943,26 @@ module.exports =
                              * LICENSE.txt file in the root directory of this source tree.
                              */
   
-  var _ref = (0, _jsx3.default)('h1', {}, void 0, title);
-  
-  var _ref2 = (0, _jsx3.default)('p', {}, void 0, '...');
-  
   function Contact(props, context) {
     context.setTitle(title);
-    return (0, _jsx3.default)('div', {
-      className: _Contact2.default.root
-    }, void 0, (0, _jsx3.default)('div', {
-      className: _Contact2.default.container
-    }, void 0, _ref, _ref2));
+    return _react2.default.createElement(
+      'div',
+      { className: _Contact2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _Contact2.default.container },
+        _react2.default.createElement(
+          'h1',
+          null,
+          title
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          '...'
+        )
+      )
+    );
   }
   
   Contact.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
@@ -3769,7 +3975,7 @@ module.exports =
 
   
       var content = __webpack_require__(104);
-      var insertCss = __webpack_require__(56);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -3779,22 +3985,39 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Contact.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Contact.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
 /* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "._1G9o{padding-left:20px;padding-right:20px}._2TnC{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Contact_root_1G9 {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.Contact_container_2Tn {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", "", {"version":3,"sources":["/./routes/contact/Contact.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADrBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;CACrC","file":"Contact.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "_1G9o",
-  	"container": "_2TnC"
+  	"root": "Contact_root_1G9",
+  	"container": "Contact_container_2Tn"
   };
 
 /***/ },
@@ -3807,11 +4030,7 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
@@ -3830,14 +4049,12 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
-  var _ref = (0, _jsx3.default)(_Login2.default, {});
-  
   exports.default = {
   
     path: '/login',
   
     action: function action() {
-      return _ref;
+      return _react2.default.createElement(_Login2.default, null);
     }
   };
 
@@ -3851,15 +4068,11 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
@@ -3878,94 +4091,153 @@ module.exports =
                          * LICENSE.txt file in the root directory of this source tree.
                          */
   
-  var _ref = (0, _jsx3.default)('h1', {}, void 0, title);
-  
-  var _ref2 = (0, _jsx3.default)('path', {
-    d: 'M22 16l1-5h-5V7c0-1.544.784-2 3-2h2V0h-4c-4.072 0-7 2.435-7 7v4H7v5h5v14h6V16h4z'
-  });
-  
-  var _ref3 = (0, _jsx3.default)('span', {}, void 0, 'Log in with Facebook');
-  
-  var _ref4 = (0, _jsx3.default)('span', {}, void 0, 'Log in with Google');
-  
-  var _ref5 = (0, _jsx3.default)('span', {}, void 0, 'Log in with Twitter');
-  
   function Login(props, context) {
     context.setTitle(title);
-    return (0, _jsx3.default)('div', {
-      className: _Login2.default.root
-    }, void 0, (0, _jsx3.default)('div', {
-      className: _Login2.default.container
-    }, void 0, _ref, (0, _jsx3.default)('p', {
-      className: _Login2.default.lead
-    }, void 0, 'Log in with your username or company email address.'), (0, _jsx3.default)('div', {
-      className: _Login2.default.formGroup
-    }, void 0, (0, _jsx3.default)('a', {
-      className: _Login2.default.facebook,
-      href: '/login/facebook'
-    }, void 0, (0, _jsx3.default)('svg', {
-      className: _Login2.default.icon,
-      width: '30',
-      height: '30',
-      viewBox: '0 0 30 30',
-      xmlns: 'http://www.w3.org/2000/svg'
-    }, void 0, _ref2), _ref3)), (0, _jsx3.default)('div', {
-      className: _Login2.default.formGroup
-    }, void 0, (0, _jsx3.default)('a', {
-      className: _Login2.default.google,
-      href: '/login/google'
-    }, void 0, (0, _jsx3.default)('svg', {
-      className: _Login2.default.icon,
-      width: '30',
-      height: '30',
-      viewBox: '0 0 30 30',
-      xmlns: 'http://www.w3.org/2000/svg'
-    }, void 0, (0, _jsx3.default)('path', {
-      d: 'M30 13h-4V9h-2v4h-4v2h4v4h2v-4h4m-15 2s-2-1.15-2-2c0 0-.5-1.828 1-3 ' + '1.537-1.2 3-3.035 3-5 0-2.336-1.046-5-3-6h3l2.387-1H10C5.835 0 2 3.345 2 7c0 ' + '3.735 2.85 6.56 7.086 6.56.295 0 .58-.006.86-.025-.273.526-.47 1.12-.47 1.735 ' + '0 1.037.817 2.042 1.523 2.73H9c-5.16 0-9 2.593-9 6 0 3.355 4.87 6 10.03 6 5.882 ' + '0 9.97-3 9.97-7 0-2.69-2.545-4.264-5-6zm-4-4c-2.395 0-5.587-2.857-6-6C4.587 ' + '3.856 6.607.93 9 1c2.394.07 4.603 2.908 5.017 6.052C14.43 10.195 13 13 11 ' + '13zm-1 15c-3.566 0-7-1.29-7-4 0-2.658 3.434-5.038 7-5 .832.01 2 0 2 0 1 0 ' + '2.88.88 4 2 1 1 1 2.674 1 3 0 3-1.986 4-7 4z'
-    })), _ref4)), (0, _jsx3.default)('div', {
-      className: _Login2.default.formGroup
-    }, void 0, (0, _jsx3.default)('a', {
-      className: _Login2.default.twitter,
-      href: '/login/twitter'
-    }, void 0, (0, _jsx3.default)('svg', {
-      className: _Login2.default.icon,
-      width: '30',
-      height: '30',
-      viewBox: '0 0 30 30',
-      xmlns: 'http://www.w3.org/2000/svg'
-    }, void 0, (0, _jsx3.default)('path', {
-      d: 'M30 6.708c-1.105.49-2.756 1.143-4 1.292 1.273-.762 2.54-2.56 ' + '3-4-.97.577-2.087 1.355-3.227 1.773L25 5c-1.12-1.197-2.23-2-4-2-3.398 0-6 ' + '2.602-6 6 0 .4.047.7.11.956L15 10C9 10 5.034 8.724 2 5c-.53.908-1 1.872-1 ' + '3 0 2.136 1.348 3.894 3 5-1.01-.033-2.17-.542-3-1 0 2.98 4.186 6.432 7 7-1 ' + '1-4.623.074-5 0 .784 2.447 3.31 3.95 6 4-2.105 1.648-4.647 2.51-7.53 2.51-.5 ' + '0-.988-.03-1.47-.084C2.723 27.17 6.523 28 10 28c11.322 0 17-8.867 17-17 ' + '0-.268.008-.736 0-1 1.2-.868 2.172-2.058 3-3.292z'
-    })), _ref5)), (0, _jsx3.default)('strong', {
-      className: _Login2.default.lineThrough
-    }, void 0, 'OR'), (0, _jsx3.default)('form', {
-      method: 'post'
-    }, void 0, (0, _jsx3.default)('div', {
-      className: _Login2.default.formGroup
-    }, void 0, (0, _jsx3.default)('label', {
-      className: _Login2.default.label,
-      htmlFor: 'usernameOrEmail'
-    }, void 0, 'Username or email address:'), (0, _jsx3.default)('input', {
-      className: _Login2.default.input,
-      id: 'usernameOrEmail',
-      type: 'text',
-      name: 'usernameOrEmail',
-      autoFocus: true
-    })), (0, _jsx3.default)('div', {
-      className: _Login2.default.formGroup
-    }, void 0, (0, _jsx3.default)('label', {
-      className: _Login2.default.label,
-      htmlFor: 'password'
-    }, void 0, 'Password:'), (0, _jsx3.default)('input', {
-      className: _Login2.default.input,
-      id: 'password',
-      type: 'password',
-      name: 'password'
-    })), (0, _jsx3.default)('div', {
-      className: _Login2.default.formGroup
-    }, void 0, (0, _jsx3.default)('button', {
-      className: _Login2.default.button,
-      type: 'submit'
-    }, void 0, 'Log in')))));
+    return _react2.default.createElement(
+      'div',
+      { className: _Login2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _Login2.default.container },
+        _react2.default.createElement(
+          'h1',
+          null,
+          title
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: _Login2.default.lead },
+          'Log in with your username or company email address.'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Login2.default.formGroup },
+          _react2.default.createElement(
+            'a',
+            { className: _Login2.default.facebook, href: '/login/facebook' },
+            _react2.default.createElement(
+              'svg',
+              {
+                className: _Login2.default.icon,
+                width: '30',
+                height: '30',
+                viewBox: '0 0 30 30',
+                xmlns: 'http://www.w3.org/2000/svg'
+              },
+              _react2.default.createElement('path', {
+                d: 'M22 16l1-5h-5V7c0-1.544.784-2 3-2h2V0h-4c-4.072 0-7 2.435-7 7v4H7v5h5v14h6V16h4z'
+              })
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              'Log in with Facebook'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Login2.default.formGroup },
+          _react2.default.createElement(
+            'a',
+            { className: _Login2.default.google, href: '/login/google' },
+            _react2.default.createElement(
+              'svg',
+              {
+                className: _Login2.default.icon,
+                width: '30',
+                height: '30',
+                viewBox: '0 0 30 30',
+                xmlns: 'http://www.w3.org/2000/svg'
+              },
+              _react2.default.createElement('path', {
+                d: 'M30 13h-4V9h-2v4h-4v2h4v4h2v-4h4m-15 2s-2-1.15-2-2c0 0-.5-1.828 1-3 ' + '1.537-1.2 3-3.035 3-5 0-2.336-1.046-5-3-6h3l2.387-1H10C5.835 0 2 3.345 2 7c0 ' + '3.735 2.85 6.56 7.086 6.56.295 0 .58-.006.86-.025-.273.526-.47 1.12-.47 1.735 ' + '0 1.037.817 2.042 1.523 2.73H9c-5.16 0-9 2.593-9 6 0 3.355 4.87 6 10.03 6 5.882 ' + '0 9.97-3 9.97-7 0-2.69-2.545-4.264-5-6zm-4-4c-2.395 0-5.587-2.857-6-6C4.587 ' + '3.856 6.607.93 9 1c2.394.07 4.603 2.908 5.017 6.052C14.43 10.195 13 13 11 ' + '13zm-1 15c-3.566 0-7-1.29-7-4 0-2.658 3.434-5.038 7-5 .832.01 2 0 2 0 1 0 ' + '2.88.88 4 2 1 1 1 2.674 1 3 0 3-1.986 4-7 4z'
+              })
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              'Log in with Google'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Login2.default.formGroup },
+          _react2.default.createElement(
+            'a',
+            { className: _Login2.default.twitter, href: '/login/twitter' },
+            _react2.default.createElement(
+              'svg',
+              {
+                className: _Login2.default.icon,
+                width: '30',
+                height: '30',
+                viewBox: '0 0 30 30',
+                xmlns: 'http://www.w3.org/2000/svg'
+              },
+              _react2.default.createElement('path', {
+                d: 'M30 6.708c-1.105.49-2.756 1.143-4 1.292 1.273-.762 2.54-2.56 ' + '3-4-.97.577-2.087 1.355-3.227 1.773L25 5c-1.12-1.197-2.23-2-4-2-3.398 0-6 ' + '2.602-6 6 0 .4.047.7.11.956L15 10C9 10 5.034 8.724 2 5c-.53.908-1 1.872-1 ' + '3 0 2.136 1.348 3.894 3 5-1.01-.033-2.17-.542-3-1 0 2.98 4.186 6.432 7 7-1 ' + '1-4.623.074-5 0 .784 2.447 3.31 3.95 6 4-2.105 1.648-4.647 2.51-7.53 2.51-.5 ' + '0-.988-.03-1.47-.084C2.723 27.17 6.523 28 10 28c11.322 0 17-8.867 17-17 ' + '0-.268.008-.736 0-1 1.2-.868 2.172-2.058 3-3.292z'
+              })
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              'Log in with Twitter'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'strong',
+          { className: _Login2.default.lineThrough },
+          'OR'
+        ),
+        _react2.default.createElement(
+          'form',
+          { method: 'post' },
+          _react2.default.createElement(
+            'div',
+            { className: _Login2.default.formGroup },
+            _react2.default.createElement(
+              'label',
+              { className: _Login2.default.label, htmlFor: 'usernameOrEmail' },
+              'Username or email address:'
+            ),
+            _react2.default.createElement('input', {
+              className: _Login2.default.input,
+              id: 'usernameOrEmail',
+              type: 'text',
+              name: 'usernameOrEmail',
+              autoFocus: true
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: _Login2.default.formGroup },
+            _react2.default.createElement(
+              'label',
+              { className: _Login2.default.label, htmlFor: 'password' },
+              'Password:'
+            ),
+            _react2.default.createElement('input', {
+              className: _Login2.default.input,
+              id: 'password',
+              type: 'password',
+              name: 'password'
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: _Login2.default.formGroup },
+            _react2.default.createElement(
+              'button',
+              { className: _Login2.default.button, type: 'submit' },
+              'Log in'
+            )
+          )
+        )
+      )
+    );
   }
   
   Login.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
@@ -3978,7 +4250,7 @@ module.exports =
 
   
       var content = __webpack_require__(108);
-      var insertCss = __webpack_require__(56);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -3988,32 +4260,49 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Login.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Login.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
 /* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, ".rQNQ{padding-left:20px;padding-right:20px}._2BVu{margin:0 auto;padding:0 0 40px;max-width:380px}._1mJB{font-size:1.25em}._25Ti{margin-bottom:15px}._2G0a{display:inline-block;margin-bottom:5px;max-width:100%;font-weight:700}._1bTr{display:block;box-sizing:border-box;padding:10px 16px;width:100%;height:46px;outline:0;border:1px solid #ccc;border-radius:0;background:#fff;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);color:#616161;font-size:18px;line-height:1.3333333;-webkit-transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}._1bTr:focus{border-color:#0074c2;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,116,194,.6)}._11e1{display:block;box-sizing:border-box;margin:0;padding:10px 16px;width:100%;outline:0;border:1px solid #373277;border-radius:0;background:#373277;color:#fff;text-align:center;text-decoration:none;font-size:18px;line-height:1.3333333;cursor:pointer}._11e1:hover{background:rgba(54,50,119,.8)}._11e1:focus{border-color:#0074c2;box-shadow:0 0 8px rgba(0,116,194,.6)}._2nZ7{border-color:#3b5998;background:#3b5998}._2nZ7:hover{background:#2d4373}._23Hc{border-color:#dd4b39;background:#dd4b39}._23Hc:hover{background:#c23321}.AJde{border-color:#55acee;background:#55acee}.AJde:hover{background:#2795e9}._34kk{display:inline-block;margin:-2px 12px -2px 0;width:20px;height:20px;vertical-align:middle;fill:currentColor}.UpbG{position:relative;z-index:1;display:block;margin-bottom:15px;width:100%;color:#757575;text-align:center;font-size:80%}.UpbG:before{top:50%;left:50%;z-index:-1;margin-top:-5px;margin-left:-20px;width:40px;height:10px;background-color:#fff}.UpbG:after,.UpbG:before{position:absolute;content:''}.UpbG:after{top:49%;z-index:-2;display:block;width:100%;border-bottom:1px solid #ddd}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n.Login_root_rQN {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.Login_container_2BV {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 380px;\n}\n.Login_lead_1mJ {\n  font-size: 1.25em;\n}\n.Login_formGroup_25T {\n  margin-bottom: 15px;\n}\n.Login_label_2G0 {\n  display: inline-block;\n  margin-bottom: 5px;\n  max-width: 100%;\n  font-weight: 700;\n}\n.Login_input_1bT {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 10px 16px;\n  width: 100%;\n  height: 46px;\n  outline: 0;\n  border: 1px solid #ccc;\n  border-radius: 0;\n  background: #fff;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  color: #616161;\n  font-size: 18px;\n  line-height: 1.3333333;\n  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n}\n.Login_input_1bT:focus {\n  border-color: #0074c2;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 116, 194, 0.6);\n          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 116, 194, 0.6);\n}\n.Login_button_11e {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  margin: 0;\n  padding: 10px 16px;\n  width: 100%;\n  outline: 0;\n  border: 1px solid #373277;\n  border-radius: 0;\n  background: #373277;\n  color: #fff;\n  text-align: center;\n  text-decoration: none;\n  font-size: 18px;\n  line-height: 1.3333333;\n  cursor: pointer;\n}\n.Login_button_11e:hover {\n  background: rgba(54, 50, 119, 0.8);\n}\n.Login_button_11e:focus {\n  border-color: #0074c2;\n  -webkit-box-shadow: 0 0 8px rgba(0, 116, 194, 0.6);\n          box-shadow: 0 0 8px rgba(0, 116, 194, 0.6);\n}\n.Login_facebook_2nZ {\n  border-color: #3b5998;\n  background: #3b5998;\n}\n.Login_facebook_2nZ:hover {\n  background: #2d4373;\n}\n.Login_google_23H {\n  border-color: #dd4b39;\n  background: #dd4b39;\n}\n.Login_google_23H:hover {\n  background: #c23321;\n}\n.Login_twitter_AJd {\n  border-color: #55acee;\n  background: #55acee;\n}\n.Login_twitter_AJd:hover {\n  background: #2795e9;\n}\n.Login_icon_34k {\n  display: inline-block;\n  margin: -2px 12px -2px 0;\n  width: 20px;\n  height: 20px;\n  vertical-align: middle;\n  fill: currentColor;\n}\n.Login_lineThrough_Upb {\n  position: relative;\n  z-index: 1;\n  display: block;\n  margin-bottom: 15px;\n  width: 100%;\n  color: #757575;\n  text-align: center;\n  font-size: 80%;\n}\n.Login_lineThrough_Upb::before {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: -1;\n  margin-top: -5px;\n  margin-left: -20px;\n  width: 40px;\n  height: 10px;\n  background-color: #fff;\n  content: '';\n}\n.Login_lineThrough_Upb::after {\n  position: absolute;\n  top: 49%;\n  z-index: -2;\n  display: block;\n  width: 100%;\n  border-bottom: 1px solid #ddd;\n  content: '';\n}\n", "", {"version":3,"sources":["/./routes/login/Login.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;ACPH;;;;;;;GAOG;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;ADtBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,iBAAiB;CAClB;AAED;EACE,kBAAkB;CACnB;AAED;EACE,oBAAoB;CACrB;AAED;EACE,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,iBAAiB;CAClB;AAED;EACE,eAAe;EACf,+BAAuB;UAAvB,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,WAAW;EACX,uBAAuB;EACvB,iBAAiB;EACjB,iBAAiB;EACjB,yDAAiD;UAAjD,iDAAiD;EACjD,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,yFAAyE;EAAzE,iFAAyE;EAAzE,4EAAyE;EAAzE,yEAAyE;EAAzE,+GAAyE;CAC1E;AAED;EACE,sBAAsB;EACtB,yFAAiF;UAAjF,iFAAiF;CAClF;AAED;EACE,eAAe;EACf,+BAAuB;UAAvB,uBAAuB;EACvB,UAAU;EACV,mBAAmB;EACnB,YAAY;EACZ,WAAW;EACX,0BAA0B;EAC1B,iBAAiB;EACjB,oBAAoB;EACpB,YAAY;EACZ,mBAAmB;EACnB,sBAAsB;EACtB,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;CACjB;AAED;EACE,mCAAmC;CACpC;AAED;EACE,sBAAsB;EACtB,mDAA2C;UAA3C,2CAA2C;CAC5C;AAED;EACE,sBAAsB;EACtB,oBAAoB;CAErB;AAED;EACE,oBAAoB;CACrB;AAED;EACE,sBAAsB;EACtB,oBAAoB;CAErB;AAED;EACE,oBAAoB;CACrB;AAED;EACE,sBAAsB;EACtB,oBAAoB;CAErB;AAED;EACE,oBAAoB;CACrB;AAED;EACE,sBAAsB;EACtB,yBAAyB;EACzB,YAAY;EACZ,aAAa;EACb,uBAAuB;EACvB,mBAAmB;CACpB;AAED;EACE,mBAAmB;EACnB,WAAW;EACX,eAAe;EACf,oBAAoB;EACpB,YAAY;EACZ,eAAe;EACf,mBAAmB;EACnB,eAAe;CAChB;AAED;EACE,mBAAmB;EACnB,SAAS;EACT,UAAU;EACV,YAAY;EACZ,iBAAiB;EACjB,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,uBAAuB;EACvB,YAAY;CACb;AAED;EACE,mBAAmB;EACnB,SAAS;EACT,YAAY;EACZ,eAAe;EACf,YAAY;EACZ,8BAA8B;EAC9B,YAAY;CACb","file":"Login.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 380px;\n}\n\n.lead {\n  font-size: 1.25em;\n}\n\n.formGroup {\n  margin-bottom: 15px;\n}\n\n.label {\n  display: inline-block;\n  margin-bottom: 5px;\n  max-width: 100%;\n  font-weight: 700;\n}\n\n.input {\n  display: block;\n  box-sizing: border-box;\n  padding: 10px 16px;\n  width: 100%;\n  height: 46px;\n  outline: 0;\n  border: 1px solid #ccc;\n  border-radius: 0;\n  background: #fff;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  color: #616161;\n  font-size: 18px;\n  line-height: 1.3333333;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n}\n\n.input:focus {\n  border-color: #0074c2;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 116, 194, 0.6);\n}\n\n.button {\n  display: block;\n  box-sizing: border-box;\n  margin: 0;\n  padding: 10px 16px;\n  width: 100%;\n  outline: 0;\n  border: 1px solid #373277;\n  border-radius: 0;\n  background: #373277;\n  color: #fff;\n  text-align: center;\n  text-decoration: none;\n  font-size: 18px;\n  line-height: 1.3333333;\n  cursor: pointer;\n}\n\n.button:hover {\n  background: rgba(54, 50, 119, 0.8);\n}\n\n.button:focus {\n  border-color: #0074c2;\n  box-shadow: 0 0 8px rgba(0, 116, 194, 0.6);\n}\n\n.facebook {\n  border-color: #3b5998;\n  background: #3b5998;\n  composes: button;\n}\n\n.facebook:hover {\n  background: #2d4373;\n}\n\n.google {\n  border-color: #dd4b39;\n  background: #dd4b39;\n  composes: button;\n}\n\n.google:hover {\n  background: #c23321;\n}\n\n.twitter {\n  border-color: #55acee;\n  background: #55acee;\n  composes: button;\n}\n\n.twitter:hover {\n  background: #2795e9;\n}\n\n.icon {\n  display: inline-block;\n  margin: -2px 12px -2px 0;\n  width: 20px;\n  height: 20px;\n  vertical-align: middle;\n  fill: currentColor;\n}\n\n.lineThrough {\n  position: relative;\n  z-index: 1;\n  display: block;\n  margin-bottom: 15px;\n  width: 100%;\n  color: #757575;\n  text-align: center;\n  font-size: 80%;\n}\n\n.lineThrough::before {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: -1;\n  margin-top: -5px;\n  margin-left: -20px;\n  width: 40px;\n  height: 10px;\n  background-color: #fff;\n  content: '';\n}\n\n.lineThrough::after {\n  position: absolute;\n  top: 49%;\n  z-index: -2;\n  display: block;\n  width: 100%;\n  border-bottom: 1px solid #ddd;\n  content: '';\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "rQNQ",
-  	"container": "_2BVu",
-  	"lead": "_1mJB",
-  	"formGroup": "_25Ti",
-  	"label": "_2G0a",
-  	"input": "_1bTr",
-  	"button": "_11e1",
-  	"facebook": "_2nZ7 _11e1",
-  	"google": "_23Hc _11e1",
-  	"twitter": "AJde _11e1",
-  	"icon": "_34kk",
-  	"lineThrough": "UpbG"
+  	"root": "Login_root_rQN",
+  	"container": "Login_container_2BV",
+  	"lead": "Login_lead_1mJ",
+  	"formGroup": "Login_formGroup_25T",
+  	"label": "Login_label_2G0",
+  	"input": "Login_input_1bT",
+  	"button": "Login_button_11e",
+  	"facebook": "Login_facebook_2nZ Login_button_11e",
+  	"google": "Login_google_23H Login_button_11e",
+  	"twitter": "Login_twitter_AJd Login_button_11e",
+  	"icon": "Login_icon_34k",
+  	"lineThrough": "Login_lineThrough_Upb"
   };
 
 /***/ },
@@ -4026,11 +4315,7 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
@@ -4049,14 +4334,12 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
-  var _ref = (0, _jsx3.default)(_Register2.default, {});
-  
   exports.default = {
   
     path: '/register',
   
     action: function action() {
-      return _ref;
+      return _react2.default.createElement(_Register2.default, null);
     }
   };
 
@@ -4070,15 +4353,11 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
@@ -4097,17 +4376,26 @@ module.exports =
                                         * LICENSE.txt file in the root directory of this source tree.
                                         */
   
-  var _ref = (0, _jsx3.default)('h1', {}, void 0, title);
-  
-  var _ref2 = (0, _jsx3.default)('p', {}, void 0, '...');
-  
   function Register(props, context) {
     context.setTitle(title);
-    return (0, _jsx3.default)('div', {
-      className: _Register2.default.root
-    }, void 0, (0, _jsx3.default)('div', {
-      className: _Register2.default.container
-    }, void 0, _ref, _ref2));
+    return _react2.default.createElement(
+      'div',
+      { className: _Register2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _Register2.default.container },
+        _react2.default.createElement(
+          'h1',
+          null,
+          title
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          '...'
+        )
+      )
+    );
   }
   
   Register.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
@@ -4120,7 +4408,7 @@ module.exports =
 
   
       var content = __webpack_require__(112);
-      var insertCss = __webpack_require__(56);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -4130,22 +4418,39 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Register.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Register.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
 /* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "._1hu0{padding-left:20px;padding-right:20px}.OjhI{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Register_root_1hu {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.Register_container_Ojh {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", "", {"version":3,"sources":["/./routes/register/Register.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADrBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;CACrC","file":"Register.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "_1hu0",
-  	"container": "OjhI"
+  	"root": "Register_root_1hu",
+  	"container": "Register_container_Ojh"
   };
 
 /***/ },
@@ -4170,7 +4475,7 @@ module.exports =
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
@@ -4267,35 +4572,31 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _getPrototypeOf = __webpack_require__(47);
+  var _getPrototypeOf = __webpack_require__(46);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(48);
+  var _classCallCheck2 = __webpack_require__(47);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(49);
+  var _createClass2 = __webpack_require__(48);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(50);
+  var _possibleConstructorReturn2 = __webpack_require__(49);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(51);
+  var _inherits2 = __webpack_require__(50);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
@@ -4321,13 +4622,20 @@ module.exports =
     }, {
       key: 'render',
       value: function render() {
-        return (0, _jsx3.default)('div', {
-          className: _Content2.default.root
-        }, void 0, (0, _jsx3.default)('div', {
-          className: _Content2.default.container
-        }, void 0, this.props.path === '/' ? null : (0, _jsx3.default)('h1', {}, void 0, this.props.title), (0, _jsx3.default)('div', {
-          dangerouslySetInnerHTML: { __html: this.props.content || '' }
-        })));
+        return _react2.default.createElement(
+          'div',
+          { className: _Content2.default.root },
+          _react2.default.createElement(
+            'div',
+            { className: _Content2.default.container },
+            this.props.path === '/' ? null : _react2.default.createElement(
+              'h1',
+              null,
+              this.props.title
+            ),
+            _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.props.content || '' } })
+          )
+        );
       }
     }]);
     return Content;
@@ -4343,6 +4651,11 @@ module.exports =
   Content.contextTypes = {
     setTitle: _react.PropTypes.func.isRequired
   };
+  Content.propTypes = {
+    path: _react.PropTypes.string.isRequired,
+    content: _react.PropTypes.string.isRequired,
+    title: _react.PropTypes.string
+  };
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
@@ -4351,7 +4664,7 @@ module.exports =
 
   
       var content = __webpack_require__(116);
-      var insertCss = __webpack_require__(56);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -4361,22 +4674,39 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Content.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Content.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
 /* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, ".aWU5{padding-left:20px;padding-right:20px}._2OJN{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Content_root_aWU {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.Content_container_2OJ {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", "", {"version":3,"sources":["/./routes/content/Content.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAG3D;;ADrBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;CACrC","file":"Content.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'HelveticaNeue-Light', 'Segoe UI', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n\n  --background-color: #290300;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"root": "aWU5",
-  	"container": "_2OJN"
+  	"root": "Content_root_aWU",
+  	"container": "Content_container_2OJ"
   };
 
 /***/ },
@@ -4389,15 +4719,11 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _App = __webpack_require__(46);
+  var _App = __webpack_require__(45);
   
   var _App2 = _interopRequireDefault(_App);
   
@@ -4416,12 +4742,11 @@ module.exports =
       var context = _ref.context;
       var error = _ref.error;
   
-      return render((0, _jsx3.default)(_App2.default, {
-        context: context,
-        error: error
-      }, void 0, (0, _jsx3.default)(_ErrorPage2.default, {
-        error: error
-      })), error.status || 500);
+      return render(_react2.default.createElement(
+        _App2.default,
+        { context: context, error: error },
+        _react2.default.createElement(_ErrorPage2.default, { error: error })
+      ), error.status || 500);
     }
   }; /**
       * React Starter Kit (https://www.reactstarterkit.com/)
@@ -4442,15 +4767,11 @@ module.exports =
     value: true
   });
   
-  var _jsx2 = __webpack_require__(44);
-  
-  var _jsx3 = _interopRequireDefault(_jsx2);
-  
-  var _react = __webpack_require__(45);
+  var _react = __webpack_require__(44);
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(59);
+  var _withStyles = __webpack_require__(58);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
@@ -4470,13 +4791,31 @@ module.exports =
     if (error.status === 404) {
       title = 'Page Not Found';
       content = 'Sorry, the page you were trying to view does not exist.';
-    } else if (false) {
-      errorMessage = (0, _jsx3.default)('pre', {}, void 0, error.stack);
+    } else if (true) {
+      errorMessage = _react2.default.createElement(
+        'pre',
+        null,
+        error.stack
+      );
     }
   
     context.setTitle(title);
   
-    return (0, _jsx3.default)('div', {}, void 0, (0, _jsx3.default)('h1', {}, void 0, title), (0, _jsx3.default)('p', {}, void 0, content), errorMessage);
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'h1',
+        null,
+        title
+      ),
+      _react2.default.createElement(
+        'p',
+        null,
+        content
+      ),
+      errorMessage
+    );
   } /**
      * React Starter Kit (https://www.reactstarterkit.com/)
      *
@@ -4486,6 +4825,7 @@ module.exports =
      * LICENSE.txt file in the root directory of this source tree.
      */
   
+  ErrorPage.propTypes = { error: _react.PropTypes.object.isRequired };
   ErrorPage.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
   
   exports.default = (0, _withStyles2.default)(_ErrorPage2.default)(ErrorPage);
@@ -4496,7 +4836,7 @@ module.exports =
 
   
       var content = __webpack_require__(120);
-      var insertCss = __webpack_require__(56);
+      var insertCss = __webpack_require__(55);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -4506,17 +4846,34 @@ module.exports =
       module.exports._getCss = function() { return content.toString(); };
       module.exports._insertCss = function(options) { return insertCss(content, options) };
     
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./ErrorPage.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./ErrorPage.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
 
 /***/ },
 /* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(55)();
+  exports = module.exports = __webpack_require__(54)();
   // imports
   
   
   // module
-  exports.push([module.id, "*{line-height:1.2;margin:0}html{color:#888;display:table;font-family:sans-serif;height:100%;text-align:center;width:100%}body{display:table-cell;vertical-align:middle;margin:2em auto}h1{color:#555;font-size:2em;font-weight:400}p{margin:0 auto;width:280px}pre{text-align:left;margin-top:32px;margin-top:2rem}@media only screen and (max-width:280px){body,p{width:95%}h1{font-size:1.5em;margin:0 0 .3em}}", ""]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n* {\n  line-height: 1.2;\n  margin: 0;\n}\n\nhtml {\n  color: #888;\n  display: table;\n  font-family: sans-serif;\n  height: 100%;\n  text-align: center;\n  width: 100%;\n}\n\nbody {\n  display: table-cell;\n  vertical-align: middle;\n  /* stylelint-disable */\n  margin: 2em auto;\n  /* stylelint-enable */\n}\n\nh1 {\n  color: #555;\n  font-size: 2em;\n  font-weight: 400;\n}\n\np {\n  margin: 0 auto;\n  width: 280px;\n}\n\npre {\n  text-align: left;\n  margin-top: 32px;\n  margin-top: 2rem;\n}\n\n@media only screen and (max-width: 280px) {\n\n  body,\n  p {\n    width: 95%;\n  }\n\n  h1 {\n    font-size: 1.5em;\n    margin: 0 0 0.3em;\n  }\n\n}\n", "", {"version":3,"sources":["/./routes/error/ErrorPage.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE,iBAAiB;EACjB,UAAU;CACX;;AAED;EACE,YAAY;EACZ,eAAe;EACf,wBAAwB;EACxB,aAAa;EACb,mBAAmB;EACnB,YAAY;CACb;;AAED;EACE,oBAAoB;EACpB,uBAAuB;EACvB,uBAAuB;EACvB,iBAAiB;EACjB,sBAAsB;CACvB;;AAED;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;CAClB;;AAED;EACE,eAAe;EACf,aAAa;CACd;;AAED;EACE,iBAAiB;EACjB,iBAAiB;EAAjB,iBAAiB;CAClB;;AAED;;EAEE;;IAEE,WAAW;GACZ;;EAED;IACE,iBAAiB;IACjB,kBAAkB;GACnB;;CAEF","file":"ErrorPage.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n* {\n  line-height: 1.2;\n  margin: 0;\n}\n\nhtml {\n  color: #888;\n  display: table;\n  font-family: sans-serif;\n  height: 100%;\n  text-align: center;\n  width: 100%;\n}\n\nbody {\n  display: table-cell;\n  vertical-align: middle;\n  /* stylelint-disable */\n  margin: 2em auto;\n  /* stylelint-enable */\n}\n\nh1 {\n  color: #555;\n  font-size: 2em;\n  font-weight: 400;\n}\n\np {\n  margin: 0 auto;\n  width: 280px;\n}\n\npre {\n  text-align: left;\n  margin-top: 2rem;\n}\n\n@media only screen and (max-width: 280px) {\n\n  body,\n  p {\n    width: 95%;\n  }\n\n  h1 {\n    font-size: 1.5em;\n    margin: 0 0 0.3em;\n  }\n\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
 
@@ -4543,7 +4900,7 @@ module.exports =
   
   exports.default = configureStore;
   
-  var _redux = __webpack_require__(93);
+  var _redux = __webpack_require__(92);
   
   var _reduxThunk = __webpack_require__(123);
   
@@ -4565,8 +4922,8 @@ module.exports =
   
     var enhancer = void 0;
   
-    if (false) {
-      if (process.env.BROWSER) {
+    if (true) {
+      if (false) {
         var createLogger = require('redux-logger');
         middleware.push(createLogger({
           collapsed: true
@@ -4589,7 +4946,7 @@ module.exports =
       var devToolsExtension = function devToolsExtension(f) {
         return f;
       };
-      if (process.env.BROWSER && window.devToolsExtension) {
+      if (false) {
         devToolsExtension = window.devToolsExtension();
       }
   
@@ -4627,7 +4984,7 @@ module.exports =
     value: true
   });
   
-  var _redux = __webpack_require__(93);
+  var _redux = __webpack_require__(92);
   
   var _runtime = __webpack_require__(125);
   
@@ -4658,13 +5015,13 @@ module.exports =
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
-  var _extends3 = __webpack_require__(63);
+  var _extends3 = __webpack_require__(62);
   
   var _extends4 = _interopRequireDefault(_extends3);
   
   exports.default = runtime;
   
-  var _constants = __webpack_require__(98);
+  var _constants = __webpack_require__(97);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -4696,7 +5053,7 @@ module.exports =
     value: true
   });
   
-  var _extends2 = __webpack_require__(63);
+  var _extends2 = __webpack_require__(62);
   
   var _extends3 = _interopRequireDefault(_extends2);
   
@@ -4819,7 +5176,7 @@ module.exports =
   });
   exports.setRuntimeVariable = setRuntimeVariable;
   
-  var _constants = __webpack_require__(98);
+  var _constants = __webpack_require__(97);
   
   function setRuntimeVariable(_ref) {
     var name = _ref.name;
@@ -4847,16 +5204,106 @@ module.exports =
   var jade = __webpack_require__(131);
   
   module.exports = function template(locals) {
+  var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ) ];
+  try {
   var buf = [];
   var jade_mixins = {};
   var jade_interp;
   ;var locals_for_with = (locals || {});(function (body, css, description, entry, state, title, trackingId) {
-  buf.push("<!DOCTYPE html><html lang=\"\" class=\"no-js\"><head><meta charset=\"utf-8\"><meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"><title>" + (jade.escape(null == (jade_interp = title) ? "" : jade_interp)) + "</title><meta name=\"description\"" + (jade.attr("description", description, true, true)) + "><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"><link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\"><link rel=\"stylesheet\" href=\"//s3-us-west-2.amazonaws.com/s.cdpn.io/104946/animate.min.css\"><style id=\"css\">" + (null == (jade_interp = css) ? "" : jade_interp) + "</style></head><body><div id=\"app\">" + (null == (jade_interp = body) ? "" : jade_interp) + "</div><script id=\"source\"" + (jade.attr("src", entry, true, true)) + (jade.attr("data-initial-state", state, true, true)) + "></script><script>window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;\nga('create','" + (jade.escape((jade_interp = trackingId) == null ? '' : jade_interp)) + "','auto');ga('send','pageview')</script>");
+  jade_debug.unshift(new jade.DebugItem( 0, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<!DOCTYPE html>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 2, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<html lang=\"\" class=\"no-js\">");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 3, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<head>");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 4, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<meta charset=\"utf-8\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 5, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 6, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<title>" + (jade.escape(null == (jade_interp = title) ? "" : jade_interp)));
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.shift();
+  buf.push("</title>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 7, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<meta name=\"description\"" + (jade.attr("description", description, true, true)) + ">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 8, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 9, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 10, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<link rel=\"stylesheet\" href=\"//s3-us-west-2.amazonaws.com/s.cdpn.io/104946/animate.min.css\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 11, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<style id=\"css\">" + (null == (jade_interp = css) ? "" : jade_interp));
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.shift();
+  buf.push("</style>");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</head>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 12, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<body>");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 13, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<div id=\"app\">" + (null == (jade_interp = body) ? "" : jade_interp));
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.shift();
+  buf.push("</div>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 14, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<script id=\"source\"" + (jade.attr("src", entry, true, true)) + (jade.attr("data-initial-state", state, true, true)) + ">");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.shift();
+  buf.push("</script>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 15, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<script>");
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
+  buf.push("window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 17, jade_debug[0].filename ));
+  buf.push("ga('create','" + (jade.escape((jade_interp = trackingId) == null ? '' : jade_interp)) + "','auto');ga('send','pageview')");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</script>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 18, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
   if ( trackingId)
   {
-  buf.push("<script src=\"https://www.google-analytics.com/analytics.js\" async defer></script>");
+  jade_debug.unshift(new jade.DebugItem( 19, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 19, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/index.jade" ));
+  buf.push("<script src=\"https://www.google-analytics.com/analytics.js\" async defer>");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.shift();
+  buf.push("</script>");
+  jade_debug.shift();
+  jade_debug.shift();
   }
-  buf.push("</body></html>");}.call(this,"body" in locals_for_with?locals_for_with.body:typeof body!=="undefined"?body:undefined,"css" in locals_for_with?locals_for_with.css:typeof css!=="undefined"?css:undefined,"description" in locals_for_with?locals_for_with.description:typeof description!=="undefined"?description:undefined,"entry" in locals_for_with?locals_for_with.entry:typeof entry!=="undefined"?entry:undefined,"state" in locals_for_with?locals_for_with.state:typeof state!=="undefined"?state:undefined,"title" in locals_for_with?locals_for_with.title:typeof title!=="undefined"?title:undefined,"trackingId" in locals_for_with?locals_for_with.trackingId:typeof trackingId!=="undefined"?trackingId:undefined));;return buf.join("");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</body>");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</html>");
+  jade_debug.shift();
+  jade_debug.shift();}.call(this,"body" in locals_for_with?locals_for_with.body:typeof body!=="undefined"?body:undefined,"css" in locals_for_with?locals_for_with.css:typeof css!=="undefined"?css:undefined,"description" in locals_for_with?locals_for_with.description:typeof description!=="undefined"?description:undefined,"entry" in locals_for_with?locals_for_with.entry:typeof entry!=="undefined"?entry:undefined,"state" in locals_for_with?locals_for_with.state:typeof state!=="undefined"?state:undefined,"title" in locals_for_with?locals_for_with.title:typeof title!=="undefined"?title:undefined,"trackingId" in locals_for_with?locals_for_with.trackingId:typeof trackingId!=="undefined"?trackingId:undefined));;return buf.join("");
+  } catch (err) {
+    jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(class=\"no-js\", lang=\"\")\n  head\n    meta(charset=\"utf-8\")\n    meta(http-equiv=\"x-ua-compatible\", content=\"ie=edge\")\n    title= title\n    meta(name=\"description\", description=description)\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1, maximum-scale=1\")\n    link(rel=\"apple-touch-icon\", href=\"apple-touch-icon.png\")\n    link(rel='stylesheet', href='//s3-us-west-2.amazonaws.com/s.cdpn.io/104946/animate.min.css')\n    style#css!= css\n  body\n    #app!= body\n    script#source(src=entry, data-initial-state=state)\n    script.\n      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;\n      ga('create','#{trackingId}','auto');ga('send','pageview')\n    if trackingId\n      script(src=\"https://www.google-analytics.com/analytics.js\", async=true, defer=true)\n");
+  }
   }
 
 /***/ },
@@ -5118,11 +5565,281 @@ module.exports =
   var jade = __webpack_require__(131);
   
   module.exports = function template(locals) {
+  var jade_debug = [ new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ) ];
+  try {
   var buf = [];
   var jade_mixins = {};
   var jade_interp;
   ;var locals_for_with = (locals || {});(function (stack) {
-  buf.push("<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>Internal Server Error</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"><style>* {\n  line-height: 1.2;\n  margin: 0;\n}\n\nhtml {\n  color: #888;\n  display: table;\n  font-family: sans-serif;\n  height: 100%;\n  text-align: center;\n  width: 100%;\n}\n\nbody {\n  display: table-cell;\n  vertical-align: middle;\n  margin: 2em auto;\n}\n\nh1 {\n  color: #555;\n  font-size: 2em;\n  font-weight: 400;\n}\n\np {\n  margin: 0 auto;\n  width: 280px;\n}\n\npre {\n  text-align: left;\n  margin-top: 2rem;\n}\n\n@media only screen and (max-width: 280px) {\n\n  body, p {\n    width: 95%;\n  }\n\n  h1 {\n    font-size: 1.5em;\n    margin: 0 0 0.3em;\n  }\n\n}\n</style></head><body><h1>Internal Server Error</h1><p>Sorry, something went wrong.</p><pre>" + (jade.escape(null == (jade_interp = stack) ? "" : jade_interp)) + "</pre></body></html><!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx-->");}.call(this,"stack" in locals_for_with?locals_for_with.stack:typeof stack!=="undefined"?stack:undefined));;return buf.join("");
+  jade_debug.unshift(new jade.DebugItem( 0, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  jade_debug.unshift(new jade.DebugItem( 1, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<!DOCTYPE html>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 2, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<html lang=\"en\">");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 3, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<head>");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 4, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<meta charset=\"utf-8\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 5, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<title>");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 5, jade_debug[0].filename ));
+  buf.push("Internal Server Error");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</title>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 6, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 7, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<style>");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("* {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  line-height: 1.2;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  margin: 0;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("}");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("html {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  color: #888;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  display: table;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  font-family: sans-serif;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  height: 100%;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  text-align: center;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  width: 100%;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("}");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("body {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  display: table-cell;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  vertical-align: middle;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  margin: 2em auto;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("}");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("h1 {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  color: #555;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  font-size: 2em;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  font-weight: 400;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("}");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("p {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  margin: 0 auto;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  width: 280px;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("}");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("pre {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  text-align: left;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  margin-top: 2rem;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("}");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("@media only screen and (max-width: 280px) {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  body, p {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("    width: 95%;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  }");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  h1 {");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("    font-size: 1.5em;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("    margin: 0 0 0.3em;");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("  }");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("}");
+  jade_debug.shift();
+  buf.push("\n");
+  jade_debug.unshift(new jade.DebugItem( 56, jade_debug[0].filename ));
+  buf.push("");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</style>");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</head>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 57, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<body>");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 58, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<h1>");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 58, jade_debug[0].filename ));
+  buf.push("Internal Server Error");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</h1>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 59, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<p>");
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.unshift(new jade.DebugItem( 59, jade_debug[0].filename ));
+  buf.push("Sorry, something went wrong.");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</p>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 60, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<pre>" + (jade.escape(null == (jade_interp = stack) ? "" : jade_interp)));
+  jade_debug.unshift(new jade.DebugItem( undefined, jade_debug[0].filename ));
+  jade_debug.shift();
+  buf.push("</pre>");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</body>");
+  jade_debug.shift();
+  jade_debug.shift();
+  buf.push("</html>");
+  jade_debug.shift();
+  jade_debug.unshift(new jade.DebugItem( 61, "/Users/tomruys/TEDxAmsterdam/TaddyPrototype/src/views/error.jade" ));
+  buf.push("<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx-->");
+  jade_debug.shift();
+  jade_debug.shift();}.call(this,"stack" in locals_for_with?locals_for_with.stack:typeof stack!=="undefined"?stack:undefined));;return buf.join("");
+  } catch (err) {
+    jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(lang=\"en\")\n  head\n    meta(charset=\"utf-8\")\n    title Internal Server Error\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1, maximum-scale=1\")\n    style.\n      * {\n        line-height: 1.2;\n        margin: 0;\n      }\n\n      html {\n        color: #888;\n        display: table;\n        font-family: sans-serif;\n        height: 100%;\n        text-align: center;\n        width: 100%;\n      }\n\n      body {\n        display: table-cell;\n        vertical-align: middle;\n        margin: 2em auto;\n      }\n\n      h1 {\n        color: #555;\n        font-size: 2em;\n        font-weight: 400;\n      }\n\n      p {\n        margin: 0 auto;\n        width: 280px;\n      }\n\n      pre {\n        text-align: left;\n        margin-top: 2rem;\n      }\n\n      @media only screen and (max-width: 280px) {\n\n        body, p {\n          width: 95%;\n        }\n\n        h1 {\n          font-size: 1.5em;\n          margin: 0 0 0.3em;\n        }\n\n      }\n\n  body\n    h1 Internal Server Error\n    p Sorry, something went wrong.\n    pre= stack\n// IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx\n");
+  }
   }
 
 /***/ }
