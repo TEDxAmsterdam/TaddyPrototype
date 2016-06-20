@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import MessengerStyles from './Messenger.css';
-const cx = require('classnames');
+import cx from 'classnames';
 import { connect } from 'react-redux';
 import { sendMsg, updateMsger } from '../../redux/actions/messenger';
-import fetch from 'isomorphic-fetch';
+import io from 'socket.io-client';
+
+const socket = io.connect('http://tedxchatbot.herokuapp.com');
 
 @withStyles(MessengerStyles)
 @connect(state => ({ messenger: state.messenger }), { sendMsg, updateMsger})
@@ -15,24 +17,32 @@ export default class Messenger extends Component {
     updateMsger: PropTypes.func.isRequired,
   };
 
-  chatWithBot() {
-    const { messenger, sendMsg } = this.props;
-
-    fetch(`/api/bot?message=${messenger.input}`)
-      .then(response => response.json())
-      .then((data) => {
-        if (data.text) {
-          const update = {
-            user: {
-              avatar: '//pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c9928d59974a7d5b8f8889794634cbded07ff266_1600x1200.jpg?c=1050%2C550&w=180',
-              className: MessengerStyles.them,
-            },
-            text: data.text,
-            time: new Date().getTime(),
-          };
-          sendMsg(update);
-        }
+  componentWillMount() {
+    // TODO This should not belong here this is the fetching of data.
+    socket.on('connect', () => {
+      console.log('Client has connected to the server!');
+      socket.on('message', data => {
+        const newData = { ...data, user: { name: data.user, className: MessengerStyles.them } };
+        this.props.sendMsg(newData);
       });
+    });
+
+    socket.on('disconnect', () => {
+      console.log('The client has disconnected!');
+    });
+  };
+
+  chatWithBot() {
+    const { messenger, updateMsger } = this.props;
+
+    const data = {
+      user: 'You',
+      channel: socket.io.engine.id,
+      text: messenger.input,
+      time: new Date().getTime(),
+    };
+    socket.emit('message', data);
+    updateMsger('');
 
     return messenger.input;
   }
@@ -53,11 +63,14 @@ export default class Messenger extends Component {
   }
 
   render() {
+    const { messenger } = this.props;
+
     const messages = this.props.messenger.messageList.map((item, index) => (
       <div key={index} className={cx(MessengerStyles.messageWrapper, item.user.className)}>
         <div className={cx(MessengerStyles.circleWrapper, "animated bounceIn")}
-             style={{backgroundImage:`url("${item.user.avatar}")`,
-             backgroundPosition:'-70px -285px'
+             style={{
+                backgroundImage: `url("${item.user.avatar}")`,
+                backgroundPosition: '-70px -285px',
              }}>
         </div>
         <div className={MessengerStyles.textWrapper}>{item.text}</div>
@@ -85,10 +98,10 @@ export default class Messenger extends Component {
           </div>
         </div>
         <div className={MessengerStyles.bottom}>
-          <textarea className={MessengerStyles.input} onChange={::this.onTextInput}></textarea>
+          <textarea className={MessengerStyles.input} value={messenger.input} onChange={::this.onTextInput}></textarea>
           <div className={MessengerStyles.send} onClick={::this.onSendButtonClicked}></div>
         </div>
       </div>
-    );
+		);
   }
 }
