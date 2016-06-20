@@ -25,7 +25,7 @@ export default {
 
   children: [
     home,
-		chat,
+    chat,
     contact,
     login,
     register,
