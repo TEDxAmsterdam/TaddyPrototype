@@ -1,102 +1,107 @@
 import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Messenger.css';
-const cx = require('classnames');
+import MessengerStyles from './Messenger.css';
+import cx from 'classnames';
 import { connect } from 'react-redux';
 import { sendMsg, updateMsger } from '../../redux/actions/messenger';
-import fetch from 'isomorphic-fetch';
+import io from 'socket.io-client';
 
-const io = require('socket.io-client');
 const socket = io.connect('http://tedxchatbot.herokuapp.com');
 
-class Messenger extends Component {
+@withStyles(MessengerStyles)
+@connect(state => ({ messenger: state.messenger }), { sendMsg, updateMsger})
+export default class Messenger extends Component {
   static propTypes = {
     messenger: PropTypes.object,
     sendMsg: PropTypes.func.isRequired,
     updateMsger: PropTypes.func.isRequired,
   };
 
-	chatWithBot(props) {
-		var data = {
-			user: 'You',
-			channel: socket.io.engine.id,
-			text: props.messenger.input,
-		  time: new Date().getTime()
-		};
-		socket.emit('message', data);
-    props.updateMsger('');
-    return props.messenger.input;
-	};
-
-	componentWillMount() {
-    const comp = this;
-
-		socket.on('connect', function() {
-			console.log('Client has connected to the server!');
-      socket.on('message', function(data) {
-        data.user = { name: data.user, className: s.them };
-        comp.props.sendMsg(data);
+  componentWillMount() {
+    // TODO This should not belong here this is the fetching of data.
+    socket.on('connect', () => {
+      console.log('Client has connected to the server!');
+      socket.on('message', data => {
+        const newData = { ...data, user: { name: data.user, className: MessengerStyles.them } };
+        this.props.sendMsg(newData);
       });
-		});
-		socket.on('disconnect', function() {
-			console.log('The client has disconnected!');
-		});
-	};
+    });
 
-	render() {
-    return (<div className={s.wrapper}>
-		     <nav id="nav" className={s.nav}>
-					 <div className={s.defaultNav}>
-			        <div className={s.mainNav}>
-			          <div className={s.toggle}>
-			          </div>
-			          <div className={s.mainNavItem}>
-			            <a className={s.mainNavItemLink}>Chat</a>
-			          </div>
-			          <div className={s.options}>
-			          </div>
-			        </div>
-					</div>
-		     </nav>
-		      <div className={s.inner}>
-		        <div className={s.content}>
-							{this.props.messenger.messageList.map((item, index) => (
-								<div key={index} className={cx(s.messageWrapper, item.user.className)}>
-			            <div className={cx(s.circleWrapper, "animated bounceIn")} style={{backgroundImage:`url("${item.user.avatar}")`, backgroundPosition:'-70px -285px'}}></div>
-			            <div className={s.textWrapper}>{item.text}</div>
-			          </div>
-							))}
-						</div>
-		      </div>
-		      <div className={s.bottom}>
-		          <textarea className={s.input} value={this.props.messenger.input} onChange={(e) => {
-                  this.props.updateMsger(e.target.value);
-                  e.preventDefault();
-                }}></textarea>
-		          <div className={s.send} onClick={(e) => {
-                  this.props.sendMsg({
-						        user: {
-											avatar:'',
-											className: s.me
-										},
-						        text: this.chatWithBot(this.props),
-						        time: new Date().getTime()
-						      });
-                  e.preventDefault();
-                }}></div>
-		      </div>
-	     </div>
+    socket.on('disconnect', () => {
+      console.log('The client has disconnected!');
+    });
+  };
+
+  chatWithBot() {
+    const { messenger, updateMsger } = this.props;
+
+    const data = {
+      user: 'You',
+      channel: socket.io.engine.id,
+      text: messenger.input,
+      time: new Date().getTime(),
+    };
+    socket.emit('message', data);
+    updateMsger('');
+
+    return messenger.input;
+  }
+
+  onTextInput(e) {
+    this.props.updateMsger(e.target.value);
+  }
+
+  onSendButtonClicked() {
+    this.props.sendMsg({
+      user: {
+        avatar: '',
+        className: MessengerStyles.me,
+      },
+      text: this.chatWithBot(),
+      time: new Date().getTime(),
+    });
+  }
+
+  render() {
+    const { messenger } = this.props;
+
+    const messages = this.props.messenger.messageList.map((item, index) => (
+      <div key={index} className={cx(MessengerStyles.messageWrapper, item.user.className)}>
+        <div className={cx(MessengerStyles.circleWrapper, "animated bounceIn")}
+             style={{
+                backgroundImage: `url("${item.user.avatar}")`,
+                backgroundPosition: '-70px -285px',
+             }}>
+        </div>
+        <div className={MessengerStyles.textWrapper}>{item.text}</div>
+      </div>
+    ));
+
+    return (
+      <div className={MessengerStyles.wrapper}>
+        <nav id="nav" className={MessengerStyles.nav}>
+          <div className={MessengerStyles.defaultNav}>
+            <div className={MessengerStyles.mainNav}>
+              <div className={MessengerStyles.toggle}>
+              </div>
+              <div className={MessengerStyles.mainNavItem}>
+                <a className={MessengerStyles.mainNavItemLink}>Chat</a>
+              </div>
+              <div className={MessengerStyles.options}>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div className={MessengerStyles.inner}>
+          <div className={MessengerStyles.content}>
+            {messages}
+          </div>
+        </div>
+        <div className={MessengerStyles.bottom}>
+          <textarea className={MessengerStyles.input} value={messenger.input} onChange={::this.onTextInput}></textarea>
+          <div className={MessengerStyles.send} onClick={::this.onSendButtonClicked}></div>
+        </div>
+      </div>
 		);
   }
 }
-
-const mapState = state => ({
-  messenger: state.messenger,
-});
-
-const mapDispatch = {
-  sendMsg,
-  updateMsger,
-};
-
-export default connect(mapState, mapDispatch)(withStyles(s)(Messenger));
